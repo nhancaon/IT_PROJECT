@@ -259,7 +259,7 @@ namespace HotelManagement_ADO.EmployeeForms
             if (existAdd)
             {
                 //Add data into table Booking Detail
-                BLBookingDetail blBD = new BLBookingDetail();
+                BLRoomDetail blBD = new BLRoomDetail();
                 if (blBD.AddBookingDetail(
                     book_ID,
                     Convert.ToInt32(dgvAvaiRoom.Rows[rAvai].Cells[0].Value.ToString()),
@@ -291,7 +291,7 @@ namespace HotelManagement_ADO.EmployeeForms
             if (nonexistAdd)
             {
                 //Add data into table Booking Detail
-                BLBookingDetail blBD = new BLBookingDetail();
+                BLRoomDetail blBD = new BLRoomDetail();
                 if (blBD.AddBookingDetail(
                     book_ID,
                     Convert.ToInt32(dgvAvaiRoom.Rows[rAvai].Cells[0].Value.ToString()),

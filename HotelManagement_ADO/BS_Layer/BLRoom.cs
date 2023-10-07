@@ -29,7 +29,7 @@ namespace HotelManagement_ADO.BS_Layer
             return db.ExecuteQueryDataSet2(query, CommandType.Text, parameter);
         }
 
-        public bool AddRoom(int roomID, string room_No, string Type, int Capacity, double Price, ref string err)
+        public bool AddRoom(string room_No, string Type, int Capacity, double Price, ref string err)
         {
             try
             {

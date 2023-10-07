@@ -32,7 +32,7 @@ namespace HotelManagement_ADO.BS_Layer
             return db.ExecuteQueryDataSet3(query, CommandType.Text, parameters);
         }
 
-        public bool AddUser(int userID, string Fullname, string password, DateTime Birthday, bool Gender, string Email, string Phone_Number, string Address, int role_id, ref string err)
+        public bool AddUser(string Fullname, string password, DateTime Birthday, bool Gender, string Email, string Phone_Number, string Address, int role_id, ref string err)
         {
             try
             {

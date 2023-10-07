@@ -92,7 +92,7 @@ namespace HotelManagement_ADO.EmployeeForms
         {
             try
             {
-                BLService dbSE = new BLService();
+                BLServiceDetail dbSE = new BLServiceDetail();
                 dbSE.AddService(Convert.ToInt32(this.txtBookID.Text), customerID, Convert.ToInt32(dgvAvaiServices.Rows[rAvai].Cells[0].Value.ToString()), Convert.ToDouble(dgvAvaiServices.Rows[rAvai].Cells[2].Value.ToString()), Convert.ToInt32(txtAmount.Text), DateTime.Now, ref err);
             }
             catch (Exception ex)
@@ -148,7 +148,7 @@ namespace HotelManagement_ADO.EmployeeForms
         {
             try
             {
-                BLService dbSE = new BLService();
+                BLServiceDetail dbSE = new BLServiceDetail();
                 dbSE.DeleteService(ref err, Convert.ToInt32(dgvBookedServices.Rows[rBooked].Cells[0].Value.ToString()));
                 LoadDataAvai();
                 LoadDataBooked();

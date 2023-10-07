@@ -4,28 +4,27 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows;
 using HotelManagement_ADO.DB_Layer;
 
 namespace HotelManagement_ADO.BS_Layer
 {
-    public class BLProduct
+    public class BLServiceDetail
     {
         DBMain db = null;
-        public BLProduct()
+        public BLServiceDetail()
         {
             db = new DBMain();
         }
-        public DataSet TakeProduct()
+        public DataSet TakeServiceDetail()
         {
-            return db.ExecuteQueryDataSet("Select * from View_Product", CommandType.Text);
+            return db.ExecuteQueryDataSet("Select * from View_ServiceDetail", CommandType.Text);
         }
-        public bool AddProduct(int pID, int cate_ID, string Title, string Thumbnail, string Decription, double Price, int Amount, ref string err)
+        public bool AddServiceDetail(int service_ID, int book_ID, int NumberofUser, int Amount, DateTime Buy_Date, ref string err)
         {
             try
             {
-                string sql = $"exec SP_ADD_PRODUCT {cate_ID}, '{Title}', '{Thumbnail}', '{Decription}', {Price}, {Amount}";
+                string sql = $"exec SP_ADD_SERVICEDETAIL {service_ID},{book_ID}, {NumberofUser},{Amount}, '{Buy_Date.ToString()}'";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -36,11 +35,11 @@ namespace HotelManagement_ADO.BS_Layer
             return true;
 
         }
-        public bool DeleteProduct(ref string err, int pID)
+        public bool DeleteServiceDetail(ref string err, int service_ID,int book_ID, DateTime Buy_Date)
         {
             try
             {
-                string sql = $"exec SP_DELETE_PRODUCT {pID}";
+                string sql = $"exec SP_DELETE_SERVICEDETAIL '{service_ID},{book_ID},'{Buy_Date.ToString()}'";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -50,11 +49,11 @@ namespace HotelManagement_ADO.BS_Layer
             }
             return true;
         }
-        public bool UpdateProduct(int pID, int cate_ID, string Title, string Thumbnail, string Decription, double Price, int Amount, ref string err)
+        public bool UpdateServiceDetail(int service_ID, int book_ID, int NumberofUser,int Amount, DateTime Buy_Date, ref string err)
         {
             try
             {
-                string sql = $"exec SP_UPDATE_PRODUCT {pID}, {cate_ID}, '{Title}', '{Thumbnail}', '{Decription}', {Price}, {Amount}";
+                string sql = $"exec SP_UPDATE_SERVICEDETAIL {service_ID},{book_ID}, {NumberofUser},{Amount}, '{Buy_Date.ToString()}'";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)

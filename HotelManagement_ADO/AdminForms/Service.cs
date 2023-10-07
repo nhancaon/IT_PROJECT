@@ -15,7 +15,7 @@ namespace HotelManagement_ADO.AdminForms
     {
         bool Them;
         string err;
-        BLService dbSE = new BLService();
+        BLServiceDetail dbSE = new BLServiceDetail();
         public Service()
         {
             InitializeComponent();
@@ -98,7 +98,7 @@ namespace HotelManagement_ADO.AdminForms
             // Thêm dữ liệu
             if (Them)
             {
-                BLService dbSE = new BLService();
+                BLServiceDetail dbSE = new BLServiceDetail();
                 if (dbSE.AddService(Convert.ToInt32(this.txtBookID.Text), Convert.ToInt32(this.txtCusID.Text), Convert.ToInt32(this.txtProID.Text), 1, Convert.ToInt32(this.txtAmount.Text), dtpPaydate.Value, ref err) == true) MessageBox.Show("Add successfully!"); ;
 
                 LoadData();
@@ -106,7 +106,7 @@ namespace HotelManagement_ADO.AdminForms
             else
             {
                 // Thực hiện lệnh
-                BLService dbSE = new BLService(); ;
+                BLServiceDetail dbSE = new BLServiceDetail(); ;
                 dbSE.UpdateService(Convert.ToInt32(this.txtSerID.Text), Convert.ToInt32(this.txtBookID.Text), Convert.ToInt32(this.txtCusID.Text), Convert.ToInt32(this.txtProID.Text), 1, Convert.ToInt32(this.txtAmount.Text), dtpPaydate.Value, ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();

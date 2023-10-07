@@ -15,7 +15,7 @@ namespace HotelManagement_ADO.AdminForms
     {
         bool Them;
         string err;
-        BLProduct dbPD = new BLProduct();
+        BLService dbPD = new BLService();
         public Product()
         {
             InitializeComponent();
@@ -99,7 +99,7 @@ namespace HotelManagement_ADO.AdminForms
             // Thêm dữ liệu
             if (Them)
             {
-                BLProduct dbPD = new BLProduct();
+                BLService dbPD = new BLService();
                 if (dbPD.AddProduct(Convert.ToInt32(this.txtProID.Text), Convert.ToInt32(this.txtCateID.Text), this.txtTitle.Text, this.txtThumb.Text, this.txtDec.Text, Convert.ToDouble(this.txtPrice.Text), Convert.ToInt32(this.txtAmount.Text), ref err) == true)
                     MessageBox.Show("Add successfully!");
                 LoadData();
@@ -108,7 +108,7 @@ namespace HotelManagement_ADO.AdminForms
             else
             {
                 // Thực hiện lệnh
-                BLProduct dbPD = new BLProduct();
+                BLService dbPD = new BLService();
                 dbPD.UpdateProduct(Convert.ToInt32(this.txtProID.Text), Convert.ToInt32(this.txtCateID.Text), this.txtTitle.Text, this.txtThumb.Text, this.txtDec.Text, Convert.ToDouble(this.txtPrice.Text), Convert.ToInt32(this.txtAmount.Text), ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();

@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows;
 using HotelManagement_ADO.DB_Layer;
 
@@ -20,11 +21,11 @@ namespace HotelManagement_ADO.BS_Layer
         {
             return db.ExecuteQueryDataSet("Select * from View_Service", CommandType.Text);
         }
-        public bool AddService(int book_ID, int customerID, int product_ID, double Price, int Amount, DateTime Buy_Date, ref string err)
+        public bool AddService(string Title,double Price, int Amount,string UnitandNote,ref string err)
         {
             try
             {
-                string sql = $"exec SP_ADD_SERVICE {book_ID}, {customerID}, {product_ID}, {Price}, {Amount}, '{Buy_Date.ToString()}'";
+                string sql = $"exec SP_ADD_SERVICE '{Title}', '{Price}', '{Amount}', {UnitandNote}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -38,8 +39,8 @@ namespace HotelManagement_ADO.BS_Layer
         public bool DeleteService(ref string err, int serID)
         {
             try
-            {   
-                string sql = $"exec SP_DELETE_SERVICE '{serID}'";
+            {
+                string sql = $"exec SP_DELETE_SERVICE {serID}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -49,11 +50,11 @@ namespace HotelManagement_ADO.BS_Layer
             }
             return true;
         }
-        public bool UpdateService(int serID, int book_ID, int customerID, int product_ID, double Price, int Amount, DateTime Buy_Date, ref string err)
+        public bool UpdateService(int serID,string Title, double Price, int Amount, string UnitandNote, ref string err)
         {
             try
             {
-                string sql = $"exec SP_UPDATE_SERVICE {serID}, {book_ID}, {customerID}, {product_ID}, {Price}, {Amount}, '{Buy_Date.ToString()}'";
+                string sql = $"exec SP_UPDATE_SERVICE '{serID}','{Title}', '{Price}', '{Amount}', {UnitandNote}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
