@@ -71,7 +71,7 @@ namespace HotelManagement_ADO.Interface
 
         private void bookingDetailBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new BookingDetail());
+            openChildForm(new RoomDetail());
         }
 
         private void bookingBtn_Click(object sender, EventArgs e)

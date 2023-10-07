@@ -65,11 +65,11 @@
     <Compile Include="AdminForms\Booking.Designer.cs">
       <DependentUpon>Booking.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminForms\BookingDetail.cs">
+    <Compile Include="AdminForms\RoomDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminForms\BookingDetail.Designer.cs">
-      <DependentUpon>BookingDetail.cs</DependentUpon>
+    <Compile Include="AdminForms\RoomDetail.Designer.cs">
+      <DependentUpon>RoomDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminForms\Customers.cs">
       <SubType>Form</SubType>
@@ -101,20 +101,15 @@
     <Compile Include="AdminForms\Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminForms\CustomerDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminForms\CustomerDetail.Designer.cs">
-      <DependentUpon>CustomerDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BS_Layer\BLBookingDetail.cs" />
+    <Compile Include="BS_Layer\BLDamagedItem.cs" />
+    <Compile Include="BS_Layer\BLIncludedItem.cs" />
+    <Compile Include="BS_Layer\BLRoomDetail.cs" />
     <Compile Include="BS_Layer\BLBooking.cs" />
     <Compile Include="BS_Layer\BLCustomers.cs" />
     <Compile Include="BS_Layer\BLLogin.cs" />
-    <Compile Include="BS_Layer\BLProduct.cs" />
-    <Compile Include="BS_Layer\BLRoom.cs" />
     <Compile Include="BS_Layer\BLService.cs" />
-    <Compile Include="BS_Layer\BLCustomerDetail.cs" />
+    <Compile Include="BS_Layer\BLRoom.cs" />
+    <Compile Include="BS_Layer\BLServiceDetail.cs" />
     <Compile Include="BS_Layer\BLUsers.cs" />
     <Compile Include="DB_Layer\DBMain.cs" />
     <Compile Include="EmployeeForms\CheckOut.cs">
@@ -158,8 +153,8 @@
     <EmbeddedResource Include="AdminForms\Booking.resx">
       <DependentUpon>Booking.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminForms\BookingDetail.resx">
-      <DependentUpon>BookingDetail.cs</DependentUpon>
+    <EmbeddedResource Include="AdminForms\RoomDetail.resx">
+      <DependentUpon>RoomDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\Customers.resx">
       <DependentUpon>Customers.cs</DependentUpon>
@@ -172,9 +167,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\Service.resx">
       <DependentUpon>Service.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminForms\CustomerDetail.resx">
-      <DependentUpon>CustomerDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
