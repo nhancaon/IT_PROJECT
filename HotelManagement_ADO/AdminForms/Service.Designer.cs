@@ -321,6 +321,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Service";
             this.Text = "Product";
+            this.Load += new System.EventHandler(this.FormService_Load);
             this.pnService.ResumeLayout(false);
             this.pnService.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).EndInit();

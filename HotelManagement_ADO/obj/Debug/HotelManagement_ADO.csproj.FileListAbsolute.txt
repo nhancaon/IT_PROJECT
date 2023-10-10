@@ -33,12 +33,9 @@ D:\University\IT Project\IT-Project\HotelManagement_ADO\bin\Debug\Guna.UI2.dll
 D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.csproj.AssemblyReference.cache
 D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.csproj.SuggestedBindingRedirects.cache
 D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.AdminForms.Booking.resources
-D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.AdminForms.BookingDetail.resources
 D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.AdminForms.Customers.resources
-D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.AdminForms.Product.resources
 D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.AdminForms.Room.resources
 D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.AdminForms.Service.resources
-D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.AdminForms.CustomerDetail.resources
 D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.AdminForms.Users.resources
 D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.EmployeeForms.CheckOut.resources
 D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.EmployeeForms.EmployeeBooking.resources

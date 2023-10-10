@@ -36,10 +36,10 @@ namespace HotelManagement_ADO.BS_Layer
                 fullName = read.GetValue(3).ToString().Trim();
                 storedUsername = email.Substring(0, email.IndexOf("@"));
                 UserID = Convert.ToInt32(read.GetValue(4).ToString().Trim());
-                if (email == username && storedPassword == password)
+                if (storedUsername == username && storedPassword == password)
                 {
                     result = true;
-                    string newConnect = "Data Source=DESKTOP-P5RFVBG;Initial Catalog=HotelManagementSystem;User ID=" + storedUsername + ";Password=" + password;
+                    string newConnect = "Data Source=DESKTOP-P5RFVBG;Initial Catalog=HotelManagementSystem;User ID=" + username + ";Password=" + password;
                     DBMain.SetConnStr(newConnect, username, password);
                     break;
                 }

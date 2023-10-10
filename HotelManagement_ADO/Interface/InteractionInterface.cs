@@ -81,24 +81,12 @@ namespace HotelManagement_ADO.Interface
 
         private void serviceBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new ServiceDetail());
-        }
-        private void userDetailBtn_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-       
-
-       
-
-       
-
-       
-
-        private void productBtn_Click(object sender, EventArgs e)
-        {
             openChildForm(new Service());
+        }
+
+        private void serviceDetailBtn_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ServiceDetail());
         }
 
         private void customersBtn_Click(object sender, EventArgs e)
@@ -134,7 +122,5 @@ namespace HotelManagement_ADO.Interface
             lbName.Text = fullName;
   
         }
-
-        
     }
 }

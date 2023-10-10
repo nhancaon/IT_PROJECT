@@ -42,7 +42,6 @@
             this.roomBtn = new FontAwesome.Sharp.IconButton();
             this.bookingBtn = new FontAwesome.Sharp.IconButton();
             this.roomDetailBtn = new FontAwesome.Sharp.IconButton();
-            this.userDetailBtn = new FontAwesome.Sharp.IconButton();
             this.userBtn = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbName = new System.Windows.Forms.Label();
@@ -65,7 +64,7 @@
             this.mainPanel.Location = new System.Drawing.Point(225, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(815, 640);
+            this.mainPanel.Size = new System.Drawing.Size(815, 700);
             this.mainPanel.TabIndex = 7;
             // 
             // topPanel
@@ -180,14 +179,13 @@
             this.leftPanel.Controls.Add(this.roomBtn);
             this.leftPanel.Controls.Add(this.bookingBtn);
             this.leftPanel.Controls.Add(this.roomDetailBtn);
-            this.leftPanel.Controls.Add(this.userDetailBtn);
             this.leftPanel.Controls.Add(this.userBtn);
             this.leftPanel.Controls.Add(this.panel3);
             this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.leftPanel.Location = new System.Drawing.Point(0, 0);
             this.leftPanel.Margin = new System.Windows.Forms.Padding(2);
             this.leftPanel.Name = "leftPanel";
-            this.leftPanel.Size = new System.Drawing.Size(225, 640);
+            this.leftPanel.Size = new System.Drawing.Size(225, 700);
             this.leftPanel.TabIndex = 5;
             // 
             // customersBtn
@@ -234,6 +232,7 @@
             this.serviceDetailBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.serviceDetailBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.serviceDetailBtn.UseVisualStyleBackColor = true;
+            this.serviceDetailBtn.Click += new System.EventHandler(this.serviceDetailBtn_Click);
             // 
             // serviceBtn
             // 
@@ -325,28 +324,7 @@
             this.roomDetailBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.roomDetailBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.roomDetailBtn.UseVisualStyleBackColor = true;
-            // 
-            // userDetailBtn
-            // 
-            this.userDetailBtn.FlatAppearance.BorderSize = 0;
-            this.userDetailBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.userDetailBtn.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userDetailBtn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.userDetailBtn.IconChar = FontAwesome.Sharp.IconChar.Dashcube;
-            this.userDetailBtn.IconColor = System.Drawing.Color.Gainsboro;
-            this.userDetailBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.userDetailBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userDetailBtn.Location = new System.Drawing.Point(-2, 720);
-            this.userDetailBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.userDetailBtn.Name = "userDetailBtn";
-            this.userDetailBtn.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.userDetailBtn.Size = new System.Drawing.Size(223, 76);
-            this.userDetailBtn.TabIndex = 14;
-            this.userDetailBtn.Text = "Customer Detail";
-            this.userDetailBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userDetailBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.userDetailBtn.UseVisualStyleBackColor = true;
-            this.userDetailBtn.Click += new System.EventHandler(this.userDetailBtn_Click);
+            this.roomDetailBtn.Click += new System.EventHandler(this.roomDetailBtn_Click);
             // 
             // userBtn
             // 
@@ -443,7 +421,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 640);
+            this.ClientSize = new System.Drawing.Size(1040, 700);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.leftPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -471,7 +449,6 @@
         private FontAwesome.Sharp.IconButton roomBtn;
         private FontAwesome.Sharp.IconButton bookingBtn;
         private FontAwesome.Sharp.IconButton roomDetailBtn;
-        private FontAwesome.Sharp.IconButton userDetailBtn;
         private FontAwesome.Sharp.IconButton userBtn;
         private System.Windows.Forms.Panel panel3;
         private FontAwesome.Sharp.IconButton customersBtn;
