@@ -203,7 +203,7 @@ namespace HotelManagement_ADO.AdminForms
                 if (cbGender.Text == "Male")
                     gen = true;
                 BLUsers blU = new BLUsers();
-                if (blU.AddUser(Convert.ToInt32(this.txtuserID.Text), this.txtFullname.Text, this.txtPassword.Text, this.dtpBirthday.Value, gen, this.txtEmail.Text, this.txtPhone_Number.Text, this.txtAddress.Text, Convert.ToInt32(this.txtrole_id.Text), ref err))
+                if (blU.AddUser(this.txtFullname.Text, this.txtPassword.Text, this.dtpBirthday.Value, gen, this.txtEmail.Text, this.txtPhone_Number.Text, this.txtAddress.Text, Convert.ToInt32(this.txtrole_id.Text), ref err))
                     MessageBox.Show("Add successfully!");
                 LoadData();
             }

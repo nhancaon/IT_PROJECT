@@ -52,3 +52,5 @@ D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagemen
 D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.csproj.CopyComplete
 D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.exe
 D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.pdb
+D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.AdminForms.RoomDetail.resources
+D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.AdminForms.ServiceDetail.resources

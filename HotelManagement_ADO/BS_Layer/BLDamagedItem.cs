@@ -20,11 +20,11 @@ namespace HotelManagement_ADO.BS_Layer
         {
             return db.ExecuteQueryDataSet("Select * from View_DamagedItem", CommandType.Text);
         }
-        public bool AddDamagedItem(int itemID, int book_ID, int DamagedAmount, double DamagedPrice, ref string err)
+        public bool AddDamagedItem(string itemName, int book_ID, int DamagedAmount,ref string err)
         {
             try
             {
-                string sql = $"exec SP_ADD_DAMAGED_ITEM {itemID},{book_ID}, {DamagedAmount},{DamagedPrice}";
+                string sql = $"exec SP_ADD_DAMAGED_ITEM {itemName},{book_ID}, {DamagedAmount}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -49,11 +49,11 @@ namespace HotelManagement_ADO.BS_Layer
             }
             return true;
         }
-        public bool UpdateDamagedItem(int itemID, int book_ID, int DamagedAmount, double DamagedPrice,ref string err)
+        public bool UpdateDamagedItem(string itemName, int book_ID, int DamagedAmount,ref string err)
         {
             try
             {
-                string sql = $"exec SP_UPDATE_DAMAGED_ITEM {itemID},{book_ID}, {DamagedAmount},{DamagedPrice}";
+                string sql = $"exec SP_UPDATE_DAMAGED_ITEM {itemName},{book_ID}, {DamagedAmount}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)

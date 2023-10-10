@@ -77,11 +77,11 @@
     <Compile Include="AdminForms\Customers.Designer.cs">
       <DependentUpon>Customers.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminForms\Product.cs">
+    <Compile Include="AdminForms\Service.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminForms\Product.Designer.cs">
-      <DependentUpon>Product.cs</DependentUpon>
+    <Compile Include="AdminForms\Service.Designer.cs">
+      <DependentUpon>Service.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminForms\Room.cs">
       <SubType>Form</SubType>
@@ -89,11 +89,11 @@
     <Compile Include="AdminForms\Room.Designer.cs">
       <DependentUpon>Room.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminForms\Service.cs">
+    <Compile Include="AdminForms\ServiceDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminForms\Service.Designer.cs">
-      <DependentUpon>Service.cs</DependentUpon>
+    <Compile Include="AdminForms\ServiceDetail.Designer.cs">
+      <DependentUpon>ServiceDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminForms\Users.cs">
       <SubType>Form</SubType>
@@ -159,14 +159,14 @@
     <EmbeddedResource Include="AdminForms\Customers.resx">
       <DependentUpon>Customers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminForms\Product.resx">
-      <DependentUpon>Product.cs</DependentUpon>
+    <EmbeddedResource Include="AdminForms\Service.resx">
+      <DependentUpon>Service.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\Room.resx">
       <DependentUpon>Room.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminForms\Service.resx">
-      <DependentUpon>Service.cs</DependentUpon>
+    <EmbeddedResource Include="AdminForms\ServiceDetail.resx">
+      <DependentUpon>ServiceDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\Users.resx">
       <DependentUpon>Users.cs</DependentUpon>

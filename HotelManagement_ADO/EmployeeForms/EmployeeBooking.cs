@@ -260,7 +260,7 @@ namespace HotelManagement_ADO.EmployeeForms
             {
                 //Add data into table Booking Detail
                 BLRoomDetail blBD = new BLRoomDetail();
-                if (blBD.AddBookingDetail(
+                if (blBD.AddRoomDetail(
                     book_ID,
                     Convert.ToInt32(dgvAvaiRoom.Rows[rAvai].Cells[0].Value.ToString()),
                     Convert.ToInt32(dgvAvaiRoom.Rows[rAvai].Cells[4].Value.ToString()),
@@ -272,12 +272,12 @@ namespace HotelManagement_ADO.EmployeeForms
                     
 
                 //Add data into table Customer Detail
-                BLCustomerDetail blCD = new BLCustomerDetail();
-                if (blCD.AddCustomerDetail(
-                    book_ID,
-                    roomID,
-                    customer_ID, ref err))
-                    MessageBox.Show("Add Customer Detail successfully");
+                //BLCustomerDetail blCD = new BLCustomerDetail();
+                //if (blCD.AddCustomerDetail(
+                //    book_ID,
+                //    roomID,
+                //    customer_ID, ref err))
+                //    MessageBox.Show("Add Customer Detail successfully");
 
                 LoadAvaiRoom();
                 LoadBookedRoom();
@@ -292,7 +292,7 @@ namespace HotelManagement_ADO.EmployeeForms
             {
                 //Add data into table Booking Detail
                 BLRoomDetail blBD = new BLRoomDetail();
-                if (blBD.AddBookingDetail(
+                if (blBD.AddRoomDetail(
                     book_ID,
                     Convert.ToInt32(dgvAvaiRoom.Rows[rAvai].Cells[0].Value.ToString()),
                     Convert.ToInt32(dgvAvaiRoom.Rows[rAvai].Cells[4].Value.ToString()),
@@ -304,12 +304,12 @@ namespace HotelManagement_ADO.EmployeeForms
                    
 
                 //Add data into table Customer Detail
-                BLCustomerDetail blCD = new BLCustomerDetail();
-                if (blCD.AddCustomerDetail(
-                    book_ID,
-                    roomID,
-                    customer_ID, ref err))
-                    MessageBox.Show("Add Customer Detail successfully");
+                //BLCustomerDetail blCD = new BLCustomerDetail();
+                //if (blCD.AddCustomerDetail(
+                //    book_ID,
+                //    roomID,
+                //    customer_ID, ref err))
+                //    MessageBox.Show("Add Customer Detail successfully");
 
                 LoadAvaiRoom();
                 LoadBookedRoom();

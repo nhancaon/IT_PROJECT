@@ -15,7 +15,7 @@ namespace HotelManagement_ADO.AdminForms
     {
         bool Them;
         string err;
-        BLServiceDetail dbSE = new BLServiceDetail();
+        BLService dbSV = new BLService();
         public Service()
         {
             InitializeComponent();
@@ -27,21 +27,19 @@ namespace HotelManagement_ADO.AdminForms
 
                 // Đưa dữ liệu lên DataGridView
 
-                DataSet dataSet = dbSE.TakeService();
+                DataSet dataSet = dbSV.TakeService();
                 DataTable dataTable = dataSet.Tables[0];
                 dgvService.DataSource = dataTable;
 
-
+                // Change the column name
                 // Set the DataSource of the DataGridView
                 dgvService.DataSource = dataTable;
-
                 // Thay đổi độ rộng cột
                 dgvService.AutoResizeColumns();
                 // Xóa trống các đối tượng trong Panel
                 this.txtSerID.ResetText();
-                this.txtBookID.ResetText();
-                this.txtCusID.ResetText();
-                this.txtProID.ResetText();
+                this.txtTitle.ResetText();
+                this.txtUnitNote.ResetText();
                 this.txtPrice.ResetText();
                 this.txtAmount.ResetText();
                 // Không cho thao tác trên các nút Lưu / Hủy
@@ -58,7 +56,7 @@ namespace HotelManagement_ADO.AdminForms
             }
             catch
             {
-                MessageBox.Show("Không lấy được nội dung trong table SERVICE. Lỗi rồi!!!");
+                MessageBox.Show("Không lấy được nội dung trong table PRODUCT. Lỗi rồi!!!");
             }
         }
 
@@ -71,12 +69,9 @@ namespace HotelManagement_ADO.AdminForms
             // Kich hoạt biến Them
             Them = true;
             // Xóa trống các đối tượng trong Panel
-            int newSerID = Convert.ToInt32(dgvService.Rows[dgvService.Rows.Count - 2].Cells[0].Value) + 1;
-
-            this.txtSerID.Text = newSerID.ToString();
-            this.txtBookID.ResetText();
-            this.txtCusID.ResetText();
-            this.txtProID.ResetText();
+            this.txtSerID.ResetText();
+            this.txtTitle.ResetText();
+            this.txtUnitNote.ResetText();
             this.txtPrice.ResetText();
             this.txtAmount.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
@@ -89,7 +84,7 @@ namespace HotelManagement_ADO.AdminForms
             this.btnDelete.Enabled = false;
 
             // Đưa con trỏ đến TextField txtroomID
-            this.txtBookID.Focus();
+            this.txtTitle.Focus();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -98,16 +93,17 @@ namespace HotelManagement_ADO.AdminForms
             // Thêm dữ liệu
             if (Them)
             {
-                BLServiceDetail dbSE = new BLServiceDetail();
-                if (dbSE.AddService(Convert.ToInt32(this.txtBookID.Text), Convert.ToInt32(this.txtCusID.Text), Convert.ToInt32(this.txtProID.Text), 1, Convert.ToInt32(this.txtAmount.Text), dtpPaydate.Value, ref err) == true) MessageBox.Show("Add successfully!"); ;
-
+                BLService dbSV = new BLService();
+                if (dbSV.AddService(txtTitle.Text,Convert.ToDouble(this.txtPrice.Text), Convert.ToInt32(this.txtAmount.Text), this.txtUnitNote.Text, ref err) == true)
+                    MessageBox.Show("Add successfully!");
                 LoadData();
+
             }
             else
             {
                 // Thực hiện lệnh
-                BLServiceDetail dbSE = new BLServiceDetail(); ;
-                dbSE.UpdateService(Convert.ToInt32(this.txtSerID.Text), Convert.ToInt32(this.txtBookID.Text), Convert.ToInt32(this.txtCusID.Text), Convert.ToInt32(this.txtProID.Text), 1, Convert.ToInt32(this.txtAmount.Text), dtpPaydate.Value, ref err);
+                BLService dbSV = new BLService();
+                dbSV.UpdateService(Convert.ToInt32(this.txtSerID.Text), txtTitle.Text, Convert.ToDouble(this.txtPrice.Text), Convert.ToInt32(this.txtAmount.Text), this.txtUnitNote.Text, ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
@@ -120,9 +116,8 @@ namespace HotelManagement_ADO.AdminForms
         {
             // Xóa trống các đối tượng trong Panel
             this.txtSerID.ResetText();
-            this.txtBookID.ResetText();
-            this.txtCusID.ResetText();
-            this.txtProID.ResetText();
+            this.txtTitle.ResetText();
+            this.txtUnitNote.ResetText();
             this.txtPrice.ResetText();
             this.txtAmount.ResetText();
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát
@@ -155,7 +150,7 @@ namespace HotelManagement_ADO.AdminForms
 
             // Đưa con trỏ đến TextField txtroomID
             this.txtSerID.Enabled = false;
-            this.txtBookID.Focus();
+            this.txtTitle.Focus();
         }
 
         private void btnReload_Click(object sender, EventArgs e)
@@ -174,10 +169,6 @@ namespace HotelManagement_ADO.AdminForms
             if (traloi == DialogResult.OK) this.Close();
         }
 
-        private void FormService_Load(object sender, EventArgs e)
-        {
-            LoadData();
-        }
 
         private void dgvService_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -186,18 +177,14 @@ namespace HotelManagement_ADO.AdminForms
             // Chuyển thông tin lên panel
             this.txtSerID.Text =
             dgvService.Rows[r].Cells[0].Value.ToString();
-            this.txtBookID.Text =
+            this.txtTitle.Text =
             dgvService.Rows[r].Cells[1].Value.ToString();
-            this.txtCusID.Text =
-            dgvService.Rows[r].Cells[2].Value.ToString();
-            this.txtProID.Text =
-            dgvService.Rows[r].Cells[3].Value.ToString();
             this.txtPrice.Text =
-            dgvService.Rows[r].Cells[4].Value.ToString();
+            dgvService.Rows[r].Cells[2].Value.ToString();
             this.txtAmount.Text =
-            dgvService.Rows[r].Cells[5].Value.ToString();
-            this.dtpPaydate.Text =
-            dgvService.Rows[r].Cells[6].Value.ToString();
+            dgvService.Rows[r].Cells[3].Value.ToString();
+            this.txtUnitNote.Text =
+           dgvService.Rows[r].Cells[4].Value.ToString();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -207,7 +194,7 @@ namespace HotelManagement_ADO.AdminForms
                 // Thực hiện lệnh
                 // Lấy thứ tự record hiện hành
                 int r = dgvService.CurrentCell.RowIndex;
-                string strRO =
+                string strSV =
                 dgvService.Rows[r].Cells[0].Value.ToString();
                 // Viết câu lệnh SQL
                 // Hiện thông báo xác nhận việc xóa mẫu tin
@@ -219,7 +206,7 @@ namespace HotelManagement_ADO.AdminForms
                 // Kiểm tra có nhắp chọn nút Ok không?
                 if (traloi == DialogResult.Yes)
                 {
-                    dbSE.DeleteService(ref err, Convert.ToInt32(strRO));
+                    dbSV.DeleteService(ref err, Convert.ToInt32(strSV));
                     // Cập nhật lại DataGridView
                     LoadData();
                     // Thông báo
@@ -235,6 +222,11 @@ namespace HotelManagement_ADO.AdminForms
             {
                 MessageBox.Show("Không xóa được. Lỗi rồi!");
             }
+        }
+
+        private void FormService_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

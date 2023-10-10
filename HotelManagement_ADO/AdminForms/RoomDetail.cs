@@ -15,7 +15,7 @@ namespace HotelManagement_ADO.AdminForms
     {
         bool Them;
         string err;
-        BLRoomDetail dbBD = new BLRoomDetail();
+        BLRoomDetail dbRD = new BLRoomDetail();
         public RoomDetail()
         {
             InitializeComponent();
@@ -27,17 +27,17 @@ namespace HotelManagement_ADO.AdminForms
             {
 
                 // Đưa dữ liệu lên DataGridView
-                DataSet dataSet = dbBD.TakeBookingDetail();
+                DataSet dataSet = dbRD.TakeRoomDetail();
                 DataTable dataTable = dataSet.Tables[0];
-                dgvBOOKINGDETAIL.DataSource = dataTable;
+                dgvROOMDETAIL.DataSource = dataTable;
                 // Change the column name
                 // Set the DataSource of the DataGridView
-                dgvBOOKINGDETAIL.DataSource = dataTable;
+                dgvROOMDETAIL.DataSource = dataTable;
                 // Xóa trống các đối tượng trong Panel
                 this.txtbook_ID.ResetText();
                 this.txtroom_ID.ResetText();
+                this.txtLengthStay.ResetText();
                 this.txtPrice.ResetText();
-                this.txtUnit.ResetText();
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.btnSave.Enabled = false;
                 this.btnCancel.Enabled = false;
@@ -48,14 +48,14 @@ namespace HotelManagement_ADO.AdminForms
                 this.btnDelete.Enabled = true;
 
                 //
-                dgvBOOKINGDETAIL_CellClick(null, null);
+                dgvROOMDETAIL_CellClick(null, null);
             }
             catch
             {
-                MessageBox.Show("Không lấy được nội dung trong table BOOKINGDETAIL. Lỗi rồi!!!");
+                MessageBox.Show("Không lấy được nội dung trong table ROOMDETAIL. Lỗi rồi!!!");
             }
         }
-        private void FormBookingDetail_Load(object sender, EventArgs e)
+        private void FormRoomDetail_Load(object sender, EventArgs e)
         {
             LoadData();
         }
@@ -70,10 +70,11 @@ namespace HotelManagement_ADO.AdminForms
             // Kich hoạt biến Them
             Them = true;
             // Xóa trống các đối tượng trong Panel
-            this.txtbook_ID.ResetText();
+            int newBookingID = Convert.ToInt32(dgvROOMDETAIL.Rows[dgvROOMDETAIL.Rows.Count - 2].Cells[0].Value) + 1;
+            this.txtbook_ID.Text = newBookingID.ToString();
             this.txtroom_ID.ResetText();
+            this.txtLengthStay.ResetText();
             this.txtPrice.ResetText();
-            this.txtUnit.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
             this.btnSave.Enabled = true;
             this.btnCancel.Enabled = true;
@@ -92,7 +93,7 @@ namespace HotelManagement_ADO.AdminForms
             Them = false;
             // Cho phép thao tác trên Panel
             this.panel.Enabled = true;
-            dgvBOOKINGDETAIL_CellClick(null, null);
+            dgvROOMDETAIL_CellClick(null, null);
             // Cho thao tác trên các nút Lưu / Hủy / Panel
             this.btnSave.Enabled = true;
             this.btnCancel.Enabled = true;
@@ -105,22 +106,22 @@ namespace HotelManagement_ADO.AdminForms
             // Đưa con trỏ đến TextField txtbook_ID
             this.txtbook_ID.Enabled = false;
             this.txtroom_ID.Enabled = false;
-            this.txtPrice.Focus();
+            this.txtLengthStay.Focus();
 
         }
-        private void dgvBOOKINGDETAIL_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvROOMDETAIL_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Thứ tự dòng hiện hành
-            int r = dgvBOOKINGDETAIL.CurrentCell.RowIndex;
+            int r = dgvROOMDETAIL.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel
             this.txtbook_ID.Text =
-            dgvBOOKINGDETAIL.Rows[r].Cells[0].Value.ToString();
+            dgvROOMDETAIL.Rows[r].Cells[0].Value.ToString();
             this.txtroom_ID.Text =
-            dgvBOOKINGDETAIL.Rows[r].Cells[1].Value.ToString();
+            dgvROOMDETAIL.Rows[r].Cells[1].Value.ToString();
+            this.txtLengthStay.Text =
+            dgvROOMDETAIL.Rows[r].Cells[2].Value.ToString();
             this.txtPrice.Text =
-            dgvBOOKINGDETAIL.Rows[r].Cells[2].Value.ToString();
-            this.txtUnit.Text =
-            dgvBOOKINGDETAIL.Rows[r].Cells[3].Value.ToString();
+            dgvROOMDETAIL.Rows[r].Cells[3].Value.ToString();
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -137,8 +138,8 @@ namespace HotelManagement_ADO.AdminForms
             // Xóa trống các đối tượng trong Panel
             this.txtbook_ID.ResetText();
             this.txtroom_ID.ResetText();
+            this.txtLengthStay.ResetText();
             this.txtPrice.ResetText();
-            this.txtUnit.ResetText();
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát
             this.btnAdd.Enabled = true;
             this.btnFix.Enabled = true;
@@ -148,7 +149,7 @@ namespace HotelManagement_ADO.AdminForms
             this.btnSave.Enabled = false;
             this.btnCancel.Enabled = false;
             this.panel.Enabled = false;
-            dgvBOOKINGDETAIL_CellClick(null, null);
+            dgvROOMDETAIL_CellClick(null, null);
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -156,16 +157,16 @@ namespace HotelManagement_ADO.AdminForms
             // Thêm dữ liệu
             if (Them)
             {
-                BLRoomDetail blBd = new BLRoomDetail();
-                if (blBd.AddBookingDetail(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtroom_ID.Text), Convert.ToDouble(this.txtPrice.Text), Convert.ToInt32(this.txtUnit.Text), ref err))
+                BLRoomDetail blRd = new BLRoomDetail();
+                if (blRd.AddRoomDetail(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtroom_ID.Text), Convert.ToDouble(this.txtLengthStay.Text), Convert.ToInt32(this.txtPrice.Text), ref err))
                     MessageBox.Show("Add successfully");
                 LoadData();
             }
             else
             {
                 // Thực hiện lệnh
-                BLRoomDetail blBd = new BLRoomDetail();
-                blBd.UpdateBookingDetail(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtroom_ID.Text), Convert.ToDouble(this.txtPrice.Text), Convert.ToInt32(this.txtUnit.Text), ref err);
+                BLRoomDetail blRd = new BLRoomDetail();
+                blRd.UpdateRoomDetail(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtroom_ID.Text), Convert.ToDouble(this.txtLengthStay.Text), Convert.ToInt32(this.txtPrice.Text), ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
@@ -179,11 +180,11 @@ namespace HotelManagement_ADO.AdminForms
             {
                 // Thực hiện lệnh
                 // Lấy thứ tự record hiện hành
-                int r = dgvBOOKINGDETAIL.CurrentCell.RowIndex;
-                string strBD1 =
-                dgvBOOKINGDETAIL.Rows[r].Cells[0].Value.ToString();
-                string strBD2 =
-                dgvBOOKINGDETAIL.Rows[r].Cells[1].Value.ToString();
+                int r = dgvROOMDETAIL.CurrentCell.RowIndex;
+                string strRD1 =
+                dgvROOMDETAIL.Rows[r].Cells[0].Value.ToString();
+                string strRD2 =
+                dgvROOMDETAIL.Rows[r].Cells[1].Value.ToString();
                 // Viết câu lệnh SQL
                 // Hiện thông báo xác nhận việc xóa mẫu tin
                 // Khai báo biến traloi
@@ -194,7 +195,7 @@ namespace HotelManagement_ADO.AdminForms
                 // Kiểm tra có nhắp chọn nút Ok không?
                 if (traloi == DialogResult.Yes)
                 {
-                    dbBD.DeleteBookingDetail(ref err, Convert.ToInt32(strBD1), Convert.ToInt32(strBD2));
+                    dbRD.DeleteRoomDetail(ref err, Convert.ToInt32(strRD1), Convert.ToInt32(strRD2));
                     // Cập nhật lại DataGridView
                     LoadData();
                     // Thông báo

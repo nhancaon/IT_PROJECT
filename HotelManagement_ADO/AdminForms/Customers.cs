@@ -61,9 +61,7 @@ namespace HotelManagement_ADO.AdminForms
             // Kich hoạt biến Them
             Them = true;
             // Xóa trống các đối tượng trong Panel
-            int newCID = Convert.ToInt32(dgvCUSTOMERS.Rows[dgvCUSTOMERS.Rows.Count - 2].Cells[0].Value) + 1;
-
-            this.txtCID.Text = newCID.ToString();
+            this.txtCID.ResetText();
             this.txtFullName.ResetText();
             this.dtpBirthday.ResetText();
             this.cbGender.ResetText();

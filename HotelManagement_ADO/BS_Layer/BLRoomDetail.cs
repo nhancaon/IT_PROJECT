@@ -20,11 +20,11 @@ namespace HotelManagement_ADO.BS_Layer
         {
             return db.ExecuteQueryDataSet("Select * from View_RoomDetail", CommandType.Text);
         }
-        public bool AddRoomDetail(int room_ID,double LenghthofStay, double Price,ref string err)
+        public bool AddRoomDetail(int book_ID,int room_ID,double LenghthofStay, double Price,ref string err)
         {
             try
             {
-                string sql = $"exec SP_ADD_ROOM_DETAIL {room_ID}, {LenghthofStay}, {Price}";
+                string sql = $"exec SP_ADD_ROOM_DETAIL {book_ID},{room_ID}, {LenghthofStay}, {Price}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)

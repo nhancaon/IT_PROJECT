@@ -176,7 +176,7 @@ namespace HotelManagement_ADO.AdminForms
             {
                 // Thực hiện lệnh
                 BLRoom blRo = new BLRoom();
-                if (blRo.AddRoom(Convert.ToInt32(this.txtroomID.Text), this.txtroom_No.Text, this.txtType.Text, Convert.ToInt32(this.txtCapacity.Text), Convert.ToDouble(this.txtPrice.Text), ref err))
+                if (blRo.AddRoom(this.txtroom_No.Text, this.txtType.Text, Convert.ToInt32(this.txtCapacity.Text), Convert.ToDouble(this.txtPrice.Text), ref err))
                     MessageBox.Show("Add successfully!");
                 LoadData();
 

@@ -50,11 +50,11 @@ namespace HotelManagement_ADO.BS_Layer
             }
             return true;
         }
-        public bool UpdateBooking(int staffID, int cusID,int cusAmount, DateTime checkIn, DateTime checkOut, ref string err)
+        public bool UpdateBooking(int bookID,int staffID, int cusID,int cusAmount, DateTime checkIn, DateTime checkOut, ref string err)
         {
             try
             {
-                string sql = $"exec SP_UPDATE_BOOKING {staffID}, {cusID},{cusAmount}, '{checkIn.ToString()}', '{checkOut.ToString()}'";
+                string sql = $"exec SP_UPDATE_BOOKING {bookID},{staffID}, {cusID},{cusAmount}, '{checkIn.ToString()}', '{checkOut.ToString()}'";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)

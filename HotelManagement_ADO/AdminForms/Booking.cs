@@ -37,7 +37,8 @@ namespace HotelManagement_ADO.AdminForms
                 this.txtbook_ID.ResetText();
                 this.txtStaff_ID.ResetText();
                 this.txtCustomer_ID.ResetText();
-
+                this.txtCustomer_Amount.ResetText();
+                this.txtTotal_Price.ResetText();
                 // Không cho thao tác trên các nút Lưu / Hủy
                 this.btnSave.Enabled = false;
                 this.btnCancel.Enabled = false;
@@ -74,6 +75,8 @@ namespace HotelManagement_ADO.AdminForms
             this.txtbook_ID.Text = newBookingID.ToString();
             this.txtStaff_ID.ResetText();
             this.txtCustomer_ID.ResetText();
+            this.txtCustomer_Amount.ResetText();
+            this.txtTotal_Price.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
             this.btnSave.Enabled = true;
             this.btnCancel.Enabled = true;
@@ -105,8 +108,7 @@ namespace HotelManagement_ADO.AdminForms
 
             // Đưa con trỏ đến TextField txtbook_ID
             this.txtbook_ID.Enabled = false;
-            this.txtStaff_ID.Enabled = false;
-            this.txtCustomer_ID.Focus();
+            this.txtStaff_ID.Focus();
 
         }
 
@@ -154,7 +156,7 @@ namespace HotelManagement_ADO.AdminForms
             if (Them)
             {
                 BLBooking bk = new BLBooking();
-                if (bk.AddBooking(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtStaff_ID.Text), Convert.ToInt32(this.txtCustomer_ID.Text), dtpCheckIn.Value, dtpCheckOut.Value, ref err))
+                if (bk.AddBooking(Convert.ToInt32(this.txtStaff_ID.Text), Convert.ToInt32(this.txtCustomer_ID.Text), Convert.ToInt32(this.txtCustomer_Amount.Text), dtpCheckIn.Value, dtpCheckOut.Value, ref err))
                     MessageBox.Show("Add successfully");
                 LoadData();
             }
@@ -162,7 +164,7 @@ namespace HotelManagement_ADO.AdminForms
             {
                 // Thực hiện lệnh
                 BLBooking bk = new BLBooking();
-                bk.UpdateBooking(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtStaff_ID.Text), Convert.ToInt32(this.txtCustomer_ID.Text), dtpCheckIn.Value, dtpCheckOut.Value, ref err);
+                bk.UpdateBooking(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtStaff_ID.Text), Convert.ToInt32(this.txtCustomer_ID.Text), Convert.ToInt32(this.txtCustomer_Amount.Text), dtpCheckIn.Value, dtpCheckOut.Value, ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
@@ -177,6 +179,8 @@ namespace HotelManagement_ADO.AdminForms
             this.txtbook_ID.ResetText();
             this.txtStaff_ID.ResetText();
             this.txtCustomer_ID.ResetText();
+            this.txtCustomer_Amount.ResetText();
+            this.txtTotal_Price.ResetText();
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát
             this.btnAdd.Enabled = true;
             this.btnFix.Enabled = true;
@@ -217,10 +221,14 @@ namespace HotelManagement_ADO.AdminForms
             dgvBOOKING.Rows[r].Cells[1].Value.ToString();
             this.txtCustomer_ID.Text =
             dgvBOOKING.Rows[r].Cells[2].Value.ToString();
-            this.dtpCheckIn.Text =
+            this.txtCustomer_Amount.Text = 
             dgvBOOKING.Rows[r].Cells[3].Value.ToString();
-            this.dtpCheckOut.Text =
+            this.dtpCheckIn.Text =
             dgvBOOKING.Rows[r].Cells[4].Value.ToString();
+            this.dtpCheckOut.Text =
+            dgvBOOKING.Rows[r].Cells[5].Value.ToString();
+            this.txtTotal_Price.Text =
+            dgvBOOKING.Rows[r].Cells[6].Value.ToString();
         }
     }
 
