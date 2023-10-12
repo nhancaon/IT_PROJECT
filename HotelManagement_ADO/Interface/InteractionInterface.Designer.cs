@@ -49,6 +49,9 @@
             this.lbUserID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.bntMinimize = new Guna.UI2.WinForms.Guna2Button();
+            this.bntMaximize = new Guna.UI2.WinForms.Guna2Button();
             this.mainPanel.SuspendLayout();
             this.topPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -64,7 +67,7 @@
             this.mainPanel.Location = new System.Drawing.Point(225, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(815, 700);
+            this.mainPanel.Size = new System.Drawing.Size(875, 600);
             this.mainPanel.TabIndex = 7;
             // 
             // topPanel
@@ -75,12 +78,15 @@
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Margin = new System.Windows.Forms.Padding(2);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(815, 87);
+            this.topPanel.Size = new System.Drawing.Size(875, 87);
             this.topPanel.TabIndex = 6;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.panel2.Controls.Add(this.bntMaximize);
+            this.panel2.Controls.Add(this.bntMinimize);
+            this.panel2.Controls.Add(this.btnClose);
             this.panel2.Controls.Add(this.checkOutBtn);
             this.panel2.Controls.Add(this.servicesBookingBtn);
             this.panel2.Controls.Add(this.roomBookingBtn);
@@ -89,7 +95,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(815, 85);
+            this.panel2.Size = new System.Drawing.Size(875, 85);
             this.panel2.TabIndex = 8;
             // 
             // checkOutBtn
@@ -103,7 +109,7 @@
             this.checkOutBtn.IconColor = System.Drawing.Color.Gainsboro;
             this.checkOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.checkOutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.checkOutBtn.Location = new System.Drawing.Point(774, 0);
+            this.checkOutBtn.Location = new System.Drawing.Point(482, 0);
             this.checkOutBtn.Margin = new System.Windows.Forms.Padding(2);
             this.checkOutBtn.Name = "checkOutBtn";
             this.checkOutBtn.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
@@ -126,7 +132,7 @@
             this.servicesBookingBtn.IconColor = System.Drawing.Color.Gainsboro;
             this.servicesBookingBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.servicesBookingBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.servicesBookingBtn.Location = new System.Drawing.Point(578, 0);
+            this.servicesBookingBtn.Location = new System.Drawing.Point(286, 0);
             this.servicesBookingBtn.Margin = new System.Windows.Forms.Padding(2);
             this.servicesBookingBtn.Name = "servicesBookingBtn";
             this.servicesBookingBtn.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
@@ -149,7 +155,7 @@
             this.roomBookingBtn.IconColor = System.Drawing.Color.Gainsboro;
             this.roomBookingBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.roomBookingBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roomBookingBtn.Location = new System.Drawing.Point(376, 0);
+            this.roomBookingBtn.Location = new System.Drawing.Point(84, 0);
             this.roomBookingBtn.Margin = new System.Windows.Forms.Padding(2);
             this.roomBookingBtn.Name = "roomBookingBtn";
             this.roomBookingBtn.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
@@ -167,7 +173,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(376, 85);
+            this.panel1.Size = new System.Drawing.Size(84, 85);
             this.panel1.TabIndex = 0;
             // 
             // leftPanel
@@ -185,7 +191,7 @@
             this.leftPanel.Location = new System.Drawing.Point(0, 0);
             this.leftPanel.Margin = new System.Windows.Forms.Padding(2);
             this.leftPanel.Name = "leftPanel";
-            this.leftPanel.Size = new System.Drawing.Size(225, 700);
+            this.leftPanel.Size = new System.Drawing.Size(225, 600);
             this.leftPanel.TabIndex = 5;
             // 
             // customersBtn
@@ -417,11 +423,69 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Username:";
             // 
+            // btnClose
+            // 
+            this.btnClose.AutoRoundedCorners = true;
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderRadius = 10;
+            this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClose.FillColor = System.Drawing.Color.Aqua;
+            this.btnClose.FocusedColor = System.Drawing.Color.Black;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnClose.Location = new System.Drawing.Point(825, 30);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(23, 23);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // bntMinimize
+            // 
+            this.bntMinimize.AutoRoundedCorners = true;
+            this.bntMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.bntMinimize.BorderRadius = 10;
+            this.bntMinimize.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.bntMinimize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.bntMinimize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.bntMinimize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.bntMinimize.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.bntMinimize.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bntMinimize.ForeColor = System.Drawing.Color.White;
+            this.bntMinimize.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bntMinimize.Location = new System.Drawing.Point(742, 30);
+            this.bntMinimize.Name = "bntMinimize";
+            this.bntMinimize.Size = new System.Drawing.Size(23, 23);
+            this.bntMinimize.TabIndex = 15;
+            this.bntMinimize.Click += new System.EventHandler(this.bntMinimize_Click);
+            // 
+            // bntMaximize
+            // 
+            this.bntMaximize.AutoRoundedCorners = true;
+            this.bntMaximize.BackColor = System.Drawing.Color.Transparent;
+            this.bntMaximize.BorderRadius = 10;
+            this.bntMaximize.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.bntMaximize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.bntMaximize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.bntMaximize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.bntMaximize.FillColor = System.Drawing.Color.White;
+            this.bntMaximize.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bntMaximize.ForeColor = System.Drawing.Color.White;
+            this.bntMaximize.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bntMaximize.Location = new System.Drawing.Point(783, 30);
+            this.bntMaximize.Name = "bntMaximize";
+            this.bntMaximize.Size = new System.Drawing.Size(23, 23);
+            this.bntMaximize.TabIndex = 16;
+            this.bntMaximize.Click += new System.EventHandler(this.bntMaximize_Click);
+            // 
             // InteractionInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 700);
+            this.ClientSize = new System.Drawing.Size(1100, 600);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.leftPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -429,7 +493,6 @@
             this.Name = "InteractionInterface";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.mainPanel.ResumeLayout(false);
             this.topPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -463,5 +526,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbName;
+        private Guna.UI2.WinForms.Guna2Button bntMaximize;
+        private Guna.UI2.WinForms.Guna2Button bntMinimize;
+        private Guna.UI2.WinForms.Guna2Button btnClose;
     }
 }

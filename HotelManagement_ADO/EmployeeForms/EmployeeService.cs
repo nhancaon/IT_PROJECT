@@ -15,133 +15,67 @@ namespace HotelManagement_ADO.EmployeeForms
     public partial class EmployeeService : Form
     {
         string err;
-        int rAvai;
-        int rBooked;
-        int customerID = -1;
-        int bookID = -1;
-        string name;
-      
+        int rAvai = 0;
+        int rBooked = 0;
         DBMain database = null;
         public EmployeeService()
         {
             InitializeComponent();
             database = new DBMain();
-
-           LoadDataAvai();
             this.btnAddService.Enabled = false;
-
-
         }
         void LoadDataAvai()
         {
-            var view = database.ExecuteQueryDataSet("Select * from View_AvailableProduct", CommandType.Text);
+            var view = database.ExecuteQueryDataSet("Select * from View_Service", CommandType.Text);
             DataTable dataTable = view.Tables[0];
             dgvAvaiServices.DataSource = dataTable;
             dgvAvaiServices.AutoGenerateColumns = true;
             dgvAvaiServices.ColumnHeadersHeight = 30;
             dgvAvaiServices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvAvaiServices.Columns[0].HeaderText = "Product ID";
-            dgvAvaiServices.Columns[1].HeaderText = "Product Name";
+            dgvAvaiServices.Columns[1].HeaderText = "Service Name";
+            dgvAvaiServices.Columns[4].HeaderText = "Unit for price";
             dgvAvaiServices_CellClick(null, null);
         }
 
         void LoadDataBooked()
         {
-            var proc = database.ExecuteQueryDataSet($"SELECT * FROM fn_FindServiceByName(N'{name}')", CommandType.Text);
-            DataTable dataTable = proc.Tables[0];
-            dataTable.Columns["SerID"].ColumnName = "Service ID";
-            dataTable.Columns["FullName"].ColumnName = "Customer Name";
-            dataTable.Columns["ProductName"].ColumnName = "Product Name";
-            dataTable.Columns["Book_ID"].ColumnName = "Booking ID";
-            // Create a DataView to filter and project the desired columns
-            DataView dataView = new DataView(dataTable);
-            dataView = new DataView(dataTable);
-            dataView = new DataView(dataTable);
-            dataView = new DataView(dataTable);
-            dataView = new DataView(dataTable);
-            dataView = new DataView(dataTable);
-            dataView = new DataView(dataTable);
-
-            // Set the Filter property to display only the desired columns
-            dataView.Table = dataTable.DefaultView.ToTable(false, "Service ID", "Customer Name", "Product Name", "Booking ID", "Amount", "Price");
-            
-            dgvBookedServices.DataSource = dataView;
-            dgvBookedServices.ColumnHeadersHeight = 30;
-            customerID = ReturnCustomerID(txtName.Text);
-            if (customerID != -1)
+            var proc = database.ExecuteQueryDataSet($"EXEC FN_FindBookedServiceByName N'{txtName.Text}'", CommandType.Text);
+            if (proc != null)
             {
-                bookID = ReturnBookID(customerID);
-                if (bookID != -1)
-                {
-                    txtBookID.Text = bookID.ToString();
-                    this.btnAddService.Enabled = true;
-                }
-            }
-            if (dataView.Count > 0)
-            {
-                dgvBookedServices.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                DataTable dataTable = proc.Tables[0];
+                dgvBookedServices.DataSource = dataTable;
+                dgvBookedServices.AutoGenerateColumns = true;
+                dgvBookedServices.ColumnHeadersHeight = 30;
+                dgvBookedServices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvBookedServices.Columns[0].HeaderText = "Book ID";
+                dgvBookedServices.Columns[1].HeaderText = "Service ID";
+                dgvBookedServices.Columns[2].HeaderText = "Name";
                 dgvBookedServices_CellClick(null, null);
-                this.btnAddService.Enabled = true;
             }
-            else
-            {
-                dataTable.Clear();
-            }
+            else dgvBookedServices.DataSource = null;
         }
         private void btnAddService_Click(object sender, EventArgs e)
         {
             try
             {
                 BLServiceDetail dbSE = new BLServiceDetail();
-               // dbSE.AddService(Convert.ToInt32(this.txtBookID.Text), customerID, Convert.ToInt32(dgvAvaiServices.Rows[rAvai].Cells[0].Value.ToString()), Convert.ToDouble(dgvAvaiServices.Rows[rAvai].Cells[2].Value.ToString()), Convert.ToInt32(txtAmount.Text), DateTime.Now, ref err);
+                dbSE.AddServiceDetail(Convert.ToInt32(dgvAvaiServices.Rows[rAvai].Cells[0].Value),
+                    Convert.ToInt32(txtBookID.Text),
+                    Convert.ToInt32(dgvBookedServices.Rows[rBooked].Cells[0].Value),
+                    Convert.ToInt32(txtAmount.Text)
+                    , DateTime.Now,ref err);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.InnerException.Message);
             }
-            LoadDataAvai();
             LoadDataBooked();
         }
 
         private void dgvAvaiServices_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             rAvai = dgvAvaiServices.CurrentCell.RowIndex;
-            this.txtNameProduct.Text = dgvAvaiServices.Rows[rAvai].Cells[1].Value.ToString();
-        }
-        int ReturnCustomerID(string name)
-        {
-            var dataSet = database.ExecuteQueryDataSet("SELECT * FROM Customers", CommandType.Text);
-            var dataTable = dataSet.Tables[0];
-
-            foreach (DataRow row in dataTable.Rows)
-            {
-                string fullName = row["Fullname"].ToString();
-                int cID = Convert.ToInt32(row["cID"]);
-
-                if (fullName == name)
-                {
-                    return cID;
-                }
-            }
-
-            return -1;
-        }
-        int ReturnBookID(int cID)
-        {
-            var dataSet = database.ExecuteQueryDataSet("SELECT * FROM Booking", CommandType.Text);
-            var dataTable = dataSet.Tables[0];
-
-            foreach (DataRow row in dataTable.Rows)
-            {
-                int ID = Convert.ToInt32(row["customer_ID"]);
-
-                if (ID == cID)
-                {
-                    return ID;
-                }
-            }
-
-            return -1;
+            this.txtNameService.Text = dgvAvaiServices.Rows[rAvai].Cells[1].Value.ToString();
         }
 
         private void btnDeleteService_Click(object sender, EventArgs e)
@@ -149,8 +83,10 @@ namespace HotelManagement_ADO.EmployeeForms
             try
             {
                 BLServiceDetail dbSE = new BLServiceDetail();
-               // dbSE.DeleteService(ref err, Convert.ToInt32(dgvBookedServices.Rows[rBooked].Cells[0].Value.ToString()));
-                LoadDataAvai();
+               dbSE.DeleteServiceDetail(ref err,
+                   Convert.ToInt32(dgvBookedServices.Rows[rBooked].Cells[1].Value.ToString()),
+                   Convert.ToInt32(dgvBookedServices.Rows[rBooked].Cells[0].Value.ToString()),
+                   Convert.ToDateTime(dgvBookedServices.Rows[rBooked].Cells[6].Value.ToString()));
                 LoadDataBooked();
             }
             catch (Exception ex)
@@ -161,15 +97,54 @@ namespace HotelManagement_ADO.EmployeeForms
 
         private void dgvBookedServices_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            rBooked = dgvBookedServices.CurrentCell.RowIndex;
+            if (dgvBookedServices.CurrentCell != null)
+            {
+                rBooked = dgvBookedServices.CurrentCell.RowIndex;
+                this.txtBookID.Text = dgvBookedServices.Rows[rBooked].Cells[0].Value.ToString();
+            }
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             txtBookID.ResetText();
-            this.btnAddService.Enabled = false;
-            name = txtName.Text;
             LoadDataBooked();
+            if (txtName.Text != null && txtNameService != null && txtAmount != null && txtBookID != null)
+            {
+                this.btnAddService.Enabled = true;
+            }
+            else this.btnAddService.Enabled = false;
+        }
+
+        private void EmployeeService_Load(object sender, EventArgs e)
+        {
+            LoadDataAvai();
+        }
+
+        private void txtNameService_TextChanged(object sender, EventArgs e)
+        {
+            if (txtName.Text != null && txtNameService != null && txtAmount != null && txtBookID != null)
+            {
+                this.btnAddService.Enabled = true;
+            }
+            else this.btnAddService.Enabled = false;
+        }
+
+        private void txtAmount_TextChanged(object sender, EventArgs e)
+        {
+            if (txtName.Text != null && txtNameService != null && txtAmount != null && txtBookID != null)
+            {
+                this.btnAddService.Enabled = true;
+            }
+            else this.btnAddService.Enabled = false;
+        }
+
+        private void txtBookID_TextChanged(object sender, EventArgs e)
+        {
+            if (txtName.Text != null && txtNameService != null && txtAmount != null && txtBookID != null)
+            {
+                this.btnAddService.Enabled = true;
+            }
+            else this.btnAddService.Enabled = false;
         }
     }
 }

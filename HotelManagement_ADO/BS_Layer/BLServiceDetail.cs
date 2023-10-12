@@ -39,7 +39,7 @@ namespace HotelManagement_ADO.BS_Layer
         {
             try
             {
-                string sql = $"exec SP_DELETE_SERVICE_DETAIL '{service_ID},{book_ID},'{Buy_Date.ToString()}'";
+                string sql = $"exec SP_DELETE_SERVICE_DETAIL {service_ID},{book_ID},'{Buy_Date.ToString()}'";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
