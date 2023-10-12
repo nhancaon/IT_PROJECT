@@ -65,6 +65,18 @@
     <Compile Include="AdminForms\Booking.Designer.cs">
       <DependentUpon>Booking.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\DamagedItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForms\DamagedItem.Designer.cs">
+      <DependentUpon>DamagedItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\IncludedItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForms\IncludedItem.Designer.cs">
+      <DependentUpon>IncludedItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminForms\RoomDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +164,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AdminForms\Booking.resx">
       <DependentUpon>Booking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForms\DamagedItem.resx">
+      <DependentUpon>DamagedItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForms\IncludedItem.resx">
+      <DependentUpon>IncludedItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\RoomDetail.resx">
       <DependentUpon>RoomDetail.cs</DependentUpon>

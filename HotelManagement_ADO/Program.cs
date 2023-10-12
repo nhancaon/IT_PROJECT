@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using HotelManagement_ADO.AdminForms;
 using HotelManagement_ADO.BS_Layer;
@@ -20,13 +21,9 @@ namespace HotelManagement_ADO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-           Application.Run(new FormLogin());
+            Application.Run(new FormLogin());
             //Application.Run(new InteractionInterface());
             //Application.Run(new EmployeeService());
-            //Application.Run(new EmployeeBooking());
-
-
         }
     }
 }

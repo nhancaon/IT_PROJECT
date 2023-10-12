@@ -21,7 +21,6 @@ namespace HotelManagement_ADO.AdminForms
         public Booking()
         {
             InitializeComponent();
-
         }
         void LoadData()
         {
@@ -203,7 +202,6 @@ namespace HotelManagement_ADO.AdminForms
             // Kiểm tra có nhắp chọn nút Ok không?
             if (traloi == DialogResult.OK) this.Close();
         }
-
 
         private void btnReload_Click(object sender, EventArgs e)
         {
