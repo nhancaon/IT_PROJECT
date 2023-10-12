@@ -20,12 +20,10 @@ namespace HotelManagement_ADO.AdminForms
         public Users()
         {
             InitializeComponent();
-            
         }
 
         void LoadData()
         {
-
             try
             {
                 // Đưa dữ liệu lên DataGridView
@@ -140,24 +138,22 @@ namespace HotelManagement_ADO.AdminForms
             // Thứ tự dòng hiện hành
             int r = dgvUSER.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel
-            this.txtuserID.Text =
-            dgvUSER.Rows[r].Cells[0].Value.ToString();
-            this.txtFullname.Text =
-            dgvUSER.Rows[r].Cells[1].Value.ToString();
-            this.dtpBirthday.Text =
-            dgvUSER.Rows[r].Cells[2].Value.ToString();
-            this.cbGender.Text =
-            dgvUSER.Rows[r].Cells[3].Value.ToString();
-            this.txtEmail.Text =
-            dgvUSER.Rows[r].Cells[4].Value.ToString();
-            this.txtPhone_Number.Text =
-            dgvUSER.Rows[r].Cells[5].Value.ToString();
-            this.txtAddress.Text =
-            dgvUSER.Rows[r].Cells[6].Value.ToString();
-            this.txtrole_id.Text =
-            dgvUSER.Rows[r].Cells[7].Value.ToString();
-            this.txtPassword.Text =
-            dgvUSER.Rows[r].Cells[8].Value.ToString();
+            this.txtuserID.Text = dgvUSER.Rows[r].Cells[0].Value.ToString();
+            this.txtFullname.Text = dgvUSER.Rows[r].Cells[1].Value.ToString();
+            this.dtpBirthday.Text = dgvUSER.Rows[r].Cells[2].Value.ToString();
+            if(Convert.ToBoolean(dgvUSER.Rows[r].Cells[3].Value))
+            {
+                this.cbGender.Text = "Female";
+            }
+            else
+            {
+                this.cbGender.Text = "Male";
+            }
+            this.txtEmail.Text = dgvUSER.Rows[r].Cells[4].Value.ToString();
+            this.txtPhone_Number.Text = dgvUSER.Rows[r].Cells[5].Value.ToString();
+            this.txtAddress.Text = dgvUSER.Rows[r].Cells[6].Value.ToString();
+            this.txtrole_id.Text = dgvUSER.Rows[r].Cells[7].Value.ToString();
+            this.txtPassword.Text = dgvUSER.Rows[r].Cells[8].Value.ToString();
         }
         private void btnBack_Click(object sender, EventArgs e)
         {

@@ -32,8 +32,7 @@ namespace HotelManagement_ADO.Interface
         public InteractionInterface()
         {
             InitializeComponent();
-            AllocConsole();
-           
+            AllocConsole();          
         }
 
         public InteractionInterface(int userID)
@@ -89,6 +88,16 @@ namespace HotelManagement_ADO.Interface
             openChildForm(new ServiceDetail());
         }
 
+        private void includedItemBtn_Click(object sender, EventArgs e)
+        {
+            openChildForm(new IncludedItem());
+        }
+
+        private void damagedItemBtn_Click(object sender, EventArgs e)
+        {
+            openChildForm(new DamagedItem());
+        }
+
         private void customersBtn_Click(object sender, EventArgs e)
         {
             openChildForm(new Customers());
@@ -120,7 +129,7 @@ namespace HotelManagement_ADO.Interface
                 lbRole.Text = "Employee";
             }
             lbName.Text = fullName;
-  
+ 
         }
 
         private void bntMinimize_Click(object sender, EventArgs e)

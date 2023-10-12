@@ -20,7 +20,7 @@ namespace HotelManagement_ADO.BS_Layer
         {
             return db.ExecuteQueryDataSet("Select * from View_DamagedItem", CommandType.Text);
         }
-        public bool AddDamagedItem(string itemName, int book_ID, int DamagedAmount,ref string err)
+        public bool AddDamagedItem(string itemName, int book_ID, int DamagedAmount, ref string err)
         {
             try
             {
