@@ -68,9 +68,10 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label12.Location = new System.Drawing.Point(820, 429);
+            this.label12.Location = new System.Drawing.Point(615, 349);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(147, 23);
+            this.label12.Size = new System.Drawing.Size(117, 21);
             this.label12.TabIndex = 82;
             this.label12.Text = "Booked Room";
             // 
@@ -79,9 +80,10 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(1176, 72);
+            this.label11.Location = new System.Drawing.Point(882, 58);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(67, 23);
+            this.label11.Size = new System.Drawing.Size(55, 21);
             this.label11.TabIndex = 81;
             this.label11.Text = "Room";
             // 
@@ -90,9 +92,10 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(36, 39);
+            this.label10.Location = new System.Drawing.Point(27, 32);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(220, 23);
+            this.label10.Size = new System.Drawing.Size(181, 21);
             this.label10.TabIndex = 80;
             this.label10.Text = "Customer Information";
             // 
@@ -101,9 +104,10 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(12, 429);
+            this.label9.Location = new System.Drawing.Point(9, 349);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(169, 23);
+            this.label9.Size = new System.Drawing.Size(134, 21);
             this.label9.TabIndex = 79;
             this.label9.Text = "Available Room";
             // 
@@ -119,13 +123,13 @@
             this.txtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtName.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtName.Location = new System.Drawing.Point(67, 122);
-            this.txtName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtName.Location = new System.Drawing.Point(50, 99);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
             this.txtName.PasswordChar = '\0';
             this.txtName.PlaceholderText = "";
             this.txtName.SelectedText = "";
-            this.txtName.Size = new System.Drawing.Size(316, 43);
+            this.txtName.Size = new System.Drawing.Size(237, 35);
             this.txtName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtName.TabIndex = 78;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
@@ -142,13 +146,13 @@
             this.txtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAddress.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAddress.Location = new System.Drawing.Point(449, 122);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtAddress.Location = new System.Drawing.Point(337, 99);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "";
             this.txtAddress.SelectedText = "";
-            this.txtAddress.Size = new System.Drawing.Size(316, 43);
+            this.txtAddress.Size = new System.Drawing.Size(237, 35);
             this.txtAddress.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtAddress.TabIndex = 77;
             // 
@@ -164,13 +168,13 @@
             this.txtPhoneNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPhoneNumber.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhoneNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPhoneNumber.Location = new System.Drawing.Point(67, 350);
-            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(50, 284);
+            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.PasswordChar = '\0';
             this.txtPhoneNumber.PlaceholderText = "";
             this.txtPhoneNumber.SelectedText = "";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(316, 43);
+            this.txtPhoneNumber.Size = new System.Drawing.Size(237, 35);
             this.txtPhoneNumber.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtPhoneNumber.TabIndex = 76;
             // 
@@ -179,12 +183,12 @@
             this.dtpBirthday.Checked = true;
             this.dtpBirthday.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.dtpBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpBirthday.Location = new System.Drawing.Point(430, 350);
-            this.dtpBirthday.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpBirthday.Location = new System.Drawing.Point(322, 284);
+            this.dtpBirthday.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpBirthday.Name = "dtpBirthday";
-            this.dtpBirthday.Size = new System.Drawing.Size(398, 43);
+            this.dtpBirthday.Size = new System.Drawing.Size(298, 35);
             this.dtpBirthday.TabIndex = 74;
             this.dtpBirthday.Value = new System.DateTime(2023, 5, 10, 13, 43, 54, 292);
             // 
@@ -193,9 +197,10 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(445, 309);
+            this.label8.Location = new System.Drawing.Point(334, 251);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 23);
+            this.label8.Size = new System.Drawing.Size(74, 21);
             this.label8.TabIndex = 73;
             this.label8.Text = "Birthday";
             // 
@@ -204,9 +209,10 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(445, 87);
+            this.label7.Location = new System.Drawing.Point(334, 71);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 23);
+            this.label7.Size = new System.Drawing.Size(72, 21);
             this.label7.TabIndex = 72;
             this.label7.Text = "Address";
             // 
@@ -215,9 +221,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(61, 309);
+            this.label3.Location = new System.Drawing.Point(46, 251);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(157, 23);
+            this.label3.Size = new System.Drawing.Size(126, 21);
             this.label3.TabIndex = 71;
             this.label3.Text = "Phone Number";
             // 
@@ -249,14 +256,14 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBookedRoom.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBookedRoom.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvBookedRoom.Location = new System.Drawing.Point(824, 460);
-            this.dgvBookedRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvBookedRoom.Location = new System.Drawing.Point(618, 374);
+            this.dgvBookedRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvBookedRoom.Name = "dgvBookedRoom";
             this.dgvBookedRoom.ReadOnly = true;
             this.dgvBookedRoom.RowHeadersVisible = false;
             this.dgvBookedRoom.RowHeadersWidth = 51;
             this.dgvBookedRoom.RowTemplate.Height = 24;
-            this.dgvBookedRoom.Size = new System.Drawing.Size(781, 352);
+            this.dgvBookedRoom.Size = new System.Drawing.Size(586, 286);
             this.dgvBookedRoom.TabIndex = 70;
             this.dgvBookedRoom.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvBookedRoom.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -296,10 +303,13 @@
             this.saveBtn.FillColor = System.Drawing.Color.Transparent;
             this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveBtn.ForeColor = System.Drawing.Color.White;
-            this.saveBtn.Location = new System.Drawing.Point(1442, 830);
-            this.saveBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.saveBtn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.saveBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.saveBtn.HoverState.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveBtn.Location = new System.Drawing.Point(1082, 674);
+            this.saveBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(165, 65);
+            this.saveBtn.Size = new System.Drawing.Size(124, 53);
             this.saveBtn.TabIndex = 69;
             this.saveBtn.Text = "Book";
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
@@ -309,12 +319,12 @@
             this.dtpCheckOutDate.Checked = true;
             this.dtpCheckOutDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpCheckOutDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpCheckOutDate.Location = new System.Drawing.Point(1178, 282);
-            this.dtpCheckOutDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpCheckOutDate.Location = new System.Drawing.Point(884, 229);
+            this.dtpCheckOutDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpCheckOutDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpCheckOutDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpCheckOutDate.Name = "dtpCheckOutDate";
-            this.dtpCheckOutDate.Size = new System.Drawing.Size(427, 38);
+            this.dtpCheckOutDate.Size = new System.Drawing.Size(320, 31);
             this.dtpCheckOutDate.TabIndex = 68;
             this.dtpCheckOutDate.Value = new System.DateTime(2023, 5, 10, 13, 43, 54, 292);
             this.dtpCheckOutDate.ValueChanged += new System.EventHandler(this.dtpCheckOutDate_ValueChanged);
@@ -324,12 +334,12 @@
             this.dtpCheckInDate.Checked = true;
             this.dtpCheckInDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpCheckInDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpCheckInDate.Location = new System.Drawing.Point(1178, 155);
-            this.dtpCheckInDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpCheckInDate.Location = new System.Drawing.Point(884, 126);
+            this.dtpCheckInDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpCheckInDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpCheckInDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpCheckInDate.Name = "dtpCheckInDate";
-            this.dtpCheckInDate.Size = new System.Drawing.Size(427, 38);
+            this.dtpCheckInDate.Size = new System.Drawing.Size(320, 31);
             this.dtpCheckInDate.TabIndex = 67;
             this.dtpCheckInDate.Value = new System.DateTime(2023, 5, 10, 13, 43, 54, 292);
             this.dtpCheckInDate.ValueChanged += new System.EventHandler(this.dtpCheckInDate_ValueChanged);
@@ -352,10 +362,10 @@
             "Female"});
             this.cbGender.ItemsAppearance.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGender.ItemsAppearance.SelectedFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbGender.Location = new System.Drawing.Point(449, 242);
-            this.cbGender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbGender.Location = new System.Drawing.Point(337, 197);
+            this.cbGender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbGender.Name = "cbGender";
-            this.cbGender.Size = new System.Drawing.Size(316, 36);
+            this.cbGender.Size = new System.Drawing.Size(238, 36);
             this.cbGender.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.cbGender.TabIndex = 66;
             // 
@@ -387,14 +397,14 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAvaiRoom.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvAvaiRoom.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvAvaiRoom.Location = new System.Drawing.Point(-2, 460);
-            this.dgvAvaiRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvAvaiRoom.Location = new System.Drawing.Point(-2, 374);
+            this.dgvAvaiRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvAvaiRoom.Name = "dgvAvaiRoom";
             this.dgvAvaiRoom.ReadOnly = true;
             this.dgvAvaiRoom.RowHeadersVisible = false;
             this.dgvAvaiRoom.RowHeadersWidth = 51;
             this.dgvAvaiRoom.RowTemplate.Height = 24;
-            this.dgvAvaiRoom.Size = new System.Drawing.Size(773, 352);
+            this.dgvAvaiRoom.Size = new System.Drawing.Size(580, 286);
             this.dgvAvaiRoom.TabIndex = 65;
             this.dgvAvaiRoom.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvAvaiRoom.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -424,9 +434,10 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(445, 200);
+            this.label6.Location = new System.Drawing.Point(334, 162);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 23);
+            this.label6.Size = new System.Drawing.Size(70, 21);
             this.label6.TabIndex = 64;
             this.label6.Text = "Gender";
             // 
@@ -435,9 +446,10 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(1176, 243);
+            this.label5.Location = new System.Drawing.Point(882, 197);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(171, 23);
+            this.label5.Size = new System.Drawing.Size(140, 21);
             this.label5.TabIndex = 63;
             this.label5.Text = "Check Out Date";
             // 
@@ -446,9 +458,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(1176, 120);
+            this.label4.Location = new System.Drawing.Point(882, 98);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 23);
+            this.label4.Size = new System.Drawing.Size(124, 21);
             this.label4.TabIndex = 62;
             this.label4.Text = "Check In Date";
             // 
@@ -457,9 +470,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(61, 200);
+            this.label2.Location = new System.Drawing.Point(46, 162);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 23);
+            this.label2.Size = new System.Drawing.Size(136, 21);
             this.label2.TabIndex = 61;
             this.label2.Text = "Identify Number";
             // 
@@ -468,9 +482,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(61, 87);
+            this.label1.Location = new System.Drawing.Point(46, 71);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 23);
+            this.label1.Size = new System.Drawing.Size(58, 21);
             this.label1.TabIndex = 60;
             this.label1.Text = "Name";
             // 
@@ -486,13 +501,13 @@
             this.txtIdentityNum.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtIdentityNum.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdentityNum.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIdentityNum.Location = new System.Drawing.Point(67, 235);
-            this.txtIdentityNum.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtIdentityNum.Location = new System.Drawing.Point(50, 191);
+            this.txtIdentityNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdentityNum.Name = "txtIdentityNum";
             this.txtIdentityNum.PasswordChar = '\0';
             this.txtIdentityNum.PlaceholderText = "";
             this.txtIdentityNum.SelectedText = "";
-            this.txtIdentityNum.Size = new System.Drawing.Size(316, 43);
+            this.txtIdentityNum.Size = new System.Drawing.Size(237, 35);
             this.txtIdentityNum.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtIdentityNum.TabIndex = 75;
             this.txtIdentityNum.TextChanged += new System.EventHandler(this.txtIdentityNum_TextChanged);
@@ -502,9 +517,10 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label13.Location = new System.Drawing.Point(820, 72);
+            this.label13.Location = new System.Drawing.Point(615, 58);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(238, 23);
+            this.label13.Size = new System.Drawing.Size(191, 21);
             this.label13.TabIndex = 83;
             this.label13.Text = "Number of customer(s):";
             // 
@@ -520,22 +536,22 @@
             this.txtcusAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtcusAmount.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcusAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcusAmount.Location = new System.Drawing.Point(824, 122);
-            this.txtcusAmount.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtcusAmount.Location = new System.Drawing.Point(618, 99);
+            this.txtcusAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtcusAmount.Name = "txtcusAmount";
             this.txtcusAmount.PasswordChar = '\0';
             this.txtcusAmount.PlaceholderText = "";
             this.txtcusAmount.SelectedText = "";
-            this.txtcusAmount.Size = new System.Drawing.Size(234, 43);
+            this.txtcusAmount.Size = new System.Drawing.Size(176, 35);
             this.txtcusAmount.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtcusAmount.TabIndex = 84;
             // 
             // EmployeeBooking
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(1770, 1053);
+            this.ClientSize = new System.Drawing.Size(1040, 640);
             this.Controls.Add(this.txtcusAmount);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -562,7 +578,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtIdentityNum);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "EmployeeBooking";
             this.Text = "EmployeeBooking";
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookedRoom)).EndInit();
