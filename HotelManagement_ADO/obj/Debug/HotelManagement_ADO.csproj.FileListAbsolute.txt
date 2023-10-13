@@ -79,3 +79,5 @@ D:\UNIVERSITY\3rd\Semester 1\IT Project\PROGRAM\IT_PROJECT\HotelManagement_ADO\o
 D:\UNIVERSITY\3rd\Semester 1\IT Project\PROGRAM\IT_PROJECT\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.pdb
 D:\UNIVERSITY\3rd\Semester 1\IT Project\PROGRAM\IT_PROJECT\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.AdminForms.IncludedItem.resources
 D:\UNIVERSITY\3rd\Semester 1\IT Project\PROGRAM\IT_PROJECT\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.AdminForms.DamagedItem.resources
+D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.AdminForms.DamagedItem.resources
+D:\University\IT Project\IT-Project\HotelManagement_ADO\obj\Debug\HotelManagement_ADO.AdminForms.IncludedItem.resources
