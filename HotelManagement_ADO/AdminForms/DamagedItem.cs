@@ -16,11 +16,15 @@ namespace HotelManagement_ADO.AdminForms
 {
     public partial class DamagedItem : Form
     {
-        // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
         string err;
-
         BLDamagedItem dbDamagedItem = new BLDamagedItem();
+
+        DBMain db = new DBMain();
+        int formamount;
+        int amount;
+        int mouseclick = 0;
+
         public DamagedItem()
         {
             InitializeComponent();
@@ -29,23 +33,30 @@ namespace HotelManagement_ADO.AdminForms
         {
             try
             {
-
-                // Đưa dữ liệu lên DataGridView
+                // Transfer data to DataGridView
                 DataSet dataSet = dbDamagedItem.TakeDamagedItem();
                 DataTable dataTable = dataSet.Tables[0];
-
+                // Set the DataSource of the DataGridView
                 dgvDAMAGEDITEM.DataSource = dataTable;
-                // Xóa trống các đối tượng trong Panel
+                // Delete all contents of each box in panel
                 this.txtitemID.ResetText();
                 this.txtitemName.ResetText();
                 this.txtbookID.ResetText();
+                if (string.IsNullOrEmpty(this.txtdiAmount.Text))
+                {
+                    formamount = 0;
+                }
+                else
+                {
+                    formamount = Convert.ToInt32(this.txtdiAmount.Text);
+                }
                 this.txtdiAmount.ResetText();
                 this.txtdiPrice.ResetText();
-                // Không cho thao tác trên các nút Lưu / Hủy
+                // Ban manipulation on buttons Save / Cancel
                 this.btnSave.Enabled = false;
                 this.btnCancel.Enabled = false;
                 this.panel.Enabled = false;
-                // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
+                // Allow manipulation on buttons Add / Update / Delete / Back
                 this.btnAdd.Enabled = true;
                 this.btnFix.Enabled = true;
                 this.btnDelete.Enabled = true;
@@ -55,29 +66,33 @@ namespace HotelManagement_ADO.AdminForms
             }
             catch
             {
-                MessageBox.Show("Không lấy được nội dung trong table DAMAGEDITEM. Lỗi rồi!!!");
+                MessageBox.Show("Cannot access to table DamagedItem. An error occurred!!!");
             }
         }
-
-        private void DamagedItem_Load(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
         private void dgvDAMAGEDITEM_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Thứ tự dòng hiện hành
+            // Order of current record
             int r = dgvDAMAGEDITEM.CurrentCell.RowIndex;
-            // Chuyển thông tin lên panel
+            // Transfer data to panel
             this.txtbookID.Text = dgvDAMAGEDITEM.Rows[r].Cells[0].Value.ToString();
             this.txtitemID.Text = dgvDAMAGEDITEM.Rows[r].Cells[1].Value.ToString();
             this.txtitemName.Text = dgvDAMAGEDITEM.Rows[r].Cells[2].Value.ToString();
             this.txtdiAmount.Text = dgvDAMAGEDITEM.Rows[r].Cells[3].Value.ToString();
+            formamount = Convert.ToInt32(this.txtdiAmount.Text);
             this.txtdiPrice.Text = dgvDAMAGEDITEM.Rows[r].Cells[4].Value.ToString();
         }
-
+        private void DamagedItem_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            this.txtitemID.Enabled = false;
+            this.txtdiPrice.Enabled = false;
             // Activate Them variable
             Them = true;
             // Delete all contents of each box in panel
@@ -85,83 +100,85 @@ namespace HotelManagement_ADO.AdminForms
             this.txtitemName.ResetText();
             this.txtbookID.ResetText();
             this.txtdiAmount.ResetText();
+            if (string.IsNullOrEmpty(this.txtdiAmount.Text))
+            {
+                formamount = 0;
+            }
+            else
+            {
+                formamount = Convert.ToInt32(this.txtdiAmount.Text);
+            }
             this.txtdiPrice.ResetText();
-            // Cho thao tác trên các nút Lưu / Hủy / Panel
+            // Allow manipulation on buttons Save / Cancel / Panel
             this.btnSave.Enabled = true;
             this.btnCancel.Enabled = true;
             this.panel.Enabled = true;
-            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
+            // Ban manipulation on buttons Add / Update / Delete / Back
             this.btnAdd.Enabled = false;
             this.btnFix.Enabled = false;
             this.btnDelete.Enabled = false;
 
-            // Đưa con trỏ đến TextField txtbookID
+            // Point to textfield txtbookID
             this.txtbookID.Focus();
         }
-
         private void btnFix_Click(object sender, EventArgs e)
         {
-            // Kích hoạt biến Sửa
+            // Activate Fix variable
             Them = false;
-            // Cho phép thao tác trên Panel
+            // Allow manipulation in panel
             this.panel.Enabled = true;
+            this.txtitemID.Enabled = false;
+            this.txtdiPrice.Enabled = false;
             dgvDAMAGEDITEM_CellClick(null, null);
-            // Cho thao tác trên các nút Lưu / Hủy / Panel
+            // Allow manipulation on buttons Save / Cancel / Panel
             this.btnSave.Enabled = true;
             this.btnCancel.Enabled = true;
             this.panel.Enabled = true;
-            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
+            // Ban manipulation on buttons Add / Fix / Delete / Back
             this.btnAdd.Enabled = false;
             this.btnFix.Enabled = false;
             this.btnDelete.Enabled = false;
 
-            // Đưa con trỏ đến TextField txtbookID
+            // Point to textfield txtbookID
             this.txtitemID.Enabled = false;
             this.txtbookID.Focus();
         }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                // Thực hiện lệnh
-                // Lấy thứ tự record hiện hành
+                // Execute command
+                // Get the order of current record
                 int r = dgvDAMAGEDITEM.CurrentCell.RowIndex;
                 string strDI1 = dgvDAMAGEDITEM.Rows[r].Cells[1].Value.ToString();
                 string strDI2 = dgvDAMAGEDITEM.Rows[r].Cells[0].Value.ToString();
-                // Viết câu lệnh SQL
-                // Hiện thông báo xác nhận việc xóa mẫu tin
-                // Khai báo biến traloi
-                DialogResult traloi;
-                // Hiện hộp thoại hỏi đáp
-                traloi = MessageBox.Show("Chắc xóa mẫu tin này không?", "Trả lời",
+                // Write SQL command
+                // Announce delete info confirmation
+                // Declare answering variable
+                DialogResult ans;
+                // Display Q&A box
+                ans = MessageBox.Show("Are you sure deleting this?", "Answer",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                // Kiểm tra có nhắp chọn nút Ok không?
-                if (traloi == DialogResult.Yes)
+                // Check if press OK button
+                if (ans == DialogResult.Yes)
                 {
                     dbDamagedItem.DeleteDamagedItem(ref err, Convert.ToInt32(strDI1), Convert.ToInt32(strDI2));
-                    // Cập nhật lại DataGridView
+                    // Reupdate DataGridView
                     LoadData();
-                    // Thông báo
-                    MessageBox.Show("Đã xóa xong!");
+                    // Announce
+                    MessageBox.Show("Delete successfully!");
                 }
                 else
                 {
-                    // Thông báo
-                    MessageBox.Show("Không thực hiện việc xóa mẫu tin!");
+                    // Announce
+                    MessageBox.Show("Cancel deleting record!");
                 }
             }
             catch
             {
-                MessageBox.Show("Không xóa được. Lỗi rồi!");
+                MessageBox.Show("Cannot delete this. An error occurred!!!");
             }
         }
-
-        private void btnReload_Click(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             // Declare answering variable
@@ -172,7 +189,6 @@ namespace HotelManagement_ADO.AdminForms
             // Check if press OK button
             if (ans == DialogResult.OK) this.Close();
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             // Delete all contents of each box in panel
@@ -181,44 +197,68 @@ namespace HotelManagement_ADO.AdminForms
             this.txtbookID.ResetText();
             this.txtdiAmount.ResetText();
             this.txtdiPrice.ResetText();
-            // Allow manipulation in button Add / Fix / Delete / Back
+            // Allow manipulation on buttons Add / Update / Delete / Back
             this.btnAdd.Enabled = true;
             this.btnFix.Enabled = true;
             this.btnDelete.Enabled = true;
-
-            // Ban manipulation in button Save / Cancel / Panel
+            // Ban manipulation on buttons Save / Cancel / Panel
             this.btnSave.Enabled = false;
             this.btnCancel.Enabled = false;
             this.panel.Enabled = false;
             dgvDAMAGEDITEM_CellClick(null, null);
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // Mở kết nối
-            // Thêm dữ liệu
+            // Open connection
+            // Add data
             if (Them)
             {
                 BLDamagedItem di = new BLDamagedItem();
-                if (di.AddDamagedItem( this.txtitemName.Text,
+                if (di.AddDamagedItem(this.txtitemName.Text,
                                        Convert.ToInt32(this.txtbookID.Text),
                                        Convert.ToInt32(this.txtdiAmount.Text), ref err))
-                MessageBox.Show("Add successfully");
+                    MessageBox.Show("Add successfully!");
                 LoadData();
             }
             else
             {
-                // Thực hiện lệnh
+                // Execute command
                 BLDamagedItem di = new BLDamagedItem();
-                di.UpdateDamagedItem( this.txtitemName.Text,
+                di.UpdateDamagedItem(this.txtitemName.Text,
                                        Convert.ToInt32(this.txtbookID.Text),
                                        Convert.ToInt32(this.txtdiAmount.Text), ref err);
-                // Load lại dữ liệu trên DataGridView
+                // Reload data to DataGridView
                 LoadData();
-                // Thông báo
-                MessageBox.Show("Đã sửa xong!");
+                // Announce
+                MessageBox.Show("Update successfully!");
             }
-            // Đóng kết nối
+            // Close connection
+        }
+        void checkAmount(string diname, int bookID)
+        {
+            SqlDataReader reader = db.ExecuteQueryDataReader($"SELECT II.iiAmount FROM [dbo].[IncludedItem] II INNER JOIN [dbo].[Room] R ON R.Type = II.roomType INNER JOIN [dbo].[RoomDetail] RD ON R.roomID = RD.room_ID WHERE II.itemName = '{diname}' AND RD.book_ID = {bookID}", CommandType.Text);
+            while (reader.Read())
+            {
+                amount = reader.GetInt32(0);
+            }
+        }
+        private void txtdiAmount_TextChanged(object sender, EventArgs e)
+        {
+            if (mouseclick == 1)
+            {
+                if (!string.IsNullOrEmpty(this.txtdiAmount.Text) && Convert.ToInt32(this.txtdiAmount.Text) != 0)
+                {
+                    checkAmount(this.txtitemName.Text, Convert.ToInt32(this.txtbookID.Text));
+                    if (amount < Convert.ToInt32(this.txtdiAmount.Text))
+                    {
+                        MessageBox.Show("Your input exceeds the limitation!");
+                    }
+                }
+            }
+        }
+        private void txtdiAmount_MouseClick(object sender, MouseEventArgs e)
+        {
+            mouseclick = 1;
         }
     }
 }

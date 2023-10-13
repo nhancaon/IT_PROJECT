@@ -20,29 +20,25 @@ namespace HotelManagement_ADO.AdminForms
         {
             InitializeComponent();
         }
-
         void LoadData()
         {
             try
             {
-
-                // Đưa dữ liệu lên DataGridView
+                // Transfer data to DataGridView
                 DataSet dataSet = dbRD.TakeRoomDetail();
                 DataTable dataTable = dataSet.Tables[0];
-                dgvROOMDETAIL.DataSource = dataTable;
-                // Change the column name
                 // Set the DataSource of the DataGridView
                 dgvROOMDETAIL.DataSource = dataTable;
-                // Xóa trống các đối tượng trong Panel
+                // Delete all contents of each box in panel
                 this.txtbook_ID.ResetText();
                 this.txtroom_ID.ResetText();
                 this.txtLengthStay.ResetText();
                 this.txtPrice.ResetText();
-                // Không cho thao tác trên các nút Lưu / Hủy
+                // Ban manipulation on buttons Save / Cancel
                 this.btnSave.Enabled = false;
                 this.btnCancel.Enabled = false;
                 this.panel.Enabled = false;
-                // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
+                // Allow manipulation on buttons Add / Update / Delete / Back
                 this.btnAdd.Enabled = true;
                 this.btnFix.Enabled = true;
                 this.btnDelete.Enabled = true;
@@ -52,8 +48,18 @@ namespace HotelManagement_ADO.AdminForms
             }
             catch
             {
-                MessageBox.Show("Không lấy được nội dung trong table ROOMDETAIL. Lỗi rồi!!!");
+                MessageBox.Show("Cannot access to table RoomDetail. An error occurred!!!");
             }
+        }
+        private void dgvROOMDETAIL_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Order of current record
+            int r = dgvROOMDETAIL.CurrentCell.RowIndex;
+            // Transfer data to panel
+            this.txtbook_ID.Text = dgvROOMDETAIL.Rows[r].Cells[0].Value.ToString();
+            this.txtroom_ID.Text = dgvROOMDETAIL.Rows[r].Cells[1].Value.ToString();
+            this.txtLengthStay.Text = dgvROOMDETAIL.Rows[r].Cells[2].Value.ToString();
+            this.txtPrice.Text = dgvROOMDETAIL.Rows[r].Cells[3].Value.ToString();
         }
         private void FormRoomDetail_Load(object sender, EventArgs e)
         {
@@ -67,85 +73,108 @@ namespace HotelManagement_ADO.AdminForms
         {
             this.txtbook_ID.Enabled = true;
             this.txtroom_ID.Enabled = true;
-            // Kich hoạt biến Them
+            // Activate Them variable
             Them = true;
-            // Xóa trống các đối tượng trong Panel
+            // Delete all contents of each box in panel
             int newBookingID = Convert.ToInt32(dgvROOMDETAIL.Rows[dgvROOMDETAIL.Rows.Count - 2].Cells[0].Value) + 1;
+
             this.txtbook_ID.Text = newBookingID.ToString();
             this.txtroom_ID.ResetText();
             this.txtLengthStay.ResetText();
             this.txtPrice.ResetText();
-            // Cho thao tác trên các nút Lưu / Hủy / Panel
+            this.txtLengthStay.Enabled = false;
+            this.txtPrice.Enabled = false;
+            // Allow manipulation on buttons Save / Cancel / Panel
             this.btnSave.Enabled = true;
             this.btnCancel.Enabled = true;
             this.panel.Enabled = true;
-            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
+            // Ban manipulation on buttons Add / Update / Delete / Back
             this.btnAdd.Enabled = false;
             this.btnFix.Enabled = false;
             this.btnDelete.Enabled = false;
 
-            // Đưa con trỏ đến TextField txtbook_ID
+            // Point to textfield txtbook_ID
             this.txtbook_ID.Focus();
         }
         private void btnFix_Click(object sender, EventArgs e)
         {
-            // Kích hoạt biến Sửa
+            // Activate Fix variable
             Them = false;
-            // Cho phép thao tác trên Panel
+            // Allow manipulation in panel
             this.panel.Enabled = true;
+            this.txtLengthStay.Enabled = false;
+            this.txtPrice.Enabled = false;
             dgvROOMDETAIL_CellClick(null, null);
-            // Cho thao tác trên các nút Lưu / Hủy / Panel
+            // Allow manipulation on buttons Save / Cancel / Panel
             this.btnSave.Enabled = true;
             this.btnCancel.Enabled = true;
             this.panel.Enabled = true;
-            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
+            // Ban manipulation on buttons Add / Fix / Delete / Back
             this.btnAdd.Enabled = false;
             this.btnFix.Enabled = false;
             this.btnDelete.Enabled = false;
 
-            // Đưa con trỏ đến TextField txtbook_ID
-            this.txtbook_ID.Enabled = false;
-            this.txtroom_ID.Enabled = false;
-            this.txtLengthStay.Focus();
-
+            // Point to textfield txtbook_ID
+            this.txtbook_ID.Focus();
         }
-        private void dgvROOMDETAIL_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Thứ tự dòng hiện hành
-            int r = dgvROOMDETAIL.CurrentCell.RowIndex;
-            // Chuyển thông tin lên panel
-            this.txtbook_ID.Text =
-            dgvROOMDETAIL.Rows[r].Cells[0].Value.ToString();
-            this.txtroom_ID.Text =
-            dgvROOMDETAIL.Rows[r].Cells[1].Value.ToString();
-            this.txtLengthStay.Text =
-            dgvROOMDETAIL.Rows[r].Cells[2].Value.ToString();
-            this.txtPrice.Text =
-            dgvROOMDETAIL.Rows[r].Cells[3].Value.ToString();
+            try
+            {
+                // Execute command
+                // Get the order of current record
+                int r = dgvROOMDETAIL.CurrentCell.RowIndex;
+                string strRD1 = dgvROOMDETAIL.Rows[r].Cells[0].Value.ToString();
+                string strRD2 = dgvROOMDETAIL.Rows[r].Cells[1].Value.ToString();
+                // Write SQL command
+                // Announce delete info confirmation
+                // Declare answering variable
+                DialogResult ans;
+                // Display Q&A box
+                ans = MessageBox.Show("Are you sure deleting this?", "Answer",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // Check if press OK button
+                if (ans == DialogResult.Yes)
+                {
+                    dbRD.DeleteRoomDetail(ref err, Convert.ToInt32(strRD1), Convert.ToInt32(strRD2));
+                    // Reupdate DataGridView
+                    LoadData();
+                    // Announce
+                    MessageBox.Show("Delete successfully!");
+                }
+                else
+                {
+                    // Announce
+                    MessageBox.Show("Cancel deleting record!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Cannot delete this. An error occurred!!!");
+            }
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
-            // Khai báo biến traloi
-            DialogResult traloi;
-            // Hiện hộp thoại hỏi đáp
-            traloi = MessageBox.Show("Chắc không?", "Trả lời",
+            // Declare answering variable
+            DialogResult ans;
+            // Display Q&A box
+            ans = MessageBox.Show("Are you sure?", "Answer",
             MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            // Kiểm tra có nhắp chọn nút Ok không?
-            if (traloi == DialogResult.OK) this.Close();
+            // Check if press OK button
+            if (ans == DialogResult.OK) this.Close();
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            // Xóa trống các đối tượng trong Panel
+            // Delete all contents of each box in panel
             this.txtbook_ID.ResetText();
             this.txtroom_ID.ResetText();
             this.txtLengthStay.ResetText();
             this.txtPrice.ResetText();
-            // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát
+            // Allow manipulation on buttons Add / Update / Delete / Back
             this.btnAdd.Enabled = true;
             this.btnFix.Enabled = true;
             this.btnDelete.Enabled = true;
-
-            // Không cho thao tác trên các nút Lưu / Hủy / Panel
+            // Ban manipulation on buttons Save / Cancel / Panel
             this.btnSave.Enabled = false;
             this.btnCancel.Enabled = false;
             this.panel.Enabled = false;
@@ -153,64 +182,28 @@ namespace HotelManagement_ADO.AdminForms
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // Mở kết nối
-            // Thêm dữ liệu
+            // Open connection
+            // Add data
             if (Them)
             {
                 BLRoomDetail blRd = new BLRoomDetail();
-                if (blRd.AddRoomDetail(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtroom_ID.Text), Convert.ToDouble(this.txtLengthStay.Text), Convert.ToInt32(this.txtPrice.Text), ref err))
-                    MessageBox.Show("Add successfully");
+                if (blRd.AddRoomDetail( Convert.ToInt32(this.txtbook_ID.Text), 
+                                        Convert.ToInt32(this.txtroom_ID.Text), ref err))
+                    MessageBox.Show("Add successfully!");
                 LoadData();
             }
             else
             {
-                // Thực hiện lệnh
+                // Execute command
                 BLRoomDetail blRd = new BLRoomDetail();
-                blRd.UpdateRoomDetail(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtroom_ID.Text), Convert.ToDouble(this.txtLengthStay.Text), Convert.ToInt32(this.txtPrice.Text), ref err);
-                // Load lại dữ liệu trên DataGridView
+                blRd.UpdateRoomDetail( Convert.ToInt32(this.txtbook_ID.Text), 
+                                       Convert.ToInt32(this.txtroom_ID.Text), ref err);
+                // Reload data to DataGridView
                 LoadData();
-                // Thông báo
-                MessageBox.Show("Đã sửa xong!");
+                // Announce
+                MessageBox.Show("Update successfully!");
             }
-            // Đóng kết nối
-        }
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Thực hiện lệnh
-                // Lấy thứ tự record hiện hành
-                int r = dgvROOMDETAIL.CurrentCell.RowIndex;
-                string strRD1 =
-                dgvROOMDETAIL.Rows[r].Cells[0].Value.ToString();
-                string strRD2 =
-                dgvROOMDETAIL.Rows[r].Cells[1].Value.ToString();
-                // Viết câu lệnh SQL
-                // Hiện thông báo xác nhận việc xóa mẫu tin
-                // Khai báo biến traloi
-                DialogResult traloi;
-                // Hiện hộp thoại hỏi đáp
-                traloi = MessageBox.Show("Chắc xóa mẫu tin này không?", "Trả lời",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                // Kiểm tra có nhắp chọn nút Ok không?
-                if (traloi == DialogResult.Yes)
-                {
-                    dbRD.DeleteRoomDetail(ref err, Convert.ToInt32(strRD1), Convert.ToInt32(strRD2));
-                    // Cập nhật lại DataGridView
-                    LoadData();
-                    // Thông báo
-                    MessageBox.Show("Đã xóa xong!");
-                }
-                else
-                {
-                    // Thông báo
-                    MessageBox.Show("Không thực hiện việc xóa mẫu tin!");
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Không xóa được. Lỗi rồi!");
-            }
+            // Close connection
         }
     }
 }

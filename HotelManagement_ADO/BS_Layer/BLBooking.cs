@@ -19,13 +19,13 @@ namespace HotelManagement_ADO.BS_Layer
         }
         public DataSet TakeBooking()
         {
-            return db.ExecuteQueryDataSet("Select * from View_Booking", CommandType.Text);
+            return db.ExecuteQueryDataSet("UPDATE Booking SET TotalPrice = 0 SELECT * FROM View_Booking", CommandType.Text);
         }
         public bool AddBooking(int staffID, int cusID,int cusAmount, DateTime checkIn, DateTime checkOut, ref string err)
         {
             try
             {
-                string sql = $"exec SP_ADD_BOOKING {staffID}, {cusID},{cusAmount}, '{checkIn.ToString()}', '{checkOut.ToString()}'";
+                string sql = $"EXEC SP_ADD_BOOKING {staffID}, {cusID},{cusAmount}, '{checkIn.ToString()}', '{checkOut.ToString()}'";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -34,13 +34,12 @@ namespace HotelManagement_ADO.BS_Layer
                 return false;
             }
             return true;
-
         }
         public bool DeleteBooking(ref string err, int bookID)
         {
             try
             {
-                string sql = $"exec SP_DELETE_BOOKING {bookID}";
+                string sql = $"EXEC SP_DELETE_BOOKING {bookID}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -54,7 +53,7 @@ namespace HotelManagement_ADO.BS_Layer
         {
             try
             {
-                string sql = $"exec SP_UPDATE_BOOKING {bookID},{staffID}, {cusID},{cusAmount}, '{checkIn.ToString()}', '{checkOut.ToString()}'";
+                string sql = $"EXEC SP_UPDATE_BOOKING {bookID},{staffID}, {cusID},{cusAmount}, '{checkIn.ToString()}', '{checkOut.ToString()}'";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)

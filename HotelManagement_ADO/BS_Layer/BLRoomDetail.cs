@@ -9,7 +9,7 @@ using HotelManagement_ADO.DB_Layer;
 
 namespace HotelManagement_ADO.BS_Layer
 {
-    class BLRoomDetail
+    public class BLRoomDetail
     {
         DBMain db = null;
         public BLRoomDetail()
@@ -18,13 +18,13 @@ namespace HotelManagement_ADO.BS_Layer
         }
         public DataSet TakeRoomDetail()
         {
-            return db.ExecuteQueryDataSet("Select * from View_RoomDetail", CommandType.Text);
+            return db.ExecuteQueryDataSet("SELECT * FROM View_RoomDetail", CommandType.Text);
         }
-        public bool AddRoomDetail(int book_ID,int room_ID,double LenghthofStay, double Price,ref string err)
+        public bool AddRoomDetail(int book_ID,int room_ID, ref string err)
         {
             try
             {
-                string sql = $"exec SP_ADD_ROOM_DETAIL {book_ID},{room_ID}, {LenghthofStay}, {Price}";
+                string sql = $"EXEC SP_ADD_ROOM_DETAIL {book_ID},{room_ID}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -33,13 +33,12 @@ namespace HotelManagement_ADO.BS_Layer
                 return false;
             }
             return true;
-
         }
         public bool DeleteRoomDetail(ref string err, int book_ID, int room_ID)
         {
             try
             {
-                string sql = $"exec SP_DELETE_ROOM_DETAIL {book_ID}, {room_ID}";
+                string sql = $"EXEC SP_DELETE_ROOM_DETAIL {book_ID}, {room_ID}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -49,11 +48,11 @@ namespace HotelManagement_ADO.BS_Layer
             }
             return true;
         }
-        public bool UpdateRoomDetail(int book_ID, int room_ID, double LenghthofStay, double Price, ref string err)
+        public bool UpdateRoomDetail(int book_ID, int room_ID, ref string err)
         {
             try
             {
-                string sql = $"exec SP_UPDATE_ROOM_DETAIL {book_ID}, {room_ID}, {LenghthofStay}, {Price}";
+                string sql = $"EXEC SP_UPDATE_ROOM_DETAIL {book_ID}, {room_ID}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)

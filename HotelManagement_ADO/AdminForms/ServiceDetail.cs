@@ -24,27 +24,24 @@ namespace HotelManagement_ADO.AdminForms
         {
             try
             {
-                // Đưa dữ liệu lên DataGridView
+                // Transfer data to DataGridView
                 DataSet dataSet = dbSE.TakeServiceDetail();
                 DataTable dataTable = dataSet.Tables[0];
-                dgvServiceDetail.DataSource = dataTable;
-
-
                 // Set the DataSource of the DataGridView
                 dgvServiceDetail.DataSource = dataTable;
-
-                // Thay đổi độ rộng cột
+                // Resize column
                 dgvServiceDetail.AutoResizeColumns();
-                // Xóa trống các đối tượng trong Panel
+                // Delete all contents of each box in panel
                 this.txtSerID.ResetText();
                 this.txtBookID.ResetText();
                 this.txtNumUser.ResetText();
                 this.txtPrice.ResetText();
                 this.txtAmount.ResetText();
-                // Không cho thao tác trên các nút Lưu / Hủy
+                // Ban manipulation on buttons Save / Cancel
                 this.btnSave.Enabled = false;
                 this.btnCancel.Enabled = false;
-                // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
+                this.pnService.Enabled = false;
+                // Allow manipulation on buttons Add / Update / Delete / Back
                 this.btnAdd.Enabled = true;
                 this.btnUpdate.Enabled = true;
                 this.btnDelete.Enabled = true;
@@ -54,178 +51,167 @@ namespace HotelManagement_ADO.AdminForms
             }
             catch
             {
-                MessageBox.Show("Không lấy được nội dung trong table SERVICE. Lỗi rồi!!!");
+                MessageBox.Show("Cannot access to table ServiceDetail. An error occurred!!!");
             }
         }
-
-
-
+        private void dgvServiceDetail_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Order of current record
+            int r = dgvServiceDetail.CurrentCell.RowIndex;
+            // Transfer data to panel
+            this.txtSerID.Text = dgvServiceDetail.Rows[r].Cells[0].Value.ToString();
+            this.txtBookID.Text = dgvServiceDetail.Rows[r].Cells[1].Value.ToString();
+            this.txtNumUser.Text = dgvServiceDetail.Rows[r].Cells[2].Value.ToString();
+            this.txtPrice.Text = dgvServiceDetail.Rows[r].Cells[3].Value.ToString();
+            this.txtAmount.Text = dgvServiceDetail.Rows[r].Cells[4].Value.ToString();
+            this.dtpPaydate.Text = dgvServiceDetail.Rows[r].Cells[5].Value.ToString();
+        }
+        private void FormServiceDetail_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
             this.txtSerID.Enabled = true;
-
-            // Kich hoạt biến Them
+            this.txtBookID.Enabled = true;
+            // Activate Them variable
             Them = true;
-            // Xóa trống các đối tượng trong Panel
-            int newSerID = Convert.ToInt32(dgvServiceDetail.Rows[dgvServiceDetail.Rows.Count - 2].Cells[0].Value) + 1;
-            this.txtSerID.Text = newSerID.ToString();
-            this.txtBookID.ResetText();
-            this.txtNumUser.ResetText();
-            this.txtPrice.ResetText();
-            this.txtAmount.ResetText();
-            // Cho thao tác trên các nút Lưu / Hủy / Panel
-            this.btnSave.Enabled = true;
-            this.btnCancel.Enabled = true;
-            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
-            this.btnAdd.Enabled = false;
-            this.btnUpdate.Enabled = false;
-            this.btnDelete.Enabled = false;
-
-            // Đưa con trỏ đến TextField txtroomID
-            this.txtBookID.Focus();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            // Mở kết nối
-            // Thêm dữ liệu
-            if (Them)
-            {
-                BLServiceDetail dbSE = new BLServiceDetail();
-                if (dbSE.AddServiceDetail(Convert.ToInt32(this.txtSerID.Text), Convert.ToInt32(this.txtBookID.Text), Convert.ToInt32(this.txtNumUser.Text),Convert.ToInt32(this.txtAmount.Text), dtpPaydate.Value, ref err) == true) MessageBox.Show("Add successfully!"); ;
-
-                LoadData();
-            }
-            else
-            {
-                // Thực hiện lệnh
-                BLServiceDetail dbSE = new BLServiceDetail(); ;
-                dbSE.UpdateServiceDetail(Convert.ToInt32(this.txtSerID.Text), Convert.ToInt32(this.txtBookID.Text), Convert.ToInt32(this.txtNumUser.Text), Convert.ToInt32(this.txtAmount.Text), dtpPaydate.Value, ref err);
-                // Load lại dữ liệu trên DataGridView
-                LoadData();
-                // Thông báo
-                MessageBox.Show("Đã sửa xong!");
-            }
-            // Đóng kết nối
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            // Xóa trống các đối tượng trong Panel
+            // Delete all contents of each box in panel
             this.txtSerID.ResetText();
             this.txtBookID.ResetText();
             this.txtNumUser.ResetText();
             this.txtPrice.ResetText();
             this.txtAmount.ResetText();
-            // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát
-            this.btnAdd.Enabled = true;
-            this.btnUpdate.Enabled = true;
-            this.btnDelete.Enabled = true;
-            // Không cho thao tác trên các nút Lưu / Hủy / Panel
-            this.btnSave.Enabled = false;
-            this.btnCancel.Enabled = false;
-
-            dgvServiceDetail_CellClick(null, null);
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            // Kích hoạt biến Sửa
-            Them = false;
-            // Cho phép thao tác trên Panel
-            dgvServiceDetail_CellClick(null, null);
-            // Cho thao tác trên các nút Lưu / Hủy / Panel
+            // Allow manipulation on buttons Save / Cancel / Panel
             this.btnSave.Enabled = true;
             this.btnCancel.Enabled = true;
-            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
+            this.pnService.Enabled = true;
+            // Ban manipulation on buttons Add / Update / Delete / Back
             this.btnAdd.Enabled = false;
             this.btnUpdate.Enabled = false;
             this.btnDelete.Enabled = false;
 
-            // Đưa con trỏ đến TextField txtroomID
-            this.txtSerID.Enabled = false;
+            // Point to textfield txtroomID
+            this.txtSerID.Focus();
+        }
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            // Activate Fix variable
+            Them = false;
+            // Allow manipulation in panel
+            this.pnService.Enabled = true;
+            dgvServiceDetail_CellClick(null, null);
+            // Allow manipulation on buttons Save / Cancel / Panel
+            this.btnSave.Enabled = true;
+            this.btnCancel.Enabled = true;
+            this.pnService.Enabled = true;
+            // Ban manipulation on buttons Add / Update / Delete / Back
+            this.btnAdd.Enabled = false;
+            this.btnUpdate.Enabled = false;
+            this.btnDelete.Enabled = false;
+
+            // Point to textfield txtSerID
             this.txtBookID.Focus();
         }
-
-        private void btnReload_Click(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            // Khai báo biến traloi
-            DialogResult traloi;
-            // Hiện hộp thoại hỏi đáp
-            traloi = MessageBox.Show("Chắc không?", "Trả lời",
-            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            // Kiểm tra có nhắp chọn nút Ok không?
-            if (traloi == DialogResult.OK) this.Close();
-        }
-
-        private void FormServiceDetail_Load(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
-        private void dgvServiceDetail_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Thứ tự dòng hiện hành
-            int r = dgvServiceDetail.CurrentCell.RowIndex;
-            // Chuyển thông tin lên panel
-            this.txtSerID.Text =
-            dgvServiceDetail.Rows[r].Cells[0].Value.ToString();
-            this.txtBookID.Text =
-            dgvServiceDetail.Rows[r].Cells[1].Value.ToString();
-            this.txtNumUser.Text =
-            dgvServiceDetail.Rows[r].Cells[2].Value.ToString();
-            this.txtPrice.Text =
-            dgvServiceDetail.Rows[r].Cells[3].Value.ToString();
-            this.txtAmount.Text =
-            dgvServiceDetail.Rows[r].Cells[4].Value.ToString();
-            this.dtpPaydate.Text =
-            dgvServiceDetail.Rows[r].Cells[5].Value.ToString();
-        }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                // Thực hiện lệnh
-                // Lấy thứ tự record hiện hành
+                // Execute command
+                // Get the order of current record
                 int r = dgvServiceDetail.CurrentCell.RowIndex;
-                string strSD1 =
-                dgvServiceDetail.Rows[r].Cells[0].Value.ToString();
-                string strSD2 =
-                dgvServiceDetail.Rows[r].Cells[1].Value.ToString();
-                string strSD3 =
-                dgvServiceDetail.Rows[r].Cells[5].Value.ToString();
-                // Viết câu lệnh SQL
-                // Hiện thông báo xác nhận việc xóa mẫu tin
-                // Khai báo biến traloi
-                DialogResult traloi;
-                // Hiện hộp thoại hỏi đáp
-                traloi = MessageBox.Show("Chắc xóa mẫu tin này không?", "Trả lời",
+                string strSD1 = dgvServiceDetail.Rows[r].Cells[0].Value.ToString();
+                string strSD2 = dgvServiceDetail.Rows[r].Cells[1].Value.ToString();
+                string strSD3 = dgvServiceDetail.Rows[r].Cells[5].Value.ToString();
+                // Write SQL command
+                // Announce delete info confirmation
+                // Declare answering variable
+                DialogResult ans;
+                // Display Q&A box
+                ans = MessageBox.Show("Are you sure deleting this?", "Answer",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                // Kiểm tra có nhắp chọn nút Ok không?
-                if (traloi == DialogResult.Yes)
+                // Check if press OK button
+                if (ans == DialogResult.Yes)
                 {
-                    dbSE.DeleteServiceDetail(ref err, Convert.ToInt32(strSD1), Convert.ToInt32(strSD2),DateTime.Parse(strSD3));
-                    // Cập nhật lại DataGridView
+                    dbSE.DeleteServiceDetail(ref err, Convert.ToInt32(strSD1), Convert.ToInt32(strSD2), DateTime.Parse(strSD3));
+                    // Reupdate DataGridView
                     LoadData();
-                    // Thông báo
-                    MessageBox.Show("Đã xóa xong!");
+                    // Announce
+                    MessageBox.Show("Delete successfully!");
                 }
                 else
                 {
-                    // Thông báo
-                    MessageBox.Show("Không thực hiện việc xóa mẫu tin!");
+                    // Announce
+                    MessageBox.Show("Cancel deleting record!");
                 }
             }
             catch
             {
-                MessageBox.Show("Không xóa được. Lỗi rồi!");
+                MessageBox.Show("Cannot delete this. An error occurred!!!");
             }
+        }
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            // Declare answering variable
+            DialogResult ans;
+            // Display Q&A box
+            ans = MessageBox.Show("Are you sure?", "Answer",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            // Check if press OK button
+            if (ans == DialogResult.OK) this.Close();
+        }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            // Delete all contents of each box in panel
+            this.txtSerID.ResetText();
+            this.txtBookID.ResetText();
+            this.txtNumUser.ResetText();
+            this.txtPrice.ResetText();
+            this.txtAmount.ResetText();
+            // Allow manipulation on buttons Add / Update / Delete / Back
+            this.btnAdd.Enabled = true;
+            this.btnUpdate.Enabled = true;
+            this.btnDelete.Enabled = true;
+            // Ban manipulation on buttons Save / Cancel / Panel
+            this.btnSave.Enabled = false;
+            this.btnCancel.Enabled = false;
+            this.pnService.Enabled = false;
+            dgvServiceDetail_CellClick(null, null);
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            // Open connection
+            // Add data
+            if (Them)
+            {
+                BLServiceDetail dbSE = new BLServiceDetail();
+                if (dbSE.AddServiceDetail( Convert.ToInt32(this.txtSerID.Text), 
+                                           Convert.ToInt32(this.txtBookID.Text), 
+                                           Convert.ToInt32(this.txtNumUser.Text), 
+                                           Convert.ToInt32(this.txtAmount.Text), 
+                                           dtpPaydate.Value, ref err))
+                    MessageBox.Show("Add successfully!"); ;
+                LoadData();
+            }
+            else
+            {
+                // Execute command
+                BLServiceDetail dbSE = new BLServiceDetail(); ;
+                dbSE.UpdateServiceDetail( Convert.ToInt32(this.txtSerID.Text), 
+                                          Convert.ToInt32(this.txtBookID.Text), 
+                                          Convert.ToInt32(this.txtNumUser.Text), 
+                                          Convert.ToInt32(this.txtAmount.Text), 
+                                          dtpPaydate.Value, ref err);
+                // Reload data to DataGridView
+                LoadData();
+                // Announce
+                MessageBox.Show("Update successfully!");
+            }
+            // Close connection
         }
     }
 }

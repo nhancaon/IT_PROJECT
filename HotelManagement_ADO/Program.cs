@@ -21,7 +21,7 @@ namespace HotelManagement_ADO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin());
+            Application.Run(new ServiceDetail());
             //Application.Run(new InteractionInterface());
             //Application.Run(new EmployeeService());
         }

@@ -61,10 +61,10 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(228, 699);
+            this.btnUpdate.Location = new System.Drawing.Point(177, 545);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(147, 49);
+            this.btnUpdate.Size = new System.Drawing.Size(113, 49);
             this.btnUpdate.TabIndex = 178;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -83,7 +83,7 @@
             this.cbGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cbGender.Location = new System.Drawing.Point(195, 219);
+            this.cbGender.Location = new System.Drawing.Point(195, 199);
             this.cbGender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(180, 36);
@@ -92,7 +92,7 @@
             // txtIdentifyNumber
             // 
             this.txtIdentifyNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdentifyNumber.Location = new System.Drawing.Point(193, 433);
+            this.txtIdentifyNumber.Location = new System.Drawing.Point(195, 405);
             this.txtIdentifyNumber.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdentifyNumber.Name = "txtIdentifyNumber";
             this.txtIdentifyNumber.Size = new System.Drawing.Size(180, 30);
@@ -101,7 +101,7 @@
             // txtAdd
             // 
             this.txtAdd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdd.Location = new System.Drawing.Point(193, 364);
+            this.txtAdd.Location = new System.Drawing.Point(195, 335);
             this.txtAdd.Margin = new System.Windows.Forms.Padding(4);
             this.txtAdd.Name = "txtAdd";
             this.txtAdd.Size = new System.Drawing.Size(291, 30);
@@ -110,7 +110,7 @@
             // txtPhoneNo
             // 
             this.txtPhoneNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhoneNo.Location = new System.Drawing.Point(195, 294);
+            this.txtPhoneNo.Location = new System.Drawing.Point(195, 264);
             this.txtPhoneNo.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhoneNo.Name = "txtPhoneNo";
             this.txtPhoneNo.Size = new System.Drawing.Size(180, 30);
@@ -136,7 +136,7 @@
             this.panel.Location = new System.Drawing.Point(33, 79);
             this.panel.Margin = new System.Windows.Forms.Padding(4);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(539, 544);
+            this.panel.Size = new System.Drawing.Size(539, 458);
             this.panel.TabIndex = 183;
             // 
             // label7
@@ -145,7 +145,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(11, 433);
+            this.label7.Location = new System.Drawing.Point(13, 410);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(163, 25);
@@ -158,7 +158,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(55, 364);
+            this.label6.Location = new System.Drawing.Point(13, 340);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 25);
@@ -171,7 +171,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(37, 294);
+            this.label5.Location = new System.Drawing.Point(13, 269);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(113, 25);
@@ -182,7 +182,7 @@
             // 
             this.dtpBirthday.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBirthday.Location = new System.Drawing.Point(195, 154);
+            this.dtpBirthday.Location = new System.Drawing.Point(195, 140);
             this.dtpBirthday.Margin = new System.Windows.Forms.Padding(4);
             this.dtpBirthday.Name = "dtpBirthday";
             this.dtpBirthday.Size = new System.Drawing.Size(140, 30);
@@ -195,7 +195,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(63, 230);
+            this.label2.Location = new System.Drawing.Point(13, 210);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 25);
@@ -208,7 +208,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(55, 154);
+            this.label3.Location = new System.Drawing.Point(13, 145);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 25);
@@ -218,7 +218,7 @@
             // txtFullName
             // 
             this.txtFullName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFullName.Location = new System.Drawing.Point(195, 86);
+            this.txtFullName.Location = new System.Drawing.Point(195, 81);
             this.txtFullName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Size = new System.Drawing.Size(281, 30);
@@ -230,7 +230,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(45, 86);
+            this.label1.Location = new System.Drawing.Point(13, 86);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 25);
@@ -291,7 +291,7 @@
             this.dgvCUSTOMERS.RowHeadersVisible = false;
             this.dgvCUSTOMERS.RowHeadersWidth = 51;
             this.dgvCUSTOMERS.RowTemplate.Height = 24;
-            this.dgvCUSTOMERS.Size = new System.Drawing.Size(962, 544);
+            this.dgvCUSTOMERS.Size = new System.Drawing.Size(922, 544);
             this.dgvCUSTOMERS.TabIndex = 184;
             this.dgvCUSTOMERS.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvCUSTOMERS.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -319,10 +319,10 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(1225, 699);
+            this.btnCancel.Location = new System.Drawing.Point(246, 615);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(147, 49);
+            this.btnCancel.Size = new System.Drawing.Size(113, 49);
             this.btnCancel.TabIndex = 180;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -331,10 +331,10 @@
             // btnReload
             // 
             this.btnReload.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(672, 699);
+            this.btnReload.Location = new System.Drawing.Point(459, 545);
             this.btnReload.Margin = new System.Windows.Forms.Padding(4);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(147, 49);
+            this.btnReload.Size = new System.Drawing.Size(113, 49);
             this.btnReload.TabIndex = 176;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;
@@ -343,10 +343,10 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(425, 699);
+            this.btnDelete.Location = new System.Drawing.Point(322, 545);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(147, 49);
+            this.btnDelete.Size = new System.Drawing.Size(113, 49);
             this.btnDelete.TabIndex = 181;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -355,10 +355,10 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(881, 699);
+            this.btnBack.Location = new System.Drawing.Point(96, 615);
             this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(147, 49);
+            this.btnBack.Size = new System.Drawing.Size(113, 49);
             this.btnBack.TabIndex = 182;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -367,10 +367,10 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(33, 699);
+            this.btnAdd.Location = new System.Drawing.Point(33, 545);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(147, 49);
+            this.btnAdd.Size = new System.Drawing.Size(113, 49);
             this.btnAdd.TabIndex = 177;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -379,10 +379,10 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(1427, 699);
+            this.btnSave.Location = new System.Drawing.Point(396, 615);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(147, 49);
+            this.btnSave.Size = new System.Drawing.Size(113, 49);
             this.btnSave.TabIndex = 179;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -393,7 +393,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(1624, 863);
+            this.ClientSize = new System.Drawing.Size(1582, 753);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.dgvCUSTOMERS);

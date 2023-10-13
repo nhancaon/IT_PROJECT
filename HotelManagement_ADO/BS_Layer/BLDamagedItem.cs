@@ -18,13 +18,13 @@ namespace HotelManagement_ADO.BS_Layer
         }
         public DataSet TakeDamagedItem()
         {
-            return db.ExecuteQueryDataSet("Select * from View_DamagedItem", CommandType.Text);
+            return db.ExecuteQueryDataSet("SELECT * FROM View_DamagedItem", CommandType.Text);
         }
         public bool AddDamagedItem(string itemName, int book_ID, int DamagedAmount, ref string err)
         {
             try
             {
-                string sql = $"exec SP_ADD_DAMAGED_ITEM {itemName},{book_ID}, {DamagedAmount}";
+                string sql = $"EXEC SP_ADD_DAMAGED_ITEM {itemName},{book_ID}, {DamagedAmount}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -33,13 +33,12 @@ namespace HotelManagement_ADO.BS_Layer
                 return false;
             }
             return true;
-
         }
         public bool DeleteDamagedItem(ref string err, int itemID,int book_ID)
         {
             try
             {
-                string sql = $"exec SP_DELETE_DAMAGED_ITEM {itemID},{book_ID }";
+                string sql = $"EXEC SP_DELETE_DAMAGED_ITEM {itemID},{book_ID }";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -53,7 +52,7 @@ namespace HotelManagement_ADO.BS_Layer
         {
             try
             {
-                string sql = $"exec SP_UPDATE_DAMAGED_ITEM {itemName},{book_ID}, {DamagedAmount}";
+                string sql = $"EXEC SP_UPDATE_DAMAGED_ITEM {itemName},{book_ID}, {DamagedAmount}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)

@@ -19,13 +19,13 @@ namespace HotelManagement_ADO.BS_Layer
         }
         public DataSet TakeService()
         {
-            return db.ExecuteQueryDataSet("Select * from View_Service", CommandType.Text);
+            return db.ExecuteQueryDataSet("SELECT * FROM View_Service", CommandType.Text);
         }
         public bool AddService(string Title,double Price, int Amount,string UnitandNote,ref string err)
         {
             try
             {
-                string sql = $"exec SP_ADD_SERVICE '{Title}', '{Price}', '{Amount}', {UnitandNote}";
+                string sql = $"EXEC SP_ADD_SERVICE '{Title}', '{Price}', '{Amount}', {UnitandNote}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -40,7 +40,7 @@ namespace HotelManagement_ADO.BS_Layer
         {
             try
             {
-                string sql = $"exec SP_DELETE_SERVICE {serID}";
+                string sql = $"EXEC SP_DELETE_SERVICE {serID}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -54,7 +54,7 @@ namespace HotelManagement_ADO.BS_Layer
         {
             try
             {
-                string sql = $"exec SP_UPDATE_SERVICE '{serID}','{Title}', '{Price}', '{Amount}', {UnitandNote}";
+                string sql = $"EXEC SP_UPDATE_SERVICE '{serID}','{Title}', '{Price}', '{Amount}', {UnitandNote}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)

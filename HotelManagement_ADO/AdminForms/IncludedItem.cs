@@ -13,10 +13,8 @@ namespace HotelManagement_ADO.AdminForms
 {
     public partial class IncludedItem : Form
     {
-        // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
         string err;
-
         BLIncludedItem dbIncludedItem = new BLIncludedItem();
         public IncludedItem()
         {
@@ -26,23 +24,22 @@ namespace HotelManagement_ADO.AdminForms
         {
             try
             {
-
-                // Đưa dữ liệu lên DataGridView
+                // Transfer data to DataGridView
                 DataSet dataSet = dbIncludedItem.TakeIncludedItem();
                 DataTable dataTable = dataSet.Tables[0];
-
+                // Set the DataSource of the DataGridView
                 dgvINCLUDEDITEM.DataSource = dataTable;
-                // Xóa trống các đối tượng trong Panel
+                // Delete all contents of each box in panel
                 this.txtitemID.ResetText();
                 this.txtitemName.ResetText();
                 this.txtroomType.ResetText();
                 this.txtiiPrice.ResetText();
                 this.txtiiAmount.ResetText();
-                // Không cho thao tác trên các nút Lưu / Hủy
+                // Ban manipulation on buttons Save / Cancel
                 this.btnSave.Enabled = false;
                 this.btnCancel.Enabled = false;
                 this.panel.Enabled = false;
-                // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
+                // Allow manipulation on buttons Add / Update / Delete / Back
                 this.btnAdd.Enabled = true;
                 this.btnFix.Enabled = true;
                 this.btnDelete.Enabled = true;
@@ -52,22 +49,34 @@ namespace HotelManagement_ADO.AdminForms
             }
             catch
             {
-                MessageBox.Show("Không lấy được nội dung trong table INCLUDEDITEM. Lỗi rồi!!!");
+                MessageBox.Show("Cannot access to table RoomDetail. An error occurred!!!");
             }
         }
-
+        private void dgvINCLUDEDITEM_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Order of current record
+            int r = dgvINCLUDEDITEM.CurrentCell.RowIndex;
+            // Transfer data to panel
+            this.txtitemID.Text = dgvINCLUDEDITEM.Rows[r].Cells[0].Value.ToString();
+            this.txtitemName.Text = dgvINCLUDEDITEM.Rows[r].Cells[1].Value.ToString();
+            this.txtroomType.Text = dgvINCLUDEDITEM.Rows[r].Cells[2].Value.ToString();
+            this.txtiiPrice.Text = dgvINCLUDEDITEM.Rows[r].Cells[3].Value.ToString();
+            this.txtiiAmount.Text = dgvINCLUDEDITEM.Rows[r].Cells[4].Value.ToString();
+        }
         private void IncludedItem_Load(object sender, EventArgs e)
         {
             LoadData();
         }
-
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
             this.txtitemID.Enabled = true;
-
-            // Kich hoạt biến Them
+            // Activate Them variable
             Them = true;
-            // Xóa trống các đối tượng trong Panel
+            // Delete all contents of each box in panel
             int newIncludedItem = Convert.ToInt32(dgvINCLUDEDITEM.Rows[dgvINCLUDEDITEM.Rows.Count - 2].Cells[0].Value) + 1;
 
             this.txtitemID.Text = newIncludedItem.ToString();
@@ -75,81 +84,73 @@ namespace HotelManagement_ADO.AdminForms
             this.txtroomType.ResetText();
             this.txtiiPrice.ResetText();
             this.txtiiAmount.ResetText();
-            // Cho thao tác trên các nút Lưu / Hủy / Panel
+            // Allow manipulation on buttons Save / Cancel / Panel
             this.btnSave.Enabled = true;
             this.btnCancel.Enabled = true;
             this.panel.Enabled = true;
-            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
+            // Ban manipulation on buttons Add / Update / Delete / Back
             this.btnAdd.Enabled = false;
             this.btnFix.Enabled = false;
             this.btnDelete.Enabled = false;
 
-            // Đưa con trỏ đến TextField txtitemID
+            // Point to textfield txtitemID
             this.txtitemName.Focus();
         }
-
         private void btnFix_Click(object sender, EventArgs e)
         {
-            // Kích hoạt biến Sửa
+            // Activate Fix variable
             Them = false;
-            // Cho phép thao tác trên Panel
+            // Allow manipulation in panel
             this.panel.Enabled = true;
             dgvINCLUDEDITEM_CellClick(null, null);
-            // Cho thao tác trên các nút Lưu / Hủy / Panel
+            // Allow manipulation on buttons Save / Cancel / Panel
             this.btnSave.Enabled = true;
             this.btnCancel.Enabled = true;
             this.panel.Enabled = true;
-            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
+            // Ban manipulation on buttons Add / Fix / Delete / Back
             this.btnAdd.Enabled = false;
             this.btnFix.Enabled = false;
             this.btnDelete.Enabled = false;
 
-            // Đưa con trỏ đến TextField txtbook_ID
+            // Point to textfield txtitemID
             this.txtitemID.Enabled = false;
             this.txtitemName.Focus();
         }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                // Thực hiện lệnh
-                // Lấy thứ tự record hiện hành
+                // Execute command
+                // Get the order of current record
                 int r = dgvINCLUDEDITEM.CurrentCell.RowIndex;
-                string strII1 = dgvINCLUDEDITEM.Rows[r].Cells[0].Value.ToString();
-                // Viết câu lệnh SQL
-                // Hiện thông báo xác nhận việc xóa mẫu tin
-                // Khai báo biến traloi
-                DialogResult traloi;
-                // Hiện hộp thoại hỏi đáp
-                traloi = MessageBox.Show("Chắc xóa mẫu tin này không?", "Trả lời",
+                string strII = dgvINCLUDEDITEM.Rows[r].Cells[0].Value.ToString();
+                // Write SQL command
+                // Announce delete info confirmation
+                // Declare answering variable
+                DialogResult ans;
+                // Display Q&A box
+                ans = MessageBox.Show("Are you sure deleting this?", "Answer",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                // Kiểm tra có nhắp chọn nút Ok không?
-                if (traloi == DialogResult.Yes)
+                // Check if press OK button
+                if (ans == DialogResult.Yes)
                 {
-                    dbIncludedItem.DeleteIncludedItem(ref err, Convert.ToInt32(strII1));
-                    // Cập nhật lại DataGridView
+                    dbIncludedItem.DeleteIncludedItem(ref err, Convert.ToInt32(strII));
+                    // Reupdate DataGridView
                     LoadData();
-                    // Thông báo
-                    MessageBox.Show("Đã xóa xong!");
+                    // Announce
+                    MessageBox.Show("Delete successfully!");
                 }
                 else
                 {
-                    // Thông báo
-                    MessageBox.Show("Không thực hiện việc xóa mẫu tin!");
+                    // Announce
+                    MessageBox.Show("Cancel deleting record!");
                 }
             }
             catch
             {
-                MessageBox.Show("Không xóa được. Lỗi rồi!");
+                MessageBox.Show("Cannot delete this. An error occurred!!!");
             }
         }
-
-        private void btnReload_Click(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             // Declare answering variable
@@ -160,7 +161,6 @@ namespace HotelManagement_ADO.AdminForms
             // Check if press OK button
             if (ans == DialogResult.OK) this.Close();
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             // Delete all contents of each box in panel
@@ -169,22 +169,20 @@ namespace HotelManagement_ADO.AdminForms
             this.txtroomType.ResetText();
             this.txtiiPrice.ResetText();
             this.txtiiAmount.ResetText();
-            // Allow manipulation in button Add / Fix / Delete / Back
+            // Allow manipulation on buttons Add / Fix / Delete / Back
             this.btnAdd.Enabled = true;
             this.btnFix.Enabled = true;
             this.btnDelete.Enabled = true;
-
-            // Ban manipulation in button Save / Cancel / Panel
+            // Ban manipulation on buttons Save / Cancel / Panel
             this.btnSave.Enabled = false;
             this.btnCancel.Enabled = false;
             this.panel.Enabled = false;
             dgvINCLUDEDITEM_CellClick(null, null);
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // Mở kết nối
-            // Thêm dữ liệu
+            // Open connection
+            // Add data
             if (Them)
             {
                 BLIncludedItem ii = new BLIncludedItem();
@@ -192,36 +190,24 @@ namespace HotelManagement_ADO.AdminForms
                                         this.txtroomType.Text, 
                                         Convert.ToDouble(this.txtiiPrice.Text),
                                         Convert.ToInt32(this.txtiiAmount.Text), ref err))
-                MessageBox.Show("Add successfully");
+                    MessageBox.Show("Add successfully");
                 LoadData();
             }
             else
             {
-                // Thực hiện lệnh
+                // Execute command
                 BLIncludedItem ii = new BLIncludedItem();
                 ii.UpdateIncludedItem( Convert.ToInt32(this.txtitemID.Text), 
                                        this.txtitemName.Text,
                                        this.txtroomType.Text,
                                        Convert.ToDouble(this.txtiiPrice.Text), 
                                        Convert.ToInt32(this.txtiiAmount.Text), ref err);
-                // Load lại dữ liệu trên DataGridView
+                // Reload data to DataGridView
                 LoadData();
-                // Thông báo
-                MessageBox.Show("Đã sửa xong!");
+                // Announce
+                MessageBox.Show("Update successfully!");
             }
-            // Đóng kết nối
-        }
-
-        private void dgvINCLUDEDITEM_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Thứ tự dòng hiện hành
-            int r = dgvINCLUDEDITEM.CurrentCell.RowIndex;
-            // Chuyển thông tin lên panel
-            this.txtitemID.Text = dgvINCLUDEDITEM.Rows[r].Cells[0].Value.ToString();
-            this.txtitemName.Text = dgvINCLUDEDITEM.Rows[r].Cells[1].Value.ToString();
-            this.txtroomType.Text = dgvINCLUDEDITEM.Rows[r].Cells[2].Value.ToString();
-            this.txtiiPrice.Text = dgvINCLUDEDITEM.Rows[r].Cells[3].Value.ToString();
-            this.txtiiAmount.Text = dgvINCLUDEDITEM.Rows[r].Cells[4].Value.ToString();
+            // Close connection
         }
     }
 }

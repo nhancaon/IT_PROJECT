@@ -18,13 +18,13 @@ namespace HotelManagement_ADO.BS_Layer
         }
         public DataSet TakeIncludedItem()
         {
-            return db.ExecuteQueryDataSet("Select * from View_IncludedItem", CommandType.Text);
+            return db.ExecuteQueryDataSet("SELECT * FROM View_IncludedItem", CommandType.Text);
         }
         public bool AddIncludedItem(string itemName, string roomType,double iiPrice,int Amount, ref string err)
         {
             try
             {
-                string sql = $"exec SP_ADD_INCLUDED_ITEM {itemName}, {roomType},{iiPrice}, '{Amount}'";
+                string sql = $"EXEC SP_ADD_INCLUDED_ITEM {itemName}, {roomType},{iiPrice}, '{Amount}'";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -33,13 +33,12 @@ namespace HotelManagement_ADO.BS_Layer
                 return false;
             }
             return true;
-
         }
         public bool DeleteIncludedItem(ref string err, int itemID)
         {
             try
             {
-                string sql = $"exec SP_DELETE_INCLUDED_ITEM {itemID}";
+                string sql = $"EXEC SP_DELETE_INCLUDED_ITEM {itemID}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -53,7 +52,7 @@ namespace HotelManagement_ADO.BS_Layer
         {
             try
             {
-                string sql = $"exec SP_UPDATE_INCLUDED_ITEM {itemID},{itemName}, {roomType},{iiPrice}, {Amount}";
+                string sql = $"EXEC SP_UPDATE_INCLUDED_ITEM {itemID},{itemName}, {roomType},{iiPrice}, {Amount}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)

@@ -19,7 +19,7 @@ namespace HotelManagement_ADO.BS_Layer
         }
         public DataSet TakeUser()
         {
-            return db.ExecuteQueryDataSet("Select * from View_Users", CommandType.Text);
+            return db.ExecuteQueryDataSet("SELECT * FROM View_Users", CommandType.Text);
         }
         public DataSet FindUser(int ID, string Name)
         {
@@ -31,13 +31,12 @@ namespace HotelManagement_ADO.BS_Layer
             };
             return db.ExecuteQueryDataSet3(query, CommandType.Text, parameters);
         }
-
         public bool AddUser(string Fullname, string password, DateTime Birthday, bool Gender, string Email, string Phone_Number, string Address, int role_id, ref string err)
         {
             try
             {
                 string genderValue = Gender ? "1" : "0";
-                string sql = $"exec SP_ADD_USER N'{Fullname}', '{Birthday.ToString()}', '{genderValue}', '{Email}', '{Phone_Number}', '{Address}', {role_id}, '{password}'";
+                string sql = $"EXEC SP_ADD_USER N'{Fullname}', '{Birthday.ToString()}', '{genderValue}', '{Email}', '{Phone_Number}', '{Address}', {role_id}, '{password}'";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -46,13 +45,12 @@ namespace HotelManagement_ADO.BS_Layer
                 return false;
             }
             return true;
-
         }
         public bool DeleteUser(ref string err, int userID)
         {
             try
             {
-                string sql = $"exec SP_DELETE_USER {userID}";
+                string sql = $"EXEC SP_DELETE_USER {userID}";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)

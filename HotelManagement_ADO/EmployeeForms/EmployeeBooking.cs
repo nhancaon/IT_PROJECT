@@ -39,6 +39,7 @@ namespace HotelManagement_ADO.EmployeeForms
         bool existAdd;
         bool nonexistAdd;
         string err;
+
         public EmployeeBooking()
         {
             InitializeComponent();
@@ -87,60 +88,34 @@ namespace HotelManagement_ADO.EmployeeForms
 
             if (!string.IsNullOrEmpty(name))
             {
-                //string pro = $"SELECT * FROM fn_findBookingCustomerByName(N'{name}')";
-                //using (DataSet dataSet = db.ExecuteQueryDataSet(pro, CommandType.Text))
-                //{
-                //    DataTable dataTable = dataSet.Tables[0];
-                //    dgvBookedRoom.DataSource = dataTable;
-                //}
                 if (!string.IsNullOrEmpty(id))
                 {
-                    //string pro = $"Exec FindCustomerByNameANDIDC N'{name}', '{id}'";
-                    //using (DataSet dataSet = db.ExecuteQueryDataSet(pro, CommandType.Text))
-                    //{
-                    //    DataTable dataTable = dataSet.Tables[0];
-                    //    dgvBookedRoom.DataSource = dataTable;
-                    //}
-
+                    string pro = $"EXEC SP_FindCustomerByNameAndID N'{name}', '{id}'";
+                    using (DataSet dataSet = db.ExecuteQueryDataSet(pro, CommandType.Text))
+                    {
+                        DataTable dataTable = dataSet.Tables[0];
+                        dgvBookedRoom.DataSource = dataTable;
+                    }
                 }
                 else
                 {
-                    //string pro = $"SELECT * FROM fn_findBookingCustomerByName(N'{name}')";
-                    //using (DataSet dataSet = db.ExecuteQueryDataSet(pro, CommandType.Text))
-                    //{
-                    //    DataTable dataTable = dataSet.Tables[0];
-                    //    dgvBookedRoom.DataSource = dataTable;
-                    //}
+                    string pro1 = $"EXEC SP_FindCustomerByName N'{name}'";
+                    using (DataSet dataSet = db.ExecuteQueryDataSet(pro1, CommandType.Text))
+                    {
+                        DataTable dataTable = dataSet.Tables[0];
+                        dgvBookedRoom.DataSource = dataTable;
+                    }
                 }
             }
             else if (!string.IsNullOrEmpty(id))
             {
-                //string pro = $"SELECT * FROM fn_FindCustomerByIDC('{id}')";
-                //using (DataSet dataSet = db.ExecuteQueryDataSet(pro, CommandType.Text))
-                //{
-                //    DataTable dataTable = dataSet.Tables[0];
-                //    dgvBookedRoom.DataSource = dataTable;
-                //}
+                string pro = $"EXEC SP_FindCustomerByIDC '{id}'";
+                using (DataSet dataSet = db.ExecuteQueryDataSet(pro, CommandType.Text))
+                {
+                    DataTable dataTable = dataSet.Tables[0];
+                    dgvBookedRoom.DataSource = dataTable;
+                }
             }
-            //if (!string.IsNullOrEmpty(name))
-            //{
-            //if (!string.IsNullOrEmpty(id))
-            //{
-            //    var pro = qlhotelEntity.FindCustomerByNameANDIDC(name, id).ToList();
-            //    dgvBookedRoom.DataSource = pro;
-
-            //}
-            //else
-            //{
-            //    var pro1 = qlhotelEntity.FindCustomerByName(name).ToList();
-            //    dgvBookedRoom.DataSource = pro1;
-            //}
-            //}
-            //else if (!string.IsNullOrEmpty(id))
-            //{
-            //    var pro2 = qlhotelEntity.FindCustomerByIDC(id).ToList();
-            //    dgvBookedRoom.DataSource = pro2;
-            //}
 
             dgvBookedRoom.AutoGenerateColumns = true;
             dgvBookedRoom.ColumnHeadersHeight = 30;
@@ -155,9 +130,9 @@ namespace HotelManagement_ADO.EmployeeForms
                 {
                     ReturnCustomerID(name, id);
                     BLBooking blB = new BLBooking();
-                    if (blB.AddBooking( book_ID,
-                                        currentUserID,
+                    if (blB.AddBooking( currentUserID,
                                         customer_ID,
+                                        Convert.ToInt32(txtcusAmount.Text),
                                         DateTime.Parse(dateIN),
                                         DateTime.Parse(dateOUT), ref err))
                     MessageBox.Show("Add Booking successfully");
@@ -181,7 +156,7 @@ namespace HotelManagement_ADO.EmployeeForms
                                             txtPhoneNumber.Text,
                                             txtAddress.Text,
                                             txtIdentityNum.Text, ref err))
-                    MessageBox.Show("Add Customer successfully");
+                    //MessageBox.Show("Add Customer successfully");
                     Refresh();
                     LoadAvaiRoom();
                     LoadBookedRoom();
@@ -191,12 +166,12 @@ namespace HotelManagement_ADO.EmployeeForms
                     #region AddBooking for new Customers
                     ReturnCustomerID(name, id);
                     BLBooking blB = new BLBooking();
-                    if (blB.AddBooking( book_ID,
-                                        currentUserID, //dang tu nhap staff
+                    if (blB.AddBooking( currentUserID, //dang tu nhap staff
                                         customer_ID,
+                                        Convert.ToInt32(txtcusAmount.Text),
                                         DateTime.Parse(dateIN),
                                         DateTime.Parse(dateOUT), ref err))
-                    MessageBox.Show("Add Booking successfully");
+                    MessageBox.Show("This is new customer. Add Booking successfully");
                     Refresh();
                     LoadAvaiRoom();
                     LoadBookedRoom();
@@ -218,7 +193,7 @@ namespace HotelManagement_ADO.EmployeeForms
                                         txtPhoneNumber.Text,
                                         txtAddress.Text,
                                         txtIdentityNum.Text, ref err))
-                MessageBox.Show("Add Customer successfully");
+                //MessageBox.Show("Add Customer successfully");
                 Refresh();
                 LoadAvaiRoom();
                 LoadBookedRoom();
@@ -228,19 +203,19 @@ namespace HotelManagement_ADO.EmployeeForms
                 #region AddBooking for new Customers
                 ReturnCustomerID(name, id);
                 BLBooking blB = new BLBooking();
-                if (blB.AddBooking( book_ID,
-                                    currentUserID, //dang tu nhap staff
+                if (blB.AddBooking( currentUserID, //dang tu nhap staff
                                     customer_ID,
+                                    Convert.ToInt32(txtcusAmount.Text),
                                     DateTime.Parse(dateIN),
                                     DateTime.Parse(dateOUT), ref err))
-                MessageBox.Show("Add Booking successfully");
+                MessageBox.Show("This is new customer. Add Booking successfully");
                 Refresh();
                 LoadAvaiRoom();
                 LoadBookedRoom();
                 #endregion
 
                 ReturnBookID(DateTime.Parse(dateIN), DateTime.Parse(dateOUT));
-                //ReturnRoomID(book_ID);
+               // ReturnRoomID(book_ID);
             }
             addExistCustomer(existAdd);
             addNonExistCustomer(nonexistAdd);
@@ -254,22 +229,11 @@ namespace HotelManagement_ADO.EmployeeForms
                 //Add data into table Booking Detail
                 BLRoomDetail blBD = new BLRoomDetail();
                 if (blBD.AddRoomDetail( book_ID,
-                                        Convert.ToInt32(dgvAvaiRoom.Rows[rAvai].Cells[0].Value.ToString()),
-                                        Convert.ToInt32(dgvAvaiRoom.Rows[rAvai].Cells[4].Value.ToString()),
-                                        Unit, ref err))
+                                        Convert.ToInt32(dgvAvaiRoom.Rows[rAvai].Cells[0].Value.ToString()), ref err))
                 {
                     ReturnRoomID(book_ID);
-                    MessageBox.Show("Add Room Detail successfully");
+                    //MessageBox.Show("Add RoomDetail successfully");
                 }
-                   
-                //Add data into table Customer Detail
-                //BLCustomerDetail blCD = new BLCustomerDetail();
-                //if (blCD.AddCustomerDetail(
-                //    book_ID,
-                //    roomID,
-                //    customer_ID, ref err))
-                //    MessageBox.Show("Add Customer Detail successfully");
-
                 LoadAvaiRoom();
                 LoadBookedRoom();
             }
@@ -278,29 +242,17 @@ namespace HotelManagement_ADO.EmployeeForms
         void addNonExistCustomer(bool nonexistAdd)
         {
             // Open connection
-            // Adding data
+            // Add data
             if (nonexistAdd)
             {
                 //Add data into table Booking Detail
                 BLRoomDetail blBD = new BLRoomDetail();
                 if (blBD.AddRoomDetail( book_ID,
-                                        Convert.ToInt32(dgvAvaiRoom.Rows[rAvai].Cells[0].Value.ToString()),
-                                        Convert.ToInt32(dgvAvaiRoom.Rows[rAvai].Cells[4].Value.ToString()),
-                                        Unit, ref err))
+                                        Convert.ToInt32(dgvAvaiRoom.Rows[rAvai].Cells[0].Value.ToString()), ref err))
                 {
                     ReturnRoomID(book_ID);
-                    MessageBox.Show("Add Room Detail successfully");
+                    //MessageBox.Show("Add Room Detail successfully");
                 }
-                   
-
-                //Add data into table Customer Detail
-                //BLCustomerDetail blCD = new BLCustomerDetail();
-                //if (blCD.AddCustomerDetail(
-                //    book_ID,
-                //    roomID,
-                //    customer_ID, ref err))
-                //    MessageBox.Show("Add Customer Detail successfully");
-
                 LoadAvaiRoom();
                 LoadBookedRoom();
             }
@@ -315,7 +267,6 @@ namespace HotelManagement_ADO.EmployeeForms
             {
                 customer_ID = Convert.ToInt32(reader[0]);
             }
-    
         }
         void ReturnBookID(DateTime DateIn, DateTime DateOut)
         {
