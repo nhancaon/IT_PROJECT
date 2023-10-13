@@ -18,13 +18,13 @@ namespace HotelManagement_ADO.BS_Layer
         }
         public DataSet TakeServiceDetail()
         {
-            return db.ExecuteQueryDataSet("Select * from View_ServiceDetail", CommandType.Text);
+            return db.ExecuteQueryDataSet("SELECT * FROM View_ServiceDetail", CommandType.Text);
         }
         public bool AddServiceDetail(int service_ID, int book_ID, int NumberofUser, int Amount, DateTime Buy_Date, ref string err)
         {
             try
             {
-                string sql = $"exec SP_ADD_SERVICE_DETAIL {service_ID},{book_ID}, {NumberofUser},{Amount}, '{Buy_Date.ToString()}'";
+                string sql = $"EXEC SP_ADD_SERVICE_DETAIL {service_ID},{book_ID}, {NumberofUser},{Amount}, '{Buy_Date.ToString()}'";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)
@@ -33,7 +33,6 @@ namespace HotelManagement_ADO.BS_Layer
                 return false;
             }
             return true;
-
         }
         public bool DeleteServiceDetail(ref string err, int service_ID,int book_ID, DateTime Buy_Date)
         {
@@ -53,7 +52,7 @@ namespace HotelManagement_ADO.BS_Layer
         {
             try
             {
-                string sql = $"exec SP_UPDATE_SERVICE_DETAIL {service_ID},{book_ID}, {NumberofUser},{Amount}, '{Buy_Date.ToString()}'";
+                string sql = $"EXEC SP_UPDATE_SERVICE_DETAIL {service_ID},{book_ID}, {NumberofUser},{Amount}, '{Buy_Date.ToString()}'";
                 db.MyExecuteNonQuery(sql);
             }
             catch (Exception ex)

@@ -20,7 +20,6 @@ namespace HotelManagement_ADO.BS_Layer
         {
             return db.ExecuteQueryDataSet("SELECT * FROM View_Customers", CommandType.Text);
         }
-
         public bool AddCustomers(string name, DateTime birth, bool gender, string phoneNo, string address, string identify_number, ref string err)
         {
             try
@@ -66,5 +65,4 @@ namespace HotelManagement_ADO.BS_Layer
             }
         }
     }
-
 }

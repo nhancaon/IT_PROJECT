@@ -27,7 +27,6 @@ namespace HotelManagement_ADO.BS_Layer
             string strSql = "SELECT Email, password, role_id, Fullname, userID FROM Users";
             SqlDataReader read = null;
             read = db.ExecuteQueryDataReader(strSql, CommandType.Text);
-
             while (read.Read())
             {
                 string email = read.GetValue(0).ToString().Trim();
@@ -44,9 +43,7 @@ namespace HotelManagement_ADO.BS_Layer
                     break;
                 }
             }
-
             return result;
         }
-
     }
 }

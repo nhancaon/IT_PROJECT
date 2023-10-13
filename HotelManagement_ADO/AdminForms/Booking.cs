@@ -13,10 +13,8 @@ namespace HotelManagement_ADO.AdminForms
 {
     public partial class Booking : Form
     {
-        // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu
         bool Them;
         string err;
-
         BLBooking dbBooking = new BLBooking();
         public Booking()
         {
@@ -26,23 +24,22 @@ namespace HotelManagement_ADO.AdminForms
         {
             try
             {
-
-                // Đưa dữ liệu lên DataGridView
+                // Transfer data to DataGridView
                 DataSet dataSet = dbBooking.TakeBooking();
                 DataTable dataTable = dataSet.Tables[0];
-
+                // Set the DataSource of the DataGridView
                 dgvBOOKING.DataSource = dataTable;
-                // Xóa trống các đối tượng trong Panel
+                // Delete all contents of each box in panel
                 this.txtbook_ID.ResetText();
                 this.txtStaff_ID.ResetText();
                 this.txtCustomer_ID.ResetText();
                 this.txtCustomer_Amount.ResetText();
                 this.txtTotal_Price.ResetText();
-                // Không cho thao tác trên các nút Lưu / Hủy
+                // Ban manipulation on buttons Save / Cancel
                 this.btnSave.Enabled = false;
                 this.btnCancel.Enabled = false;
                 this.panel.Enabled = false;
-                // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
+                // Allow manipulation on buttons Add / Update / Delete / Back
                 this.btnAdd.Enabled = true;
                 this.btnFix.Enabled = true;
                 this.btnDelete.Enabled = true;
@@ -52,23 +49,36 @@ namespace HotelManagement_ADO.AdminForms
             }
             catch
             {
-                MessageBox.Show("Không lấy được nội dung trong table BOOKINGDETAIL. Lỗi rồi!!!");
+                MessageBox.Show("Cannot access to table Booking. An error occurred!!!");
             }
         }
-
+        private void dgvBOOKING_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Order of current record
+            int r = dgvBOOKING.CurrentCell.RowIndex;
+            // Transfer data to panel
+            this.txtbook_ID.Text = dgvBOOKING.Rows[r].Cells[0].Value.ToString();
+            this.txtStaff_ID.Text = dgvBOOKING.Rows[r].Cells[1].Value.ToString();
+            this.txtCustomer_ID.Text = dgvBOOKING.Rows[r].Cells[2].Value.ToString();
+            this.txtCustomer_Amount.Text = dgvBOOKING.Rows[r].Cells[3].Value.ToString();
+            this.dtpCheckIn.Text = dgvBOOKING.Rows[r].Cells[4].Value.ToString();
+            this.dtpCheckOut.Text = dgvBOOKING.Rows[r].Cells[5].Value.ToString();
+            this.txtTotal_Price.Text = dgvBOOKING.Rows[r].Cells[6].Value.ToString();
+        }
         private void Booking_Load(object sender, EventArgs e)
         {
             LoadData();
         }
-
-
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            this.txtbook_ID.Enabled = true;
-
-            // Kich hoạt biến Them
+            this.txtbook_ID.Enabled = false;
+            // Activate Them variable
             Them = true;
-            // Xóa trống các đối tượng trong Panel
+            // Delete all contents of each box in panel
             int newBookingID = Convert.ToInt32(dgvBOOKING.Rows[dgvBOOKING.Rows.Count - 2].Cells[0].Value) + 1;
 
             this.txtbook_ID.Text = newBookingID.ToString();
@@ -76,158 +86,134 @@ namespace HotelManagement_ADO.AdminForms
             this.txtCustomer_ID.ResetText();
             this.txtCustomer_Amount.ResetText();
             this.txtTotal_Price.ResetText();
-            // Cho thao tác trên các nút Lưu / Hủy / Panel
+            this.txtTotal_Price.Enabled = false;
+            // Allow manipulation on buttons Save / Cancel / Panel
             this.btnSave.Enabled = true;
             this.btnCancel.Enabled = true;
             this.panel.Enabled = true;
-            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
+            // Ban manipulation on buttons Add / Update / Delete / Back
             this.btnAdd.Enabled = false;
             this.btnFix.Enabled = false;
             this.btnDelete.Enabled = false;
 
-            // Đưa con trỏ đến TextField txtbook_ID
+            // Point to textfield txtbook_ID
             this.txtStaff_ID.Focus();
         }
-
         private void btnFix_Click(object sender, EventArgs e)
         {
-            // Kích hoạt biến Sửa
+            // Activate Fix variable
             Them = false;
-            // Cho phép thao tác trên Panel
+            // Allow manipulation in panel
             this.panel.Enabled = true;
+            this.txtTotal_Price.Enabled = false;
             dgvBOOKING_CellClick(null, null);
-            // Cho thao tác trên các nút Lưu / Hủy / Panel
+            // Allow manipulation on buttons Save / Cancel / Panel
             this.btnSave.Enabled = true;
             this.btnCancel.Enabled = true;
             this.panel.Enabled = true;
-            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
+            // Ban manipulation on buttons Add / Fix / Delete / Back
             this.btnAdd.Enabled = false;
             this.btnFix.Enabled = false;
             this.btnDelete.Enabled = false;
 
-            // Đưa con trỏ đến TextField txtbook_ID
+            // Point to textfield txtbook_ID
             this.txtbook_ID.Enabled = false;
             this.txtStaff_ID.Focus();
-
         }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                // Thực hiện lệnh
-                // Lấy thứ tự record hiện hành
+                // Execute command
+                // Get the order of current record
                 int r = dgvBOOKING.CurrentCell.RowIndex;
-                string strBD1 =
-                dgvBOOKING.Rows[r].Cells[0].Value.ToString();
-                // Viết câu lệnh SQL
-                // Hiện thông báo xác nhận việc xóa mẫu tin
-                // Khai báo biến traloi
-                DialogResult traloi;
-                // Hiện hộp thoại hỏi đáp
-                traloi = MessageBox.Show("Chắc xóa mẫu tin này không?", "Trả lời",
+                string strB = dgvBOOKING.Rows[r].Cells[0].Value.ToString();
+                // Write SQL command
+                // Announce delete info confirmation
+                // Declare answering variable
+                DialogResult ans;
+                // Display Q&A box
+                ans = MessageBox.Show("Are you sure deleting this?", "Answer",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                // Kiểm tra có nhắp chọn nút Ok không?
-                if (traloi == DialogResult.Yes)
+                // Check if press OK button
+                if (ans == DialogResult.Yes)
                 {
-                    dbBooking.DeleteBooking(ref err, Convert.ToInt32(strBD1));
-                    // Cập nhật lại DataGridView
+                    dbBooking.DeleteBooking(ref err, Convert.ToInt32(strB));
+                    // Reupdate DataGridView
                     LoadData();
-                    // Thông báo
-                    MessageBox.Show("Đã xóa xong!");
+                    // Announce
+                    MessageBox.Show("Delete successfully!");
                 }
                 else
                 {
-                    // Thông báo
-                    MessageBox.Show("Không thực hiện việc xóa mẫu tin!");
+                    // Announce
+                    MessageBox.Show("Cancel deleting record!");
                 }
             }
             catch
             {
-                MessageBox.Show("Không xóa được. Lỗi rồi!");
+                MessageBox.Show("Cannot delete this. An error occurred!!!");
             }
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-            // Mở kết nối
-            // Thêm dữ liệu
-            if (Them)
-            {
-                BLBooking bk = new BLBooking();
-                if (bk.AddBooking(Convert.ToInt32(this.txtStaff_ID.Text), Convert.ToInt32(this.txtCustomer_ID.Text), Convert.ToInt32(this.txtCustomer_Amount.Text), dtpCheckIn.Value, dtpCheckOut.Value, ref err))
-                    MessageBox.Show("Add successfully");
-                LoadData();
-            }
-            else
-            {
-                // Thực hiện lệnh
-                BLBooking bk = new BLBooking();
-                bk.UpdateBooking(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtStaff_ID.Text), Convert.ToInt32(this.txtCustomer_ID.Text), Convert.ToInt32(this.txtCustomer_Amount.Text), dtpCheckIn.Value, dtpCheckOut.Value, ref err);
-                // Load lại dữ liệu trên DataGridView
-                LoadData();
-                // Thông báo
-                MessageBox.Show("Đã sửa xong!");
-            }
-            // Đóng kết nối
+            // Declare answering variable
+            DialogResult ans;
+            // Display Q&A box
+            ans = MessageBox.Show("Are you sure?", "Answer",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            // Check if press OK button
+            if (ans == DialogResult.OK) this.Close();
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            // Xóa trống các đối tượng trong Panel
+            // Delete all contents of each box in panel
             this.txtbook_ID.ResetText();
             this.txtStaff_ID.ResetText();
             this.txtCustomer_ID.ResetText();
             this.txtCustomer_Amount.ResetText();
             this.txtTotal_Price.ResetText();
-            // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát
+            // Allow manipulation on buttons Add / Update / Delete / Back
             this.btnAdd.Enabled = true;
             this.btnFix.Enabled = true;
             this.btnDelete.Enabled = true;
-
-            // Không cho thao tác trên các nút Lưu / Hủy / Panel
+            // Ban manipulation on buttons Save / Cancel / Panel
             this.btnSave.Enabled = false;
             this.btnCancel.Enabled = false;
             this.panel.Enabled = false;
             dgvBOOKING_CellClick(null, null);
         }
-
-        private void btnBack_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            // Khai báo biến traloi
-            DialogResult traloi;
-            // Hiện hộp thoại hỏi đáp
-            traloi = MessageBox.Show("Chắc không?", "Trả lời",
-            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            // Kiểm tra có nhắp chọn nút Ok không?
-            if (traloi == DialogResult.OK) this.Close();
-        }
-
-        private void btnReload_Click(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
-        private void dgvBOOKING_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Thứ tự dòng hiện hành
-            int r = dgvBOOKING.CurrentCell.RowIndex;
-            // Chuyển thông tin lên panel
-            this.txtbook_ID.Text =
-            dgvBOOKING.Rows[r].Cells[0].Value.ToString();
-            this.txtStaff_ID.Text =
-            dgvBOOKING.Rows[r].Cells[1].Value.ToString();
-            this.txtCustomer_ID.Text =
-            dgvBOOKING.Rows[r].Cells[2].Value.ToString();
-            this.txtCustomer_Amount.Text = 
-            dgvBOOKING.Rows[r].Cells[3].Value.ToString();
-            this.dtpCheckIn.Text =
-            dgvBOOKING.Rows[r].Cells[4].Value.ToString();
-            this.dtpCheckOut.Text =
-            dgvBOOKING.Rows[r].Cells[5].Value.ToString();
-            this.txtTotal_Price.Text =
-            dgvBOOKING.Rows[r].Cells[6].Value.ToString();
+            // Open connection
+            // Add data
+            if (Them)
+            {
+                BLBooking blbk = new BLBooking();
+                if (blbk.AddBooking( Convert.ToInt32(this.txtStaff_ID.Text), 
+                                     Convert.ToInt32(this.txtCustomer_ID.Text), 
+                                     Convert.ToInt32(this.txtCustomer_Amount.Text), 
+                                     dtpCheckIn.Value, 
+                                     dtpCheckOut.Value, ref err))
+                    MessageBox.Show("Add successfully!");
+                LoadData();
+            }
+            else
+            {
+                // Execute command
+                BLBooking blbk = new BLBooking();
+                blbk.UpdateBooking( Convert.ToInt32(this.txtbook_ID.Text), 
+                                    Convert.ToInt32(this.txtStaff_ID.Text), 
+                                    Convert.ToInt32(this.txtCustomer_ID.Text), 
+                                    Convert.ToInt32(this.txtCustomer_Amount.Text), 
+                                    dtpCheckIn.Value, 
+                                    dtpCheckOut.Value, ref err);
+                // Reload data to DataGridView
+                LoadData();
+                // Announce
+                MessageBox.Show("Update successfully!");
+            }
+            // Close connection
         }
     }
-
 }

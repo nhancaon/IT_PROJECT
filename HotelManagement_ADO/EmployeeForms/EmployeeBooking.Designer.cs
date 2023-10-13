@@ -57,6 +57,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdentityNum = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtcusAmount = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookedRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAvaiRoom)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +79,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(950, 84);
+            this.label11.Location = new System.Drawing.Point(1176, 72);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 23);
             this.label11.TabIndex = 81;
@@ -140,7 +142,7 @@
             this.txtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAddress.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAddress.Location = new System.Drawing.Point(449, 124);
+            this.txtAddress.Location = new System.Drawing.Point(449, 122);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.PasswordChar = '\0';
@@ -202,7 +204,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(449, 87);
+            this.label7.Location = new System.Drawing.Point(445, 87);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(88, 23);
             this.label7.TabIndex = 72;
@@ -307,7 +309,7 @@
             this.dtpCheckOutDate.Checked = true;
             this.dtpCheckOutDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpCheckOutDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpCheckOutDate.Location = new System.Drawing.Point(952, 294);
+            this.dtpCheckOutDate.Location = new System.Drawing.Point(1178, 282);
             this.dtpCheckOutDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpCheckOutDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpCheckOutDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -322,7 +324,7 @@
             this.dtpCheckInDate.Checked = true;
             this.dtpCheckInDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpCheckInDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpCheckInDate.Location = new System.Drawing.Point(952, 167);
+            this.dtpCheckInDate.Location = new System.Drawing.Point(1178, 155);
             this.dtpCheckInDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpCheckInDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpCheckInDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -346,8 +348,8 @@
             this.cbGender.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cbGender.ItemHeight = 30;
             this.cbGender.Items.AddRange(new object[] {
-            "Masculine",
-            "Feminine"});
+            "Male",
+            "Female"});
             this.cbGender.ItemsAppearance.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGender.ItemsAppearance.SelectedFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGender.Location = new System.Drawing.Point(449, 242);
@@ -422,7 +424,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(449, 200);
+            this.label6.Location = new System.Drawing.Point(445, 200);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 23);
             this.label6.TabIndex = 64;
@@ -433,7 +435,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(950, 255);
+            this.label5.Location = new System.Drawing.Point(1176, 243);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(171, 23);
             this.label5.TabIndex = 63;
@@ -444,7 +446,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(950, 132);
+            this.label4.Location = new System.Drawing.Point(1176, 120);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(152, 23);
             this.label4.TabIndex = 62;
@@ -495,12 +497,47 @@
             this.txtIdentityNum.TabIndex = 75;
             this.txtIdentityNum.TextChanged += new System.EventHandler(this.txtIdentityNum_TextChanged);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label13.Location = new System.Drawing.Point(820, 72);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(238, 23);
+            this.label13.TabIndex = 83;
+            this.label13.Text = "Number of customer(s):";
+            // 
+            // txtcusAmount
+            // 
+            this.txtcusAmount.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcusAmount.DefaultText = "";
+            this.txtcusAmount.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcusAmount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcusAmount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcusAmount.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcusAmount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.txtcusAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcusAmount.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcusAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcusAmount.Location = new System.Drawing.Point(824, 122);
+            this.txtcusAmount.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtcusAmount.Name = "txtcusAmount";
+            this.txtcusAmount.PasswordChar = '\0';
+            this.txtcusAmount.PlaceholderText = "";
+            this.txtcusAmount.SelectedText = "";
+            this.txtcusAmount.Size = new System.Drawing.Size(234, 43);
+            this.txtcusAmount.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtcusAmount.TabIndex = 84;
+            // 
             // EmployeeBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1770, 1053);
+            this.Controls.Add(this.txtcusAmount);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -559,5 +596,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtIdentityNum;
+        private System.Windows.Forms.Label label13;
+        private Guna.UI2.WinForms.Guna2TextBox txtcusAmount;
     }
 }

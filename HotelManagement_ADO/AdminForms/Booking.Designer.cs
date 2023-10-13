@@ -61,8 +61,8 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(397, 672);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Location = new System.Drawing.Point(381, 642);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(147, 49);
             this.btnDelete.TabIndex = 145;
@@ -73,8 +73,8 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(821, 672);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBack.Location = new System.Drawing.Point(805, 642);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(147, 49);
             this.btnBack.TabIndex = 146;
@@ -99,7 +99,7 @@
             // 
             this.txtCustomer_ID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCustomer_ID.Location = new System.Drawing.Point(231, 137);
-            this.txtCustomer_ID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCustomer_ID.Margin = new System.Windows.Forms.Padding(4);
             this.txtCustomer_ID.Name = "txtCustomer_ID";
             this.txtCustomer_ID.Size = new System.Drawing.Size(180, 30);
             this.txtCustomer_ID.TabIndex = 7;
@@ -107,8 +107,8 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(44, 672);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Location = new System.Drawing.Point(28, 642);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(147, 49);
             this.btnAdd.TabIndex = 141;
@@ -119,8 +119,8 @@
             // btnReload
             // 
             this.btnReload.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(621, 672);
-            this.btnReload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReload.Location = new System.Drawing.Point(605, 642);
+            this.btnReload.Margin = new System.Windows.Forms.Padding(4);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(147, 49);
             this.btnReload.TabIndex = 140;
@@ -132,7 +132,7 @@
             // 
             this.dtpCheckOut.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpCheckOut.Location = new System.Drawing.Point(189, 322);
-            this.dtpCheckOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpCheckOut.Margin = new System.Windows.Forms.Padding(4);
             this.dtpCheckOut.Name = "dtpCheckOut";
             this.dtpCheckOut.Size = new System.Drawing.Size(221, 27);
             this.dtpCheckOut.TabIndex = 17;
@@ -141,7 +141,7 @@
             // 
             this.dtpCheckIn.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpCheckIn.Location = new System.Drawing.Point(189, 260);
-            this.dtpCheckIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpCheckIn.Margin = new System.Windows.Forms.Padding(4);
             this.dtpCheckIn.Name = "dtpCheckIn";
             this.dtpCheckIn.Size = new System.Drawing.Size(221, 27);
             this.dtpCheckIn.TabIndex = 16;
@@ -176,7 +176,7 @@
             // 
             this.txtStaff_ID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStaff_ID.Location = new System.Drawing.Point(231, 73);
-            this.txtStaff_ID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStaff_ID.Margin = new System.Windows.Forms.Padding(4);
             this.txtStaff_ID.Name = "txtStaff_ID";
             this.txtStaff_ID.Size = new System.Drawing.Size(180, 30);
             this.txtStaff_ID.TabIndex = 5;
@@ -198,7 +198,7 @@
             // 
             this.txtbook_ID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbook_ID.Location = new System.Drawing.Point(231, 11);
-            this.txtbook_ID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtbook_ID.Margin = new System.Windows.Forms.Padding(4);
             this.txtbook_ID.Name = "txtbook_ID";
             this.txtbook_ID.ReadOnly = true;
             this.txtbook_ID.Size = new System.Drawing.Size(180, 30);
@@ -220,8 +220,8 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(1439, 672);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Location = new System.Drawing.Point(1332, 642);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(147, 49);
             this.btnSave.TabIndex = 143;
@@ -254,14 +254,14 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBOOKING.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBOOKING.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvBOOKING.Location = new System.Drawing.Point(525, 142);
+            this.dgvBOOKING.Location = new System.Drawing.Point(503, 142);
             this.dgvBOOKING.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvBOOKING.Name = "dgvBOOKING";
             this.dgvBOOKING.ReadOnly = true;
             this.dgvBOOKING.RowHeadersVisible = false;
             this.dgvBOOKING.RowHeadersWidth = 51;
             this.dgvBOOKING.RowTemplate.Height = 24;
-            this.dgvBOOKING.Size = new System.Drawing.Size(1036, 442);
+            this.dgvBOOKING.Size = new System.Drawing.Size(1016, 442);
             this.dgvBOOKING.TabIndex = 148;
             this.dgvBOOKING.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvBOOKING.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -289,8 +289,8 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(1275, 672);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(1152, 642);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(147, 49);
             this.btnCancel.TabIndex = 144;
@@ -315,8 +315,8 @@
             this.panel.Controls.Add(this.label1);
             this.panel.Controls.Add(this.txtbook_ID);
             this.panel.Controls.Add(this.lb1);
-            this.panel.Location = new System.Drawing.Point(44, 142);
-            this.panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel.Location = new System.Drawing.Point(28, 142);
+            this.panel.Margin = new System.Windows.Forms.Padding(4);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(455, 442);
             this.panel.TabIndex = 147;
@@ -325,7 +325,7 @@
             // 
             this.txtTotal_Price.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal_Price.Location = new System.Drawing.Point(232, 379);
-            this.txtTotal_Price.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotal_Price.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal_Price.Name = "txtTotal_Price";
             this.txtTotal_Price.ReadOnly = true;
             this.txtTotal_Price.Size = new System.Drawing.Size(180, 30);
@@ -348,7 +348,7 @@
             // 
             this.txtCustomer_Amount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCustomer_Amount.Location = new System.Drawing.Point(231, 198);
-            this.txtCustomer_Amount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCustomer_Amount.Margin = new System.Windows.Forms.Padding(4);
             this.txtCustomer_Amount.Name = "txtCustomer_Amount";
             this.txtCustomer_Amount.Size = new System.Drawing.Size(180, 30);
             this.txtCustomer_Amount.TabIndex = 19;
@@ -369,8 +369,8 @@
             // btnFix
             // 
             this.btnFix.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFix.Location = new System.Drawing.Point(219, 672);
-            this.btnFix.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFix.Location = new System.Drawing.Point(203, 642);
+            this.btnFix.Margin = new System.Windows.Forms.Padding(4);
             this.btnFix.Name = "btnFix";
             this.btnFix.Size = new System.Drawing.Size(147, 49);
             this.btnFix.TabIndex = 142;
@@ -383,7 +383,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(1579, 750);
+            this.ClientSize = new System.Drawing.Size(1582, 753);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnAdd);
