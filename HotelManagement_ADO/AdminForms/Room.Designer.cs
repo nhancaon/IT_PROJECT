@@ -65,9 +65,10 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(730, 64);
+            this.btnSearch.Location = new System.Drawing.Point(973, 79);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(121, 32);
+            this.btnSearch.Size = new System.Drawing.Size(161, 39);
             this.btnSearch.TabIndex = 131;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -78,9 +79,10 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(458, 76);
+            this.label10.Location = new System.Drawing.Point(611, 94);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 19);
+            this.label10.Size = new System.Drawing.Size(101, 23);
             this.label10.TabIndex = 130;
             this.label10.Text = "Room No";
             // 
@@ -92,10 +94,10 @@
             this.btnFix.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFix.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFix.ForeColor = System.Drawing.Color.White;
-            this.btnFix.Location = new System.Drawing.Point(173, 392);
-            this.btnFix.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFix.Location = new System.Drawing.Point(231, 482);
+            this.btnFix.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnFix.Name = "btnFix";
-            this.btnFix.Size = new System.Drawing.Size(98, 40);
+            this.btnFix.Size = new System.Drawing.Size(131, 49);
             this.btnFix.TabIndex = 123;
             this.btnFix.Text = "Update";
             this.btnFix.UseVisualStyleBackColor = false;
@@ -114,17 +116,19 @@
             this.panel.Controls.Add(this.label1);
             this.panel.Controls.Add(this.txtroomID);
             this.panel.Controls.Add(this.lb1);
-            this.panel.Location = new System.Drawing.Point(45, 124);
+            this.panel.Location = new System.Drawing.Point(60, 153);
+            this.panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(353, 254);
+            this.panel.Size = new System.Drawing.Size(471, 313);
             this.panel.TabIndex = 128;
             // 
             // txtPrice
             // 
             this.txtPrice.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.Location = new System.Drawing.Point(158, 214);
+            this.txtPrice.Location = new System.Drawing.Point(245, 263);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(136, 26);
+            this.txtPrice.Size = new System.Drawing.Size(180, 30);
             this.txtPrice.TabIndex = 11;
             // 
             // label4
@@ -133,19 +137,20 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(28, 218);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(37, 268);
+            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 20);
+            this.label4.Size = new System.Drawing.Size(61, 25);
             this.label4.TabIndex = 10;
             this.label4.Text = "Price";
             // 
             // txtCapacity
             // 
             this.txtCapacity.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCapacity.Location = new System.Drawing.Point(158, 162);
+            this.txtCapacity.Location = new System.Drawing.Point(245, 201);
+            this.txtCapacity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCapacity.Name = "txtCapacity";
-            this.txtCapacity.Size = new System.Drawing.Size(136, 26);
+            this.txtCapacity.Size = new System.Drawing.Size(180, 30);
             this.txtCapacity.TabIndex = 9;
             // 
             // label2
@@ -154,19 +159,20 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(28, 167);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(37, 206);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 20);
+            this.label2.Size = new System.Drawing.Size(97, 25);
             this.label2.TabIndex = 8;
             this.label2.Text = "Capacity";
             // 
             // txtType
             // 
             this.txtType.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtType.Location = new System.Drawing.Point(158, 115);
+            this.txtType.Location = new System.Drawing.Point(245, 141);
+            this.txtType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(136, 26);
+            this.txtType.Size = new System.Drawing.Size(180, 30);
             this.txtType.TabIndex = 7;
             // 
             // label3
@@ -175,19 +181,20 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(28, 119);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(37, 146);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 20);
+            this.label3.Size = new System.Drawing.Size(122, 25);
             this.label3.TabIndex = 6;
             this.label3.Text = "Room Type";
             // 
             // txtroom_No
             // 
             this.txtroom_No.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtroom_No.Location = new System.Drawing.Point(158, 67);
+            this.txtroom_No.Location = new System.Drawing.Point(245, 82);
+            this.txtroom_No.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtroom_No.Name = "txtroom_No";
-            this.txtroom_No.Size = new System.Drawing.Size(136, 26);
+            this.txtroom_No.Size = new System.Drawing.Size(180, 30);
             this.txtroom_No.TabIndex = 5;
             // 
             // label1
@@ -196,20 +203,21 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(28, 71);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(37, 87);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 20);
+            this.label1.Size = new System.Drawing.Size(148, 25);
             this.label1.TabIndex = 4;
             this.label1.Text = "Room Number";
             // 
             // txtroomID
             // 
             this.txtroomID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtroomID.Location = new System.Drawing.Point(158, 18);
+            this.txtroomID.Location = new System.Drawing.Point(245, 22);
+            this.txtroomID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtroomID.Name = "txtroomID";
             this.txtroomID.ReadOnly = true;
-            this.txtroomID.Size = new System.Drawing.Size(136, 26);
+            this.txtroomID.Size = new System.Drawing.Size(180, 30);
             this.txtroomID.TabIndex = 2;
             // 
             // lb1
@@ -218,9 +226,10 @@
             this.lb1.BackColor = System.Drawing.Color.Transparent;
             this.lb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb1.ForeColor = System.Drawing.Color.Transparent;
-            this.lb1.Location = new System.Drawing.Point(28, 22);
+            this.lb1.Location = new System.Drawing.Point(37, 27);
+            this.lb1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(80, 20);
+            this.lb1.Size = new System.Drawing.Size(94, 25);
             this.lb1.TabIndex = 0;
             this.lb1.Text = "Room ID";
             // 
@@ -232,10 +241,10 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(300, 392);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Location = new System.Drawing.Point(400, 482);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(98, 40);
+            this.btnDelete.Size = new System.Drawing.Size(131, 49);
             this.btnDelete.TabIndex = 126;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -249,10 +258,10 @@
             this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReload.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReload.ForeColor = System.Drawing.Color.White;
-            this.btnReload.Location = new System.Drawing.Point(45, 443);
-            this.btnReload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReload.Location = new System.Drawing.Point(60, 545);
+            this.btnReload.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(98, 40);
+            this.btnReload.Size = new System.Drawing.Size(131, 49);
             this.btnReload.TabIndex = 121;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = false;
@@ -261,9 +270,10 @@
             // textRoom_no
             // 
             this.textRoom_no.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRoom_no.Location = new System.Drawing.Point(554, 71);
+            this.textRoom_no.Location = new System.Drawing.Point(739, 87);
+            this.textRoom_no.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textRoom_no.Name = "textRoom_no";
-            this.textRoom_no.Size = new System.Drawing.Size(136, 26);
+            this.textRoom_no.Size = new System.Drawing.Size(180, 30);
             this.textRoom_no.TabIndex = 129;
             // 
             // btnCancel
@@ -274,10 +284,10 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(300, 443);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(400, 545);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(98, 40);
+            this.btnCancel.Size = new System.Drawing.Size(131, 49);
             this.btnCancel.TabIndex = 125;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -291,10 +301,10 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(173, 500);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Location = new System.Drawing.Point(231, 615);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(98, 40);
+            this.btnSave.Size = new System.Drawing.Size(131, 49);
             this.btnSave.TabIndex = 124;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -308,10 +318,10 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(45, 392);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Location = new System.Drawing.Point(60, 482);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(98, 40);
+            this.btnAdd.Size = new System.Drawing.Size(131, 49);
             this.btnAdd.TabIndex = 122;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -325,10 +335,10 @@
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(173, 443);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBack.Location = new System.Drawing.Point(231, 545);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(98, 40);
+            this.btnBack.Size = new System.Drawing.Size(131, 49);
             this.btnBack.TabIndex = 127;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -356,14 +366,14 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvROOM.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvROOM.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvROOM.Location = new System.Drawing.Point(431, 124);
-            this.dgvROOM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvROOM.Location = new System.Drawing.Point(575, 153);
+            this.dgvROOM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvROOM.Name = "dgvROOM";
             this.dgvROOM.ReadOnly = true;
             this.dgvROOM.RowHeadersVisible = false;
             this.dgvROOM.RowHeadersWidth = 51;
             this.dgvROOM.RowTemplate.Height = 24;
-            this.dgvROOM.Size = new System.Drawing.Size(695, 359);
+            this.dgvROOM.Size = new System.Drawing.Size(927, 442);
             this.dgvROOM.TabIndex = 132;
             this.dgvROOM.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvROOM.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -390,10 +400,10 @@
             // 
             // Room
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(1028, 609);
+            this.ClientSize = new System.Drawing.Size(1371, 750);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnFix);
@@ -406,7 +416,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvROOM);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Room";
             this.Text = "Room";
             this.Load += new System.EventHandler(this.FormRoom_Load);

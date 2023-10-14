@@ -38,7 +38,7 @@ namespace HotelManagement_ADO.BS_Layer
                 if (storedUsername == username && storedPassword == password)
                 {
                     result = true;
-                    string newConnect = "Data Source=DESKTOP-P5RFVBG;Initial Catalog=HotelManagementSystem;User ID=" + username + ";Password=" + password;
+                    string newConnect = "Data Source=DESKTOP-9118KPA;Initial Catalog=HotelManagementSystem;User ID=" + username + ";Password=" + password;
                     DBMain.SetConnStr(newConnect, username, password);
                     break;
                 }
