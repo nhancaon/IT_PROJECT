@@ -39,7 +39,7 @@ namespace HotelManagement_ADO.EmployeeForms
 
         void LoadDataBooked()
         {
-            var proc = database.ExecuteQueryDataSet($"EXEC FN_FindBookedServiceByName N'{txtName.Text}'", CommandType.Text);
+            var proc = database.ExecuteQueryDataSet($"EXEC SP_FindBookedServiceByName N'{txtName.Text}'", CommandType.Text);
             if (proc != null)
             {
                 DataTable dataTable = proc.Tables[0];
@@ -59,11 +59,11 @@ namespace HotelManagement_ADO.EmployeeForms
             try
             {
                 BLServiceDetail dbSE = new BLServiceDetail();
-                dbSE.AddServiceDetail(Convert.ToInt32(dgvAvaiServices.Rows[rAvai].Cells[0].Value),
-                    Convert.ToInt32(txtBookID.Text),
-                    Convert.ToInt32(dgvBookedServices.Rows[rBooked].Cells[0].Value),
-                    Convert.ToInt32(txtAmount.Text)
-                    , DateTime.Now,ref err);
+                dbSE.AddServiceDetail( Convert.ToInt32(dgvAvaiServices.Rows[rAvai].Cells[0].Value),
+                                       Convert.ToInt32(txtBookID.Text),
+                                       Convert.ToInt32(dgvBookedServices.Rows[rBooked].Cells[0].Value),
+                                       Convert.ToInt32(txtAmount.Text), 
+                                       DateTime.Now,ref err);
             }
             catch (Exception ex)
             {

@@ -30,45 +30,31 @@ namespace HotelManagement_ADO.EmployeeForms
 
         void LoadCustomer()
         {
-
- 
-            string nameToFind = txtFindName.Text;
         
             DataTable dataTable = null;
-            if (string.IsNullOrEmpty(nameToFind))
+            if (string.IsNullOrEmpty(this.txtFindName.Text))
             {
                 var view = database.ExecuteQueryDataSet("SELECT * FROM View_CustomerCheckOut", CommandType.Text);
                 dataTable = view.Tables[0];
             }
             else
             {
-                var query = $"SELECT * FROM FindCustomerByFullName(N'{nameToFind}')";
-
+                var query = $"SELECT * FROM FN_GetCustomerByFullName(N'{this.txtFindName.Text}')";  
                 var view = database.ExecuteQueryDataSet(query, CommandType.Text);
                 dataTable = view.Tables[0];
             }
-
             dgvCustomer.DataSource = dataTable;
             dgvCustomer.AutoGenerateColumns = true;
             dgvCustomer.ColumnHeadersHeight = 30;
-            dgvCustomer.Columns[0].HeaderText = "Booking ID";
-            dgvCustomer.Columns[1].HeaderText = "Customer ID";
-            dgvCustomer.Columns[2].HeaderText = "Customer Name";
-            dgvCustomer.Columns[3].HeaderText = "Identify Number";
-            dgvCustomer.Columns[4].HeaderText = "Phone Number";
-            dgvCustomer.Columns[5].HeaderText = "Room Number";
-            dgvCustomer.Columns[6].HeaderText = "Check In Date";
-            dgvCustomer.Columns[7].HeaderText = "Check Out Date";
+            dgvCustomer.Columns[3].HeaderText = "Customer Name";
             dgvCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
         }
 
         private void checkOutBtn_Click(object sender, EventArgs e)
         {
            if(currentCustomerID != 0)
            {
-                var checkOutDataSet = database.ExecuteQueryDataSet($"Select * from GetCustomerReceipt('{currentBookingID}', '{currentCustomerID}')", CommandType.Text);
-                //Console.WriteLine(checkOutDataSet);
+                var checkOutDataSet = database.ExecuteQueryDataSet($"SELECT * FROM FN_GetCustomerReceipt('{currentBookingID}', '{currentCustomerID}')", CommandType.Text);
                 formReceipt = new Receipt();
                 formReceipt.currentCustomerID = currentCustomerID;
                 formReceipt.dataSet = checkOutDataSet;
@@ -84,8 +70,7 @@ namespace HotelManagement_ADO.EmployeeForms
                 closeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
                 closeBtn.BringToFront();
                 formReceipt.Show();
-           }
-     
+           }  
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -94,17 +79,15 @@ namespace HotelManagement_ADO.EmployeeForms
             closeBtn.SendToBack();
             closeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             receptPanel.SendToBack();
-
-
         }
 
         private void dgvCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             rAvai = dgvCustomer.CurrentCell.RowIndex;
-            this.txtCName.Text = dgvCustomer.Rows[rAvai].Cells[1].Value.ToString();
-            this.txtRoom.Text = dgvCustomer.Rows[rAvai].Cells[5].Value.ToString();
+            this.txtCName.Text = dgvCustomer.Rows[rAvai].Cells[3].Value.ToString();
+            this.txtRoom.Text = dgvCustomer.Rows[rAvai].Cells[1].Value.ToString();
             currentBookingID = Convert.ToInt32(dgvCustomer.Rows[rAvai].Cells[0].Value);
-            currentCustomerID = Convert.ToInt32(dgvCustomer.Rows[rAvai].Cells[1].Value);
+            currentCustomerID = Convert.ToInt32(dgvCustomer.Rows[rAvai].Cells[2].Value);
             DateTime checkIn = DateTime.Parse(dgvCustomer.Rows[rAvai].Cells[6].Value.ToString());
             DateTime checkOut = DateTime.Parse(dgvCustomer.Rows[rAvai].Cells[7].Value.ToString());
             TimeSpan duration = checkOut - checkIn;

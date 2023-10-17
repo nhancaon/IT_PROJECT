@@ -142,7 +142,6 @@ namespace HotelManagement_ADO.EmployeeForms
                     // Kich hoạt biến Them
                     existAdd = true;
                     ReturnBookID(DateTime.Parse(dateIN), DateTime.Parse(dateOUT));
-                    //ReturnRoomID(book_ID);
                 }
                 else if (!string.IsNullOrEmpty(id) && dgvBookedRoom.Rows.Count == 0)
                 {
@@ -178,7 +177,6 @@ namespace HotelManagement_ADO.EmployeeForms
                     #endregion
 
                     ReturnBookID(DateTime.Parse(dateIN), DateTime.Parse(dateOUT));
-                    //ReturnRoomID(book_ID);
                 }
             }
             else if (!string.IsNullOrEmpty(name) && dgvBookedRoom.Rows.Count == 0)
@@ -215,7 +213,6 @@ namespace HotelManagement_ADO.EmployeeForms
                 #endregion
 
                 ReturnBookID(DateTime.Parse(dateIN), DateTime.Parse(dateOUT));
-               // ReturnRoomID(book_ID);
             }
             addExistCustomer(existAdd);
             addNonExistCustomer(nonexistAdd);
