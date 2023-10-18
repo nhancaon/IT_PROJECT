@@ -175,5 +175,23 @@ namespace HotelManagement_ADO.EmployeeForms
                 }
             }
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            btnPrint.Visible = false;
+            System.Drawing.Printing.PrintDocument doc = new System.Drawing.Printing.PrintDocument();
+            doc.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument1_PrintPage);
+            doc.Print();
+            btnPrint.Visible = true;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Bitmap bmp = new Bitmap(guna2Panel1.Width, guna2Panel1.Height, guna2Panel1.CreateGraphics());
+            guna2Panel1.DrawToBitmap(bmp, new Rectangle(0, 0, guna2Panel1.Width, guna2Panel1.Height));
+            RectangleF bounds = e.PageSettings.PrintableArea;
+            float factor = ((float)bmp.Height / (float)bmp.Width);
+            e.Graphics.DrawImage(bmp, bounds.Left, bounds.Top, bounds.Width, factor * bounds.Width);
+        }
     }
 }
