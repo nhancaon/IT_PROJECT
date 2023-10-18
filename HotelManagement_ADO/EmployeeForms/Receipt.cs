@@ -19,20 +19,18 @@ namespace HotelManagement_ADO.EmployeeForms
         public int currentBookingID { get; set; }
         public DataSet dataSet { get; set; }
 
-        DBMain database;
-
         public Receipt()
         {
             InitializeComponent();
-            database = new DBMain();
-            listView1.View = View.Details;
-            listView1.HeaderStyle = ColumnHeaderStyle.None;
-            listView1.Scrollable = false;
-            listView1.Columns.Add("Product Name", 170);
-            listView1.Columns.Add("Product Price", 150);
-            listView1.Columns.Add("Service Quantity", 100);
-            listView1.Columns.Add("Service Total", 100);
-
+            listviewReceipt.View = View.Details;
+            listviewReceipt.HeaderStyle = ColumnHeaderStyle.None;
+            listviewReceipt.Scrollable = false;
+            #region Resize column in listView
+            listviewReceipt.Columns.Add("Title", 170);
+            listviewReceipt.Columns.Add("Price", 110);
+            listviewReceipt.Columns.Add("Amount", 120);
+            listviewReceipt.Columns.Add("Subtotal", 100);
+            #endregion
         }
 
         public void LoadReceipt()
@@ -40,62 +38,142 @@ namespace HotelManagement_ADO.EmployeeForms
             if (dataSet != null && dataSet.Tables.Count > 0)
             {
                 DataTable table = dataSet.Tables[0];
+ 
                 if (table.Rows.Count > 0)
                 {
-
                     DataRow row = table.Rows[0];
+                    string head;
 
+                    #region Customer infor and some details
                     txtCustomer.Text = row["CustomerName"].ToString();
                     txtCashier.Text = row["EmployeeName"].ToString();
-                    txtCapacity.Text = $"{row["RoomCapacity"].ToString()} " +
-                        $"{(Convert.ToInt32(row["RoomCapacity"]) == 1 ? "Person" : "People")}";
-                    txtStayingDays.Text = row["StayingDays"].ToString() + " Days";
+                    txtcusAmount.Text = $"{row["NumberofCustomers"].ToString()} " +
+                                        $"{(Convert.ToInt32(row["NumberofCustomers"]) == 1 ? "Person" : "People")}";
+                    txtStayingDays.Text = row["StayingDays"].ToString() + (Convert.ToInt32(row["StayingDays"]) == 1 ? " Day" : " Days");
                     txtDate.Text = DateTime.Now.ToString();
-                    txtRoomNumber.Text = row["room_No"].ToString();
+                    txtRoomNumber.Text = row["RoomNumber"].ToString();
+                    txtTotal.Text = row["TotalPrice"].ToString() + " VND";
+                    #endregion
 
-                    // Add the product and service details to the ListView
-                    foreach (DataRow serviceRow in table.Rows)
-                    {
-                        string productName = serviceRow["ProductName"].ToString();
-                        decimal productPrice = Convert.ToDecimal(serviceRow["ProductPrice"]);
-                        int serviceQuantity = Convert.ToInt32(serviceRow["ServiceQuantity"]);
-                        decimal serviceTotal = Convert.ToDecimal(serviceRow["ServiceTotal"]);
+                    // Add room booking info
+                    #region Calculate room fee
+                    head = "- Room Fee:";
+                    ListViewItem roomfee = new ListViewItem(head);
+                    listviewReceipt.Items.Add(roomfee);
 
-                        ListViewItem item = new ListViewItem(productName);
-                        item.SubItems.Add(productPrice.ToString());
-                        item.SubItems.Add(serviceQuantity.ToString());
-                        item.SubItems.Add(serviceTotal.ToString());
-
-                        listView1.Items.Add(item);
-                    }
-
-                    // Add room booking item
                     decimal roomPrice = Convert.ToDecimal(row["RoomPrice"]);
                     int stayingDays = Convert.ToInt32(row["StayingDays"]);
-                    decimal totalRoomBooking = roomPrice * stayingDays;
+                    decimal totalRoomBooking = Convert.ToDecimal(row["RoomTotal"]);
 
-                    ListViewItem roomBookingItem = new ListViewItem($"Room {row["room_No"].ToString()}");
+                    ListViewItem roomBookingItem = new ListViewItem($"{row["RoomType"].ToString()}");
                     roomBookingItem.SubItems.Add(roomPrice.ToString());
-                    roomBookingItem.SubItems.Add(stayingDays.ToString());
+                    roomBookingItem.SubItems.Add(stayingDays.ToString() + (Convert.ToInt32(row["StayingDays"]) == 1 ? " Day" : " Days"));
                     roomBookingItem.SubItems.Add(totalRoomBooking.ToString());
 
-                    listView1.Items.Add(roomBookingItem);
+                    listviewReceipt.Items.Add(roomBookingItem);
+                    #endregion
 
-                    decimal totalMoney = 0;
-
-                    foreach (ListViewItem item in listView1.Items)
+                    if (Convert.ToString(row["ServiceName"]) != "")
                     {
-                        decimal serviceTotal = Convert.ToDecimal(item.SubItems[3].Text);
-                        totalMoney += serviceTotal;
+                        if(Convert.ToString(row["DamagedItem"]) != "")
+                        {
+                            // Add service detail info
+                            #region Calculate service fee iff damaged null
+                            head = "- Service Fee:";
+                            ListViewItem serfee = new ListViewItem(head);
+                            listviewReceipt.Items.Add(serfee);
+
+                            foreach (DataRow serviceRow in table.Rows)
+                            {
+                                string serviceName = serviceRow["ServiceName"].ToString();
+                                decimal servicePrice = Convert.ToDecimal(serviceRow["ServicePrice"]);
+                                int serviceQuantity = Convert.ToInt32(serviceRow["NumberofUsers"]);
+                                decimal serviceTotal = Convert.ToDecimal(serviceRow["ServiceTotal"]);
+
+                                ListViewItem item = new ListViewItem(serviceName);
+                                item.SubItems.Add(servicePrice.ToString());
+                                item.SubItems.Add(serviceQuantity.ToString());
+                                item.SubItems.Add(serviceTotal.ToString());
+
+                                listviewReceipt.Items.Add(item);
+                            }
+                            #endregion
+
+                            // Add damaged item info
+                            #region Calculate damaged fee iff service null
+                            head = "- Compensation Fee:";
+                            ListViewItem damfee = new ListViewItem(head);
+                            listviewReceipt.Items.Add(damfee);
+
+                            foreach (DataRow damagedRow in table.Rows)
+                            {
+                                string damName = damagedRow["DamagedItem"].ToString();
+                                decimal damPrice = Convert.ToDecimal(damagedRow["DamagedPrice"]);
+                                int damQuantity = Convert.ToInt32(damagedRow["DamagedAmount"]);
+                                decimal damTotal = Convert.ToDecimal(damagedRow["DamagedTotal"]);
+
+                                ListViewItem item = new ListViewItem(damName);
+                                item.SubItems.Add(damPrice.ToString());
+                                item.SubItems.Add(damQuantity.ToString());
+                                item.SubItems.Add(damTotal.ToString());
+
+                                listviewReceipt.Items.Add(item);
+                            }
+                            #endregion
+                        }
+                        else
+                        {
+                            // Add service detail info
+                            #region Calculate service fee iff damaged null
+
+                            head = "- Service Fee:";
+                            ListViewItem serfee = new ListViewItem(head);
+                            listviewReceipt.Items.Add(serfee);
+
+                            foreach (DataRow serviceRow in table.Rows)
+                            {
+                                string serviceName = serviceRow["ServiceName"].ToString();
+                                decimal servicePrice = Convert.ToDecimal(serviceRow["ServicePrice"]);
+                                int serviceQuantity = Convert.ToInt32(serviceRow["NumberofUsers"]);
+                                decimal serviceTotal = Convert.ToDecimal(serviceRow["ServiceTotal"]);
+
+                                ListViewItem item = new ListViewItem(serviceName);
+                                item.SubItems.Add(servicePrice.ToString());
+                                item.SubItems.Add(serviceQuantity.ToString());
+                                item.SubItems.Add(serviceTotal.ToString());
+
+                                listviewReceipt.Items.Add(item);
+                            }
+                            #endregion
+                        }
                     }
-                    totalMoney += totalRoomBooking;
+                    else if (Convert.ToString(row["DamagedItem"]) != "")
+                    {
+                        // Add damaged item info
+                        #region Calculate damaged fee iff service null
 
-                    txtTotal.Text = totalMoney.ToString();
+                        head = "- Compensation Fee:";
+                        ListViewItem damfee = new ListViewItem(head);
+                        listviewReceipt.Items.Add(damfee);
 
+                        foreach (DataRow damagedRow in table.Rows)
+                        {
+                            string damName = damagedRow["DamagedItem"].ToString();
+                            decimal damPrice = Convert.ToDecimal(damagedRow["DamagedPrice"]);
+                            int damQuantity = Convert.ToInt32(damagedRow["DamagedAmount"]);
+                            decimal damTotal = Convert.ToDecimal(damagedRow["DamagedTotal"]);
 
+                            ListViewItem item = new ListViewItem(damName);
+                            item.SubItems.Add(damPrice.ToString());
+                            item.SubItems.Add(damQuantity.ToString());
+                            item.SubItems.Add(damTotal.ToString());
+
+                            listviewReceipt.Items.Add(item);
+                        }
+                        #endregion
+                    }
                 }
             }
         }
-
     }
 }
