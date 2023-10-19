@@ -59,9 +59,16 @@ namespace HotelManagement_ADO.EmployeeForms
             try
             {
                 BLServiceDetail dbSE = new BLServiceDetail();
-                dbSE.AddServiceDetail( Convert.ToInt32(dgvAvaiServices.Rows[rAvai].Cells[0].Value),
+                if(Convert.ToInt32(dgvAvaiServices.Rows[rAvai].Cells[0].Value)==1)
+                {
+                    dbSE.AddServiceDetail2(Convert.ToInt32(dgvAvaiServices.Rows[rAvai].Cells[0].Value),
+                                        Convert.ToInt32(txtBookID.Text),
+                                        Convert.ToInt32(txtAmount.Text),
+                                        DateTime.Now, ref err);
+                }
+                else dbSE.AddServiceDetail( Convert.ToInt32(dgvAvaiServices.Rows[rAvai].Cells[0].Value),
                                        Convert.ToInt32(txtBookID.Text),
-                                       Convert.ToInt32(dgvBookedServices.Rows[rBooked].Cells[0].Value),
+                                       Convert.ToInt32(txtAmount.Text),
                                        Convert.ToInt32(txtAmount.Text), 
                                        DateTime.Now,ref err);
             }

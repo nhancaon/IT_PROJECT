@@ -34,6 +34,20 @@ namespace HotelManagement_ADO.BS_Layer
             }
             return true;
         }
+        public bool AddServiceDetail2(int service_ID, int book_ID, int NumberofUser,DateTime Buy_Date, ref string err)
+        {
+            try
+            {
+                string sql = $"EXEC SP_ADD_SERVICE_DETAIL {service_ID},{book_ID}, {NumberofUser},NULL, '{Buy_Date.ToString()}'";
+                db.MyExecuteNonQuery(sql);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
+            return true;
+        }
         public bool DeleteServiceDetail(ref string err, int service_ID,int book_ID, DateTime Buy_Date)
         {
             try
