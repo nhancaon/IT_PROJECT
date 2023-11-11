@@ -2,18 +2,18 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="HotelManagementSystemDataSet">
+    <DataSource Name="RevenueDataSet">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>33c03c9e-a5ac-4546-bd56-2eddf0d4027b</rd:DataSourceID>
+      <rd:DataSourceID>24fcefe0-c121-44a7-b559-c13cec92f49d</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSetRevenue">
+    <DataSet Name="Revenue">
       <Query>
-        <DataSourceName>HotelManagementSystemDataSet</DataSourceName>
+        <DataSourceName>RevenueDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -35,12 +35,12 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>HotelManagementSystemDataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\University\IT Project\IT-Project\HotelManagement_ADO\HotelManagementSystemDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>MonthlySummary</rd:TableName>
+        <rd:DataSetName>RevenueDataSet</rd:DataSetName>
+        <rd:SchemaPath>D:\UNIVERSITY\3rd\Semester 1\IT Project\PROGRAM\IT_PROJECT\HotelManagement_ADO\RevenueDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>Revenue</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>MonthlySummaryTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>RevenueTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -454,10 +454,9 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>DataSetRevenue</DataSetName>
             <Top>0.2175in</Top>
             <Left>0.4675in</Left>
-            <Height>3.27083in</Height>
+            <Height>2.87083in</Height>
             <Width>11.76042in</Width>
             <Style>
               <Border>
@@ -500,8 +499,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
-              <Top>0.30729in</Top>
-              <Left>5.47396in</Left>
+              <Top>0.27312in</Top>
+              <Left>3.78146in</Left>
               <Height>0.38542in</Height>
               <Width>3.84376in</Width>
               <Style>
@@ -537,5 +536,5 @@
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>d9df81d8-6148-45f3-b1c3-4a6fe5f53227</rd:ReportID>
+  <rd:ReportID>36790f02-245b-4964-81a0-9662f3858355</rd:ReportID>
 </Report>

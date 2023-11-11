@@ -1,6 +1,6 @@
 ﻿namespace HotelManagement_ADO.ReportForm
 {
-    partial class ReportRevenue
+    partial class ReportCustomer
     {
         /// <summary>
         /// Required designer variable.
@@ -31,52 +31,51 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.revenueDataSet = new HotelManagement_ADO.RevenueDataSet();
-            this.revenueDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.revenueTableAdapter = new HotelManagement_ADO.RevenueDataSetTableAdapters.RevenueTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.revenueDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.revenueDataSetBindingSource)).BeginInit();
+            this.customerDataSet = new HotelManagement_ADO.CustomerDataSet();
+            this.customerDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.customerTableAdapter = new HotelManagement_ADO.CustomerDataSetTableAdapters.CustomerTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.customerDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "Revenue";
-            reportDataSource1.Value = this.revenueDataSetBindingSource;
+            reportDataSource1.Name = "Customer";
+            reportDataSource1.Value = this.customerDataSetBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "HotelManagement_ADO.Report.ReportMonthlyRevenue.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "HotelManagement_ADO.Report.ReportCustomer.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1067, 554);
+            this.reportViewer1.Size = new System.Drawing.Size(1049, 507);
             this.reportViewer1.TabIndex = 0;
             // 
-            // revenueDataSet
+            // customerDataSet
             // 
-            this.revenueDataSet.DataSetName = "RevenueDataSet";
-            this.revenueDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.customerDataSet.DataSetName = "CustomerDataSet";
+            this.customerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // revenueDataSetBindingSource
+            // customerDataSetBindingSource
             // 
-            this.revenueDataSetBindingSource.DataMember = "Revenue";
-            this.revenueDataSetBindingSource.DataSource = this.revenueDataSet;
+            this.customerDataSetBindingSource.DataMember = "Customer";
+            this.customerDataSetBindingSource.DataSource = this.customerDataSet;
             // 
-            // revenueTableAdapter
+            // customerTableAdapter
             // 
-            this.revenueTableAdapter.ClearBeforeFill = true;
+            this.customerTableAdapter.ClearBeforeFill = true;
             // 
-            // ReportRevenue
+            // ReportCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(1049, 507);
             this.Controls.Add(this.reportViewer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "ReportRevenue";
-            this.Text = "ReportRevenue";
-            this.Load += new System.EventHandler(this.ReportRevenue_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.revenueDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.revenueDataSetBindingSource)).EndInit();
+            this.Name = "ReportCustomer";
+            this.Text = "ReportCustomer";
+            this.Load += new System.EventHandler(this.ReportCustomer_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.customerDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -84,8 +83,8 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource revenueDataSetBindingSource;
-        private RevenueDataSet revenueDataSet;
-        private RevenueDataSetTableAdapters.RevenueTableAdapter revenueTableAdapter;
+        private System.Windows.Forms.BindingSource customerDataSetBindingSource;
+        private CustomerDataSet customerDataSet;
+        private CustomerDataSetTableAdapters.CustomerTableAdapter customerTableAdapter;
     }
 }

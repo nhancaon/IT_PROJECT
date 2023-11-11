@@ -10,17 +10,18 @@ using System.Windows.Forms;
 
 namespace HotelManagement_ADO.ReportForm
 {
-    public partial class ReportRevenue : Form
+    public partial class ReportCustomer : Form
     {
-        public ReportRevenue()
+        public ReportCustomer()
         {
             InitializeComponent();
         }
 
-        private void ReportRevenue_Load(object sender, EventArgs e)
+        private void ReportCustomer_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'revenueDataSet.Revenue' table. You can move, or remove it, as needed.
-            this.revenueTableAdapter.Fill(this.revenueDataSet.Revenue);
+            // TODO: This line of code loads data into the 'customerDataSet.Customer' table. You can move, or remove it, as needed.
+            this.customerTableAdapter.Fill(this.customerDataSet.Customer);
+
             this.reportViewer1.RefreshReport();
         }
     }

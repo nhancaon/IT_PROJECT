@@ -144,6 +144,11 @@
     <Compile Include="BS_Layer\BLRoom.cs" />
     <Compile Include="BS_Layer\BLServiceDetail.cs" />
     <Compile Include="BS_Layer\BLUsers.cs" />
+    <Compile Include="CustomerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DB_Layer\DBMain.cs" />
     <Compile Include="EmployeeForms\CheckOut.cs">
       <SubType>Form</SubType>
@@ -169,16 +174,17 @@
     <Compile Include="EmployeeForms\Receipt.Designer.cs">
       <DependentUpon>Receipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeForms\Statistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeForms\Statistics.Designer.cs">
+      <DependentUpon>Statistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HotelManagementSystemDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HotelManagementSystemDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Interface\InteractionInterface.cs">
       <SubType>Form</SubType>
@@ -188,11 +194,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportForm\ReportCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\ReportCustomer.Designer.cs">
+      <DependentUpon>ReportCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\ReportRevenue.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ReportForm\ReportRevenue.Designer.cs">
       <DependentUpon>ReportRevenue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RevenueDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RevenueDataSet.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AdminForms\Booking.resx">
       <DependentUpon>Booking.cs</DependentUpon>
@@ -233,6 +250,9 @@
     <EmbeddedResource Include="EmployeeForms\Receipt.resx">
       <DependentUpon>Receipt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeForms\Statistics.resx">
+      <DependentUpon>Statistics.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,20 +268,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportForm\ReportCustomer.resx">
+      <DependentUpon>ReportCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\ReportRevenue.resx">
       <DependentUpon>ReportRevenue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report\ReportRevenue.rdlc" />
-    <None Include="HotelManagementSystemDataSet.xsc">
-      <DependentUpon>HotelManagementSystemDataSet.xsd</DependentUpon>
+    <EmbeddedResource Include="Report\ReportCustomer.rdlc" />
+    <EmbeddedResource Include="Report\ReportMonthlyRevenue.rdlc" />
+    <None Include="CustomerDataSet.xsc">
+      <DependentUpon>CustomerDataSet.xsd</DependentUpon>
     </None>
-    <None Include="HotelManagementSystemDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HotelManagementSystemDataSet.Designer.cs</LastGenOutput>
+    <None Include="CustomerDataSet.xsd">
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CustomerDataSet.Designer.cs</LastGenOutput>
     </None>
-    <None Include="HotelManagementSystemDataSet.xss">
-      <DependentUpon>HotelManagementSystemDataSet.xsd</DependentUpon>
+    <None Include="CustomerDataSet.xss">
+      <DependentUpon>CustomerDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -273,6 +297,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="RevenueDataSet.xsc">
+      <DependentUpon>RevenueDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RevenueDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RevenueDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RevenueDataSet.xss">
+      <DependentUpon>RevenueDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

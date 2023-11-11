@@ -114,6 +114,10 @@ namespace HotelManagement_ADO.Interface
         {
             openChildForm(new CheckOut());
         }
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Statistics());
+        }
 
         public void SetUserDetails(string storedUsername, int role, string fullName, int UserID)
         {

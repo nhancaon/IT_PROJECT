@@ -20,17 +20,17 @@ namespace HotelManagement_ADO {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("HotelManagementSystemDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("CustomerDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class HotelManagementSystemDataSet : global::System.Data.DataSet {
+    public partial class CustomerDataSet : global::System.Data.DataSet {
         
-        private MonthlySummaryDataTable tableMonthlySummary;
+        private CustomerDataTable tableCustomer;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public HotelManagementSystemDataSet() {
+        public CustomerDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace HotelManagement_ADO {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected HotelManagementSystemDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected CustomerDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace HotelManagement_ADO {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["MonthlySummary"] != null)) {
-                    base.Tables.Add(new MonthlySummaryDataTable(ds.Tables["MonthlySummary"]));
+                if ((ds.Tables["Customer"] != null)) {
+                    base.Tables.Add(new CustomerDataTable(ds.Tables["Customer"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace HotelManagement_ADO {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public MonthlySummaryDataTable MonthlySummary {
+        public CustomerDataTable Customer {
             get {
-                return this.tableMonthlySummary;
+                return this.tableCustomer;
             }
         }
         
@@ -127,7 +127,7 @@ namespace HotelManagement_ADO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            HotelManagementSystemDataSet cln = ((HotelManagementSystemDataSet)(base.Clone()));
+            CustomerDataSet cln = ((CustomerDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace HotelManagement_ADO {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["MonthlySummary"] != null)) {
-                    base.Tables.Add(new MonthlySummaryDataTable(ds.Tables["MonthlySummary"]));
+                if ((ds.Tables["Customer"] != null)) {
+                    base.Tables.Add(new CustomerDataTable(ds.Tables["Customer"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace HotelManagement_ADO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableMonthlySummary = ((MonthlySummaryDataTable)(base.Tables["MonthlySummary"]));
+            this.tableCustomer = ((CustomerDataTable)(base.Tables["Customer"]));
             if ((initTable == true)) {
-                if ((this.tableMonthlySummary != null)) {
-                    this.tableMonthlySummary.InitVars();
+                if ((this.tableCustomer != null)) {
+                    this.tableCustomer.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace HotelManagement_ADO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "HotelManagementSystemDataSet";
+            this.DataSetName = "CustomerDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/HotelManagementSystemDataSet.xsd";
+            this.Namespace = "http://tempuri.org/CustomerDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableMonthlySummary = new MonthlySummaryDataTable();
-            base.Tables.Add(this.tableMonthlySummary);
+            this.tableCustomer = new CustomerDataTable();
+            base.Tables.Add(this.tableCustomer);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeMonthlySummary() {
+        private bool ShouldSerializeCustomer() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace HotelManagement_ADO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            HotelManagementSystemDataSet ds = new HotelManagementSystemDataSet();
+            CustomerDataSet ds = new CustomerDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,27 +270,23 @@ namespace HotelManagement_ADO {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void MonthlySummaryRowChangeEventHandler(object sender, MonthlySummaryRowChangeEvent e);
+        public delegate void CustomerRowChangeEventHandler(object sender, CustomerRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class MonthlySummaryDataTable : global::System.Data.TypedTableBase<MonthlySummaryRow> {
+        public partial class CustomerDataTable : global::System.Data.TypedTableBase<CustomerRow> {
             
-            private global::System.Data.DataColumn columnMonth;
+            private global::System.Data.DataColumn columnMONTH;
             
-            private global::System.Data.DataColumn columnYear;
-            
-            private global::System.Data.DataColumn columnTotalPrice;
-            
-            private global::System.Data.DataColumn columnDamagePrice;
+            private global::System.Data.DataColumn columnTotal;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MonthlySummaryDataTable() {
-                this.TableName = "MonthlySummary";
+            public CustomerDataTable() {
+                this.TableName = "Customer";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +294,7 @@ namespace HotelManagement_ADO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal MonthlySummaryDataTable(global::System.Data.DataTable table) {
+            internal CustomerDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,40 +311,24 @@ namespace HotelManagement_ADO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected MonthlySummaryDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected CustomerDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn MonthColumn {
+            public global::System.Data.DataColumn MONTHColumn {
                 get {
-                    return this.columnMonth;
+                    return this.columnMONTH;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn YearColumn {
+            public global::System.Data.DataColumn TotalColumn {
                 get {
-                    return this.columnYear;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TotalPriceColumn {
-                get {
-                    return this.columnTotalPrice;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DamagePriceColumn {
-                get {
-                    return this.columnDamagePrice;
+                    return this.columnTotal;
                 }
             }
             
@@ -363,48 +343,46 @@ namespace HotelManagement_ADO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MonthlySummaryRow this[int index] {
+            public CustomerRow this[int index] {
                 get {
-                    return ((MonthlySummaryRow)(this.Rows[index]));
+                    return ((CustomerRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event MonthlySummaryRowChangeEventHandler MonthlySummaryRowChanging;
+            public event CustomerRowChangeEventHandler CustomerRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event MonthlySummaryRowChangeEventHandler MonthlySummaryRowChanged;
+            public event CustomerRowChangeEventHandler CustomerRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event MonthlySummaryRowChangeEventHandler MonthlySummaryRowDeleting;
+            public event CustomerRowChangeEventHandler CustomerRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event MonthlySummaryRowChangeEventHandler MonthlySummaryRowDeleted;
+            public event CustomerRowChangeEventHandler CustomerRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddMonthlySummaryRow(MonthlySummaryRow row) {
+            public void AddCustomerRow(CustomerRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MonthlySummaryRow AddMonthlySummaryRow(int Month, int Year, double TotalPrice, double DamagePrice) {
-                MonthlySummaryRow rowMonthlySummaryRow = ((MonthlySummaryRow)(this.NewRow()));
+            public CustomerRow AddCustomerRow(int MONTH, int Total) {
+                CustomerRow rowCustomerRow = ((CustomerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Month,
-                        Year,
-                        TotalPrice,
-                        DamagePrice};
-                rowMonthlySummaryRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowMonthlySummaryRow);
-                return rowMonthlySummaryRow;
+                        MONTH,
+                        Total};
+                rowCustomerRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCustomerRow);
+                return rowCustomerRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                MonthlySummaryDataTable cln = ((MonthlySummaryDataTable)(base.Clone()));
+                CustomerDataTable cln = ((CustomerDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -412,55 +390,51 @@ namespace HotelManagement_ADO {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new MonthlySummaryDataTable();
+                return new CustomerDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnMonth = base.Columns["Month"];
-                this.columnYear = base.Columns["Year"];
-                this.columnTotalPrice = base.Columns["TotalPrice"];
-                this.columnDamagePrice = base.Columns["DamagePrice"];
+                this.columnMONTH = base.Columns["MONTH"];
+                this.columnTotal = base.Columns["Total"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnMonth = new global::System.Data.DataColumn("Month", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMonth);
-                this.columnYear = new global::System.Data.DataColumn("Year", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnYear);
-                this.columnTotalPrice = new global::System.Data.DataColumn("TotalPrice", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalPrice);
-                this.columnDamagePrice = new global::System.Data.DataColumn("DamagePrice", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDamagePrice);
+                this.columnMONTH = new global::System.Data.DataColumn("MONTH", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMONTH);
+                this.columnTotal = new global::System.Data.DataColumn("Total", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal);
+                this.columnMONTH.ReadOnly = true;
+                this.columnTotal.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MonthlySummaryRow NewMonthlySummaryRow() {
-                return ((MonthlySummaryRow)(this.NewRow()));
+            public CustomerRow NewCustomerRow() {
+                return ((CustomerRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new MonthlySummaryRow(builder);
+                return new CustomerRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(MonthlySummaryRow);
+                return typeof(CustomerRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.MonthlySummaryRowChanged != null)) {
-                    this.MonthlySummaryRowChanged(this, new MonthlySummaryRowChangeEvent(((MonthlySummaryRow)(e.Row)), e.Action));
+                if ((this.CustomerRowChanged != null)) {
+                    this.CustomerRowChanged(this, new CustomerRowChangeEvent(((CustomerRow)(e.Row)), e.Action));
                 }
             }
             
@@ -468,8 +442,8 @@ namespace HotelManagement_ADO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.MonthlySummaryRowChanging != null)) {
-                    this.MonthlySummaryRowChanging(this, new MonthlySummaryRowChangeEvent(((MonthlySummaryRow)(e.Row)), e.Action));
+                if ((this.CustomerRowChanging != null)) {
+                    this.CustomerRowChanging(this, new CustomerRowChangeEvent(((CustomerRow)(e.Row)), e.Action));
                 }
             }
             
@@ -477,8 +451,8 @@ namespace HotelManagement_ADO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.MonthlySummaryRowDeleted != null)) {
-                    this.MonthlySummaryRowDeleted(this, new MonthlySummaryRowChangeEvent(((MonthlySummaryRow)(e.Row)), e.Action));
+                if ((this.CustomerRowDeleted != null)) {
+                    this.CustomerRowDeleted(this, new CustomerRowChangeEvent(((CustomerRow)(e.Row)), e.Action));
                 }
             }
             
@@ -486,14 +460,14 @@ namespace HotelManagement_ADO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.MonthlySummaryRowDeleting != null)) {
-                    this.MonthlySummaryRowDeleting(this, new MonthlySummaryRowChangeEvent(((MonthlySummaryRow)(e.Row)), e.Action));
+                if ((this.CustomerRowDeleting != null)) {
+                    this.CustomerRowDeleting(this, new CustomerRowChangeEvent(((CustomerRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveMonthlySummaryRow(MonthlySummaryRow row) {
+            public void RemoveCustomerRow(CustomerRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -502,7 +476,7 @@ namespace HotelManagement_ADO {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                HotelManagementSystemDataSet ds = new HotelManagementSystemDataSet();
+                CustomerDataSet ds = new CustomerDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -520,7 +494,7 @@ namespace HotelManagement_ADO {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "MonthlySummaryDataTable";
+                attribute2.FixedValue = "CustomerDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -564,127 +538,71 @@ namespace HotelManagement_ADO {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class MonthlySummaryRow : global::System.Data.DataRow {
+        public partial class CustomerRow : global::System.Data.DataRow {
             
-            private MonthlySummaryDataTable tableMonthlySummary;
+            private CustomerDataTable tableCustomer;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal MonthlySummaryRow(global::System.Data.DataRowBuilder rb) : 
+            internal CustomerRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableMonthlySummary = ((MonthlySummaryDataTable)(this.Table));
+                this.tableCustomer = ((CustomerDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Month {
+            public int MONTH {
                 get {
                     try {
-                        return ((int)(this[this.tableMonthlySummary.MonthColumn]));
+                        return ((int)(this[this.tableCustomer.MONTHColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Month\' in table \'MonthlySummary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'MONTH\' in table \'Customer\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMonthlySummary.MonthColumn] = value;
+                    this[this.tableCustomer.MONTHColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Year {
+            public int Total {
                 get {
                     try {
-                        return ((int)(this[this.tableMonthlySummary.YearColumn]));
+                        return ((int)(this[this.tableCustomer.TotalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Year\' in table \'MonthlySummary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total\' in table \'Customer\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMonthlySummary.YearColumn] = value;
+                    this[this.tableCustomer.TotalColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double TotalPrice {
-                get {
-                    try {
-                        return ((double)(this[this.tableMonthlySummary.TotalPriceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalPrice\' in table \'MonthlySummary\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMonthlySummary.TotalPriceColumn] = value;
-                }
+            public bool IsMONTHNull() {
+                return this.IsNull(this.tableCustomer.MONTHColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double DamagePrice {
-                get {
-                    try {
-                        return ((double)(this[this.tableMonthlySummary.DamagePriceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DamagePrice\' in table \'MonthlySummary\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMonthlySummary.DamagePriceColumn] = value;
-                }
+            public void SetMONTHNull() {
+                this[this.tableCustomer.MONTHColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsMonthNull() {
-                return this.IsNull(this.tableMonthlySummary.MonthColumn);
+            public bool IsTotalNull() {
+                return this.IsNull(this.tableCustomer.TotalColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetMonthNull() {
-                this[this.tableMonthlySummary.MonthColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsYearNull() {
-                return this.IsNull(this.tableMonthlySummary.YearColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetYearNull() {
-                this[this.tableMonthlySummary.YearColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTotalPriceNull() {
-                return this.IsNull(this.tableMonthlySummary.TotalPriceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTotalPriceNull() {
-                this[this.tableMonthlySummary.TotalPriceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDamagePriceNull() {
-                return this.IsNull(this.tableMonthlySummary.DamagePriceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDamagePriceNull() {
-                this[this.tableMonthlySummary.DamagePriceColumn] = global::System.Convert.DBNull;
+            public void SetTotalNull() {
+                this[this.tableCustomer.TotalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -692,22 +610,22 @@ namespace HotelManagement_ADO {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class MonthlySummaryRowChangeEvent : global::System.EventArgs {
+        public class CustomerRowChangeEvent : global::System.EventArgs {
             
-            private MonthlySummaryRow eventRow;
+            private CustomerRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MonthlySummaryRowChangeEvent(MonthlySummaryRow row, global::System.Data.DataRowAction action) {
+            public CustomerRowChangeEvent(CustomerRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MonthlySummaryRow Row {
+            public CustomerRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -723,7 +641,7 @@ namespace HotelManagement_ADO {
         }
     }
 }
-namespace HotelManagement_ADO.HotelManagementSystemDataSetTableAdapters {
+namespace HotelManagement_ADO.CustomerDataSetTableAdapters {
     
     
     /// <summary>
@@ -735,7 +653,7 @@ namespace HotelManagement_ADO.HotelManagementSystemDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class MonthlySummaryTableAdapter : global::System.ComponentModel.Component {
+    public partial class CustomerTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -749,7 +667,7 @@ namespace HotelManagement_ADO.HotelManagementSystemDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public MonthlySummaryTableAdapter() {
+        public CustomerTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -846,11 +764,9 @@ namespace HotelManagement_ADO.HotelManagementSystemDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "MonthlySummary";
-            tableMapping.ColumnMappings.Add("Month", "Month");
-            tableMapping.ColumnMappings.Add("Year", "Year");
-            tableMapping.ColumnMappings.Add("TotalPrice", "TotalPrice");
-            tableMapping.ColumnMappings.Add("DamagePrice", "DamagePrice");
+            tableMapping.DataSetTable = "Customer";
+            tableMapping.ColumnMappings.Add("MONTH", "MONTH");
+            tableMapping.ColumnMappings.Add("Total", "Total");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -858,7 +774,7 @@ namespace HotelManagement_ADO.HotelManagementSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::HotelManagement_ADO.Properties.Settings.Default.HotelManagementSystemConnectionString;
+            this._connection.ConnectionString = global::HotelManagement_ADO.Properties.Settings.Default.HotelManagementSystemConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -867,7 +783,9 @@ namespace HotelManagement_ADO.HotelManagementSystemDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Month, Year, TotalPrice, DamagePrice FROM dbo.MonthlySummary";
+            this._commandCollection[0].CommandText = "SELECT num.MONTH, sum(num.[Total]) as Total\r\nFROM (\r\n              SELECT B.cusAm" +
+                "ount as Total, MONTH(B.Check_In) AS MONTH\r\n              FROM Booking B\r\n\t) num\r" +
+                "\n\tGROUP BY num.MONTH";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -875,7 +793,7 @@ namespace HotelManagement_ADO.HotelManagementSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(HotelManagementSystemDataSet.MonthlySummaryDataTable dataTable) {
+        public virtual int Fill(CustomerDataSet.CustomerDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -888,9 +806,9 @@ namespace HotelManagement_ADO.HotelManagementSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual HotelManagementSystemDataSet.MonthlySummaryDataTable GetData() {
+        public virtual CustomerDataSet.CustomerDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HotelManagementSystemDataSet.MonthlySummaryDataTable dataTable = new HotelManagementSystemDataSet.MonthlySummaryDataTable();
+            CustomerDataSet.CustomerDataTable dataTable = new CustomerDataSet.CustomerDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -964,7 +882,7 @@ namespace HotelManagement_ADO.HotelManagementSystemDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(HotelManagementSystemDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(CustomerDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -974,7 +892,7 @@ namespace HotelManagement_ADO.HotelManagementSystemDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(HotelManagementSystemDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(CustomerDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -984,7 +902,7 @@ namespace HotelManagement_ADO.HotelManagementSystemDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(HotelManagementSystemDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(CustomerDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1018,7 +936,7 @@ namespace HotelManagement_ADO.HotelManagementSystemDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(HotelManagementSystemDataSet dataSet) {
+        public virtual int UpdateAll(CustomerDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

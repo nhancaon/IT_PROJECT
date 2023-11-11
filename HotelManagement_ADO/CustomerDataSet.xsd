@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CustomerDataSet" targetNamespace="http://tempuri.org/CustomerDataSet.xsd" xmlns:mstns="http://tempuri.org/CustomerDataSet.xsd" xmlns="http://tempuri.org/CustomerDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="HotelManagementSystemConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HotelManagementSystemConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HotelManagement_ADO.Properties.Settings.GlobalReference.Default.HotelManagementSystemConnectionString1" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CustomerTableAdapter" GeneratorDataComponentClassName="CustomerTableAdapter" Name="Customer" UserDataComponentName="CustomerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HotelManagementSystemConnectionString1 (Settings)" DbObjectName="SELECT B.cusAmount AS Total, MONTH(B.Check_In) AS MONTH FROM Booking B" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT num.MONTH, sum(num.[Total]) as Total
+FROM (
+              SELECT B.cusAmount as Total, MONTH(B.Check_In) AS MONTH
+              FROM Booking B
+	) num
+	GROUP BY num.MONTH</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MONTH" DataSetColumn="MONTH" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CustomerDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="CustomerDataSet" msprop:Generator_DataSetName="CustomerDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Customer" msprop:Generator_RowEvHandlerName="CustomerRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerRowDeleted" msprop:Generator_RowDeletingName="CustomerRowDeleting" msprop:Generator_RowEvArgName="CustomerRowChangeEvent" msprop:Generator_TablePropName="Customer" msprop:Generator_RowChangedName="CustomerRowChanged" msprop:Generator_RowChangingName="CustomerRowChanging" msprop:Generator_TableClassName="CustomerDataTable" msprop:Generator_RowClassName="CustomerRow" msprop:Generator_TableVarName="tableCustomer" msprop:Generator_UserTableName="Customer">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MONTH" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="MONTH" msprop:Generator_ColumnPropNameInTable="MONTHColumn" msprop:Generator_ColumnVarNameInTable="columnMONTH" msprop:Generator_UserColumnName="MONTH" type="xs:int" minOccurs="0" />
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_UserColumnName="Total" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
