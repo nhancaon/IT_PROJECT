@@ -8,6 +8,7 @@ using HotelManagement_ADO.AdminForms;
 using HotelManagement_ADO.BS_Layer;
 using HotelManagement_ADO.EmployeeForms;
 using HotelManagement_ADO.Interface;
+using HotelManagement_ADO.ReportForm;
 
 namespace HotelManagement_ADO
 {
@@ -21,7 +22,8 @@ namespace HotelManagement_ADO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin());
+            //Application.Run(new FormLogin());
+            Application.Run(new ReportRevenue());
         }
     }
 }

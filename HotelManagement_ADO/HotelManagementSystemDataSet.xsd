@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="HotelManagementSystemDataSet" targetNamespace="http://tempuri.org/HotelManagementSystemDataSet.xsd" xmlns:mstns="http://tempuri.org/HotelManagementSystemDataSet.xsd" xmlns="http://tempuri.org/HotelManagementSystemDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="HotelManagementSystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HotelManagementSystemConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HotelManagement_ADO.Properties.Settings.GlobalReference.Default.HotelManagementSystemConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MonthlySummaryTableAdapter" GeneratorDataComponentClassName="MonthlySummaryTableAdapter" Name="MonthlySummary" UserDataComponentName="MonthlySummaryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HotelManagementSystemConnectionString (Settings)" DbObjectName="HotelManagementSystem.dbo.MonthlySummary" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Month, Year, TotalPrice, DamagePrice FROM dbo.MonthlySummary</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Month" DataSetColumn="Month" />
+              <Mapping SourceColumn="Year" DataSetColumn="Year" />
+              <Mapping SourceColumn="TotalPrice" DataSetColumn="TotalPrice" />
+              <Mapping SourceColumn="DamagePrice" DataSetColumn="DamagePrice" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="HotelManagementSystemDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="HotelManagementSystemDataSet" msprop:Generator_DataSetName="HotelManagementSystemDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="MonthlySummary" msprop:Generator_RowEvHandlerName="MonthlySummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="MonthlySummaryRowDeleted" msprop:Generator_RowDeletingName="MonthlySummaryRowDeleting" msprop:Generator_RowEvArgName="MonthlySummaryRowChangeEvent" msprop:Generator_TablePropName="MonthlySummary" msprop:Generator_RowChangedName="MonthlySummaryRowChanged" msprop:Generator_RowChangingName="MonthlySummaryRowChanging" msprop:Generator_TableClassName="MonthlySummaryDataTable" msprop:Generator_RowClassName="MonthlySummaryRow" msprop:Generator_TableVarName="tableMonthlySummary" msprop:Generator_UserTableName="MonthlySummary">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Month" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_UserColumnName="Month" type="xs:int" minOccurs="0" />
+              <xs:element name="Year" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_UserColumnName="Year" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalPrice" msprop:Generator_ColumnPropNameInRow="TotalPrice" msprop:Generator_ColumnPropNameInTable="TotalPriceColumn" msprop:Generator_ColumnVarNameInTable="columnTotalPrice" msprop:Generator_UserColumnName="TotalPrice" type="xs:double" minOccurs="0" />
+              <xs:element name="DamagePrice" msprop:Generator_ColumnPropNameInRow="DamagePrice" msprop:Generator_ColumnPropNameInTable="DamagePriceColumn" msprop:Generator_ColumnVarNameInTable="columnDamagePrice" msprop:Generator_UserColumnName="DamagePrice" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
